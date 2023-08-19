@@ -6,9 +6,16 @@
 <div class="flex w-full">
 	<div class="flex flex-row mt-2 p-4 rounded-lg border
 
-		bg-gray-800 border-gray-700
 
-		 form-check w-full">
+		 form-check w-full"
+
+		 class:bg-gray-800={!isCompleted}
+		 class:border-gray-700={!isCompleted}
+
+		 class:bg-emerald-900={isCompleted}
+		 class:border-emerald-700={isCompleted}
+
+	>
 
 		<input class="
 		  form-check-input appearance-none h-4 w-4 border rounded-sm
@@ -24,11 +31,9 @@
 		  align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-150 mt-auto mb-auto" type="checkbox" value="" style="
 
 		  " bind:checked={isCompleted}>
-		<span class=" inline-block pl-1 pr-2
-
-		  text-gray-400
-
-		  flex-1 mt-auto mb-auto wrap-anywhere">
+		<span class=" inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere"
+		class:text-gray-400={!isCompleted}
+			  class:text-green-300={isCompleted}>
 			{text}
 		</span>
 		<button type="button" class="mt-auto mb-auto
@@ -36,7 +41,8 @@
 
 		  inline-block rounded-full leading-normal shadow-md
 		  hover:shadow-lg focus:shadow-lg focus:outline-none border-none !outline-none focus:ring-0
-		  active:shadow-lg transition duration-150 ease-in-out w-9 h-9">
+		  active:shadow-lg transition duration-150 ease-in-out w-9 h-9"
+		class:hover:bg-gray-800={isCompleted}>
 			<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 12 16" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" style="margin: auto;">
 				<path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6
 		  6.52l3.75-3.75 1.48 1.48L7.48 8z" class=""></path></svg>
