@@ -1,8 +1,8 @@
 <script>
 import Task from "./components/Task.svelte";
 import Header from "./components/Header.svelte";
+import {tasks} from "./store.js"
 
-let tasks = [];
 let currentText = "";
 
 function generateUID() {
@@ -10,18 +10,19 @@ function generateUID() {
 }
 
 function addTask() {
-
   const newTask = {
     'id': generateUID(),
     'text': currentText,
-    'isChecked': false,
+    'isCompleted': false,
     'date': Date.now(),
   };
 
-  tasks.unshift(newTask)
-  tasks = tasks
-  console.log(tasks)
+  $tasks.unshift(newTask)
+  $tasks = $tasks
+  console.log($tasks)
 }
+
+
 
 </script>
 
@@ -43,8 +44,8 @@ function addTask() {
 
       <section id="task-list">
 
-        {#each tasks as task}
-          <Task text={task.text}></Task>
+        {#each $tasks as task}
+          <Task {task}></Task>
         {/each}
       </section>
     </section>
