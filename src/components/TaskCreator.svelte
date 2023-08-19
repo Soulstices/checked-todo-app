@@ -15,9 +15,14 @@
 			'date': Date.now(),
 		};
 
+		saveInStorage(newTask)
 		$tasks.unshift(newTask)
 		$tasks = $tasks
 		console.log($tasks)
+	}
+
+	function saveInStorage(task) {
+		localStorage.setItem(task.id, JSON.stringify(task))
 	}
 </script>
 

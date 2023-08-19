@@ -2,16 +2,25 @@
 	import {tasks} from "../store.js";
 
 	export let task = {};
-
-	console.log()
-
+	
 	function deleteTask() {
 		$tasks.splice(
 			$tasks.findIndex((element) => element.id === task.id),
 			1
 		);
+		deleteFromStorage()
 		$tasks = $tasks
 		console.log($tasks)
+	}
+
+	function deleteFromStorage() {
+		localStorage.removeItem(task.id)
+	}
+
+	function saveStatusInStorage() {
+		task.isCompleted = !task.isCompleted
+		console.log(task.isCompleted)
+		localStorage.setItem(task.id, JSON.stringify(task))
 	}
 </script>
 
@@ -42,7 +51,8 @@
 		  focus:outline-none
 		  align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-150 mt-auto mb-auto" type="checkbox" value="" style="
 
-		  " bind:checked={task.isCompleted}>
+		  " bind:checked={task.isCompleted}
+		on:click={() => saveStatusInStorage()}>
 		<span class=" inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere"
 		class:text-gray-400={!task.isCompleted}
 			  class:text-green-300={task.isCompleted}>
