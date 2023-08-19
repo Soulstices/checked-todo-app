@@ -8,6 +8,10 @@
 	}
 
 	function addTask() {
+		if (currentText === "") {
+			return
+		}
+
 		const newTask = {
 			'id': generateUID(),
 			'text': currentText,
