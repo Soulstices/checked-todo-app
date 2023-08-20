@@ -9,24 +9,19 @@
 	const PAGE_URL = new URL(window.location.href)
 
 	onMount(() => {
-		// Obtain data from URL
+		initializeData()
+	})
+
+	function initializeData() {
 		$encodedData = PAGE_URL.search.replace('?', '')
 
 		if (containsValidData()) {
-			let decodedData = JSON.parse('[' + Base64.decode($encodedData) + ']')
-			localStorage.clear()
-
-			// Load data from URL into local storage
-			for (const entry of decodedData) {
-				localStorage.setItem(entry.id, JSON.stringify(entry))
-			}
-
-			loadTasksFromStorage()
+			loadTasksFromURL()
 		} else {
 			loadTasksFromStorage()
 			saveInURL()
 		}
-	})
+	}
 
 	function containsValidData() {
 		if (PAGE_URL.search.length > 0) {
@@ -43,33 +38,32 @@
 		}
 	}
 
-	function loadTasksFromStorage() {
-		for (const entry of Object.entries(localStorage)) {
-			$tasks.unshift(JSON.parse(entry[1]))
-			$tasks.sort((a, b) => b.date - a.date)
-			$tasks = $tasks
+	function loadTasksFromURL() {
+		let decodedData = JSON.parse('[' + Base64.decode($encodedData) + ']')
+		localStorage.clear()
+
+		for (const entry of decodedData) {
+			localStorage.setItem(entry.id, JSON.stringify(entry))
 		}
+
+		loadTasksFromStorage()
+	}
+
+	function loadTasksFromStorage() {
+		$tasks = Object.entries(localStorage)
+			.map((entry) => JSON.parse(entry[1]))
+			.sort((a, b) => b.date - a.date)
 	}
 
 	function saveInURL() {
-		let acc = []
-
-		for (const task of $tasks) {
-			acc.push(JSON.stringify(task))
-		}
-
+		let acc = $tasks.map((task) => JSON.stringify(task))
 		$encodedData = Base64.encode(acc.toString())
 
 		updateURL()
 	}
 
 	function updateURL() {
-		let newURL
-		if ($encodedData.length > 0) {
-			newURL = PAGE_URL.origin + '/?' + $encodedData
-		} else {
-			newURL = PAGE_URL.origin
-		}
+		let newURL = $encodedData.length > 0 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
 		history.pushState({}, null, newURL)
 	}
 </script>
