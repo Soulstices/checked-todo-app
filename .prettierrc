@@ -1,0 +1,15 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 3,
+  "proseWrap": "always",
+  "useTabs": true,
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 150,
+  "svelteStrictMode": false,
+  "svelteAllowShorthand": true,
+  "bracketSpacing": true,
+  "plugins": [
+    "prettier-plugin-svelte"
+  ]
+}
