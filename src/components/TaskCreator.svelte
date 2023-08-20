@@ -1,6 +1,7 @@
 <script>
 	import { tasks } from '../store.js'
 
+	export let saveInURL = () => {}
 	let currentText = ''
 
 	function generateUID() {
@@ -23,7 +24,7 @@
 		saveInStorage(newTask)
 		$tasks.unshift(newTask)
 		$tasks = $tasks
-		console.log($tasks)
+		saveInURL()
 	}
 
 	function saveInStorage(task) {

@@ -2,6 +2,7 @@
 	import { tasks } from '../store.js'
 
 	export let task = {}
+	export let saveInURL = () => {}
 
 	function deleteTask() {
 		$tasks.splice(
@@ -10,7 +11,7 @@
 		)
 		deleteFromStorage()
 		$tasks = $tasks
-		console.log($tasks)
+		saveInURL()
 	}
 
 	function deleteFromStorage() {
@@ -19,7 +20,6 @@
 
 	function saveStatusInStorage() {
 		task.isCompleted = !task.isCompleted
-		console.log(task.isCompleted)
 		localStorage.setItem(task.id, JSON.stringify(task))
 	}
 </script>
@@ -36,7 +36,10 @@
 			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 bg-slate-600 checked:bg-green-700 checked:border-green-600 border-slate-500 focus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-150 mt-auto mb-auto"
 			type="checkbox"
 			bind:checked={task.isCompleted}
-			on:click={() => saveStatusInStorage()}
+			on:click={() => {
+				saveStatusInStorage()
+				saveInURL()
+			}}
 		/>
 		<span
 			class=" inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere"
