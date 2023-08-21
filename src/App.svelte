@@ -2,7 +2,8 @@
 	import Header from './components/Header.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import Task from './components/Task.svelte'
-	import { encodedData, tasks } from './store.js'
+	import Modal from './components/Modal.svelte'
+	import { encodedData, tasks, isModalOpen } from './store.js'
 	import { onMount } from 'svelte'
 	import { Base64 } from 'js-base64'
 
@@ -68,9 +69,9 @@
 	}
 </script>
 
-<main class="min-h-screen pt-4 md:pt-4 pb-2 px-4 md:px-0 body-bg-dark">
+<main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
-
+	<Modal>Test</Modal>
 	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 rounded-lg shadow-2xl bg-slate-900">
 		<section>
 			<TaskCreator {saveInURL} />
