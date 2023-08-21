@@ -43,7 +43,7 @@
 								<h4 class="text-white text-2xl font-bold uppercase pt-1 pb-5 tracking-wider" id="modal-title">{title}</h4>
 							</div>
 						</div>
-						<div class="text-white"><slot /></div>
+						<div class="text-gray-400"><slot /></div>
 					</div>
 				</div>
 			</div>

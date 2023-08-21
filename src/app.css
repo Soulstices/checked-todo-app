@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	html[data-theme='light'] {
+		--color-body: #FFFFFF;
+	}
+
+	html[data-theme='dark'] {
+		--color-body: rgb(23 37 84);
+	}
+
+	.bg-body {
+		background: var(--color-body);
+	}
+}
+
 :root {
 	font-family: 'Inter', sans-serif;
 	line-height: 1.5;

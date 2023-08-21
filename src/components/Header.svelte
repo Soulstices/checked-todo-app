@@ -1,6 +1,9 @@
 <script>
 	import { isModalOpen } from '../store.js'
+	import SettingsModal from './Settings.svelte'
 </script>
+
+<SettingsModal />
 
 <header class="max-w-lg mx-auto flex flex-row pr-3 pl-3 pt-2 pb-1">
 	<h1 class="text-2xl font-bold text-white flex-1">To-Do App</h1>
