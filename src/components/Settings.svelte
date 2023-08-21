@@ -3,7 +3,7 @@
 </script>
 
 <Modal title="Settings">
-	<p class="text-white font-medium text-lg pt-5">Theme</p>
+	<p class="text-modal font-medium text-lg pt-5">Theme</p>
 	<div class="flex flex-col md:flex-row items-center text-lg font-bold pt-1 gap-4">
 		<div
 			class="bg-slate-700 flex flex-row items-center p-2 rounded w-full cursor-pointer border-2 duration-200 border-color-3 hover:border-color-3"

@@ -15,13 +15,13 @@
 		<div class="fixed inset-0 z-10" class:overflow-y-auto={!disableScroll} transition:scale={{ duration: 400, start: 0.8 }}>
 			<div class="flex items-end justify-center p-0 lg:p-4 text-center sm:items-center sm:p-0">
 				<div
-					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-slate-900 text-left shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-slate-700"
+					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-container text-left shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
 				>
 					<div class="bg-9 p-7 pt-4 lg:rounded">
 						<div class="flex">
 							<div class="mt-2">
 								<button
-									class="rounded-3xl bg-gray-800 p-3 absolute right-4 top-4 text-white hover:bg-gray-700 cursor-pointer duration-200"
+									class="rounded-3xl bg-modal-close p-3 absolute right-4 top-4 text-white cursor-pointer duration-200"
 									on:click={() => {
 										$isModalOpen = false
 									}}
@@ -40,7 +40,7 @@
 										/></svg
 									>
 								</button>
-								<h4 class="text-white text-2xl font-bold uppercase pt-1 pb-5 tracking-wider" id="modal-title">{title}</h4>
+								<h4 class="text-modal text-2xl font-bold uppercase pt-1 pb-5 tracking-wider" id="modal-title">{title}</h4>
 							</div>
 						</div>
 						<div class="text-gray-400"><slot /></div>
