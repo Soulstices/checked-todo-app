@@ -46,7 +46,7 @@
 	<div class="mb-0 w-full">
 		<input
 			type="text"
-			class="form-control block w-full px-3 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:border-blue-600 focus:outline-none bg-slate-600 focus:bg-slate-700 text-white focus:text-gray-200 border-slate-500"
+			class="form-control block w-full px-3 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:border-blue-600 focus:outline-none bg-input text-input border-input"
 			id="exampleFormControlInput1"
 			placeholder="Enter a task"
 			autocomplete="off"

@@ -77,7 +77,7 @@
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
-	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 rounded-lg shadow-2xl bg-slate-900">
+	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 rounded-lg shadow-2xl bg-container">
 		<section>
 			<TaskCreator {saveInURL} />
 			<section id="task-list">
