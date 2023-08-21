@@ -4,6 +4,8 @@
 
 	export let title = 'Default Title'
 	export let disableScroll = true
+
+	$: document.body.classList.toggle('no-scroll', $isModalOpen)
 </script>
 
 {#if $isModalOpen}

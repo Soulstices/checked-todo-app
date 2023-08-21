@@ -1,7 +1,5 @@
 <script>
 	import { isModalOpen } from '../store.js'
-
-	$: document.body.classList.toggle('no-scroll', $isModalOpen)
 </script>
 
 <header class="max-w-lg mx-auto flex flex-row pr-3 pl-3 pt-2 pb-1">
