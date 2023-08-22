@@ -8,10 +8,11 @@
 		--color-container: #FFFFFF;
 
 		/* Modal.svelte */
+		--color-bg-modal: rgb(229 231 235);
 		--color-text-modal: black;
 		--color-close-modal: rgb(107 114 128);
 		--color-close-modal-hover: rgb(75 85 99);
-		--color-border-modal: rgb(209 213 219);
+		--color-border-modal: rgb(107 114 128);
 
 		/* Task.svelte */
 		--color-task-text: rgb(55 65 81);
@@ -41,6 +42,7 @@
 		--color-container: rgb(15 23 42);
 
 		/* Modal.svelte */
+		--color-bg-modal: rgb(15 23 42);
 		--color-text-modal: white;
 		--color-close-modal: rgb(31 41 55);
 		--color-close-modal-hover: rgb(55 65 81);
@@ -67,6 +69,10 @@
 		--color-input-text-focus: rgb(229 231 235);
 		--color-checkbox-bg: rgb(71 85 105);
 		--color-checkbox-border: rgb(100 116 139);
+	}
+
+	.bg-modal {
+		background: var(--color-bg-modal);
 	}
 
 	.border-modal {
@@ -119,6 +125,10 @@
 
 	.bg-container {
 		background: var(--color-container);
+	}
+
+	.border-container {
+		border-color: var(--color-container);
 	}
 
 	.text-completed {

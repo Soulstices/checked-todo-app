@@ -2,7 +2,7 @@
 	import Header from './components/Header.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import Task from './components/Task.svelte'
-	import { encodedData, tasks, isModalOpen } from './store.js'
+	import { encodedData, tasks, theme } from './store.js'
 	import { onMount } from 'svelte'
 	import { Base64 } from 'js-base64'
 
@@ -10,6 +10,7 @@
 
 	onMount(() => {
 		initializeData()
+		$theme = JSON.parse(localStorage.getItem('settings')).theme
 	})
 
 	function initializeData() {

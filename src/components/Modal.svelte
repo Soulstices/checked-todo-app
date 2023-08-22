@@ -15,7 +15,7 @@
 		<div class="fixed inset-0 z-10" class:overflow-y-auto={!disableScroll} transition:scale={{ duration: 400, start: 0.8 }}>
 			<div class="flex items-end justify-center p-0 lg:p-4 text-center sm:items-center sm:p-0">
 				<div
-					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-container text-left shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
+					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal text-left shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
 				>
 					<div class="bg-9 p-7 pt-4 lg:rounded">
 						<div class="flex">
