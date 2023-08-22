@@ -8,11 +8,11 @@
 		--color-container: #FFFFFF;
 
 		/* Modal.svelte */
-		--color-bg-modal: rgb(229 231 235);
-		--color-text-modal: black;
+		--color-bg-modal: rgb(243 244 246);
+		--color-text-modal: rgb(31 41 55);
 		--color-close-modal: rgb(107 114 128);
 		--color-close-modal-hover: rgb(75 85 99);
-		--color-border-modal: rgb(107 114 128);
+		--color-border-modal: white;
 
 		/* Task.svelte */
 		--color-task-text: rgb(55 65 81);

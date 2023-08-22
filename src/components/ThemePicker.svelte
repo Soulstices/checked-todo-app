@@ -14,12 +14,12 @@
 <button
 	class="flex flex-row items-center p-2 rounded w-full cursor-pointer border-2 duration-200"
 	class:bg-task={$theme === 'dark'}
-	class:bg-white={$theme === 'light'}
+	class:bg-gray-300={$theme === 'light'}
 	class:border-slate-800={!isActive && $theme === 'dark'}
 	class:border-blue-400={isActive && $theme === 'dark'}
 	class:hover:bg-slate-700={!isActive && $theme === 'dark'}
 	class:hover:border-slate-700={!isActive && $theme === 'dark'}
-	class:border-white={!isActive && $theme === 'light'}
+	class:border-gray-300={!isActive && $theme === 'light'}
 	class:border-blue-700={isActive && $theme === 'light'}
 	class:hover:bg-gray-400={!isActive && $theme === 'light'}
 	class:hover:border-gray-400={!isActive && $theme === 'light'}

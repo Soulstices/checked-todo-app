@@ -1,8 +1,8 @@
 <script>
 	import { fade, scale } from 'svelte/transition'
-	import { isModalOpen } from '../store.js'
+	import { isModalOpen, theme } from '../store.js'
 
-	export let title = 'Default Title'
+	export let title
 	export let disableScroll = true
 
 	$: document.body.classList.toggle('no-scroll', $isModalOpen)
@@ -17,11 +17,11 @@
 				<div
 					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal text-left shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
 				>
-					<div class="bg-9 p-7 pt-4 lg:rounded">
-						<div class="flex">
-							<div class="mt-2">
+					<div class="bg-9 p-0 pt-0 lg:rounded">
+						<div class="flex" class:bg-gray-200={$theme === 'light'} class:bg-slate-800={$theme === 'dark'}>
+							<div class="mt-2 pl-7 pt-3">
 								<button
-									class="rounded-3xl bg-modal-close p-3 absolute right-4 top-4 text-white cursor-pointer duration-200"
+									class="rounded-3xl bg-remove p-3 absolute right-4 top-4 text-white cursor-pointer duration-200"
 									on:click={() => {
 										$isModalOpen = false
 									}}
@@ -43,7 +43,7 @@
 								<h4 class="text-modal text-2xl font-bold uppercase pt-1 pb-5 tracking-wider" id="modal-title">{title}</h4>
 							</div>
 						</div>
-						<div class="text-gray-400"><slot /></div>
+						<div class="text-gray-400 p-7 pt-0"><slot /></div>
 					</div>
 				</div>
 			</div>
