@@ -24,7 +24,6 @@
 	class:hover:bg-gray-400={!isActive && $theme === 'light'}
 	class:hover:border-gray-400={!isActive && $theme === 'light'}
 	on:click={changeTheme}
-	on:click={changeTheme}
 >
 	<span
 		class="bg-input w-8 h-7 border-2 border-r-0 rounded-l"
@@ -34,14 +33,14 @@
 		class:border-gray-500={newTheme === 'light'}
 	></span>
 	<span
-		class="bg-task w-8 h-7 border-y-2"
+		class="w-8 h-7 border-y-2"
 		class:bg-slate-700={newTheme === 'dark'}
 		class:bg-gray-300={newTheme === 'light'}
 		class:border-slate-900={newTheme === 'dark'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
 	<span
-		class="bg-container w-8 h-7 border-2 border-l-0 rounded-r"
+		class="w-8 h-7 border-2 border-l-0 rounded-r"
 		class:bg-slate-800={newTheme === 'dark'}
 		class:bg-gray-400={newTheme === 'light'}
 		class:border-slate-900={newTheme === 'dark'}

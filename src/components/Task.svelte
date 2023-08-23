@@ -29,11 +29,11 @@
 		class="flex flex-row mt-2 p-4 rounded-lg border form-check w-full"
 		class:bg-task={!task.isCompleted}
 		class:border-task={!task.isCompleted}
-		class:bg-completed={task.isCompleted}
-		class:border-completed={task.isCompleted}
+		class:bg-task-completed={task.isCompleted}
+		class:border-task-completed={task.isCompleted}
 	>
 		<input
-			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 bg-checkbox checked:bg-green-700 checked:border-green-600 border-checkbox focus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-150 mt-auto mb-auto"
+			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checkbox focus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-150 mt-auto mb-auto"
 			type="checkbox"
 			bind:checked={task.isCompleted}
 			on:click={() => {
@@ -44,20 +44,20 @@
 		<span
 			class=" inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere"
 			class:text-task={!task.isCompleted}
-			class:text-completed={task.isCompleted}
+			class:text-task-completed={task.isCompleted}
 		>
 			{task.text}
 		</span>
 		<button
 			type="button"
 			class="mt-auto mb-auto
-		  bg-remove text-remove hover:text-white
+		   text-remove hover:text-white
 
 		  inline-block rounded-full leading-normal shadow-md
 		  hover:shadow-lg focus:shadow-lg focus:outline-none border-none !outline-none focus:ring-0
 		  active:shadow-lg transition duration-200 ease-in-out w-9 h-9"
-			class:hover:bg-remove-completed={task.isCompleted}
-			class:hover:bg-remove={!task.isCompleted}
+			class:bg-btn-3={task.isCompleted}
+			class:bg-btn-2={!task.isCompleted}
 			on:click={() => {
 				deleteTask()
 			}}
@@ -70,7 +70,7 @@
 				height="16px"
 				width="16px"
 				xmlns="http://www.w3.org/2000/svg"
-				style="margin: auto;"
+				class="m-auto"
 			>
 				<path
 					fill-rule="evenodd"
