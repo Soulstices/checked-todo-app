@@ -24,8 +24,7 @@
 							{#if titleIcon}
 								<Icon type={titleIcon} classNames="w-6 h-6 my-auto" />
 							{/if}
-							<h4 class="text-2xl font-bold uppercase tracking-wider my-auto" class:pl-3={titleIcon}>{title}</h4>
-							<div class="m-auto"></div>
+							<h4 class="text-2xl font-bold uppercase tracking-wider my-auto mr-auto" class:pl-3={titleIcon}>{title}</h4>
 							<button
 								class="rounded-3xl bg-btn-2 p-3 mr-5 cursor-pointer duration-200 my-auto"
 								on:click={() => {
