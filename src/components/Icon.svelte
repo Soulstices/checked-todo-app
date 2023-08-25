@@ -4,21 +4,14 @@
 </script>
 
 {#if type === 'cross'}
-	<svg
-		stroke="currentColor"
-		fill="currentColor"
-		class={classNames + ' m-auto'}
-		stroke-width="0"
-		viewBox="0 0 12 16 "
-		xmlns="http://www.w3.org/2000/svg"
-	>
+	<svg stroke="currentColor" fill="currentColor" class={classNames} stroke-width="0" viewBox="0 0 12 16 " xmlns="http://www.w3.org/2000/svg">
 		<path
 			fill-rule="evenodd"
 			d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"
 		/>
 	</svg>
 {:else if type === 'settings'}
-	<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class={classNames + ' m-auto'}>
+	<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class={classNames}>
 		<path
 			clip-rule="evenodd"
 			fill-rule="evenodd"

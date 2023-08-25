@@ -4,6 +4,7 @@
 	import Icon from './Icon.svelte'
 
 	export let title
+	export let titleIcon
 	export let disableScroll = true
 
 	$: document.body.classList.toggle('no-scroll', $isModalOpen)
@@ -19,18 +20,20 @@
 					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
 				>
 					<div class="p-0 pt-0 lg:rounded">
-						<div class="flex bg-modal-header">
-							<div class="mt-2 pl-7 pt-3">
-								<button
-									class="rounded-3xl bg-btn-2 p-3 absolute right-4 top-4 text-white cursor-pointer duration-200"
-									on:click={() => {
-										$isModalOpen = false
-									}}
-								>
-									<Icon type="cross" />
-								</button>
-								<h4 class="text-modal text-2xl font-bold uppercase pt-1 pb-5 tracking-wider">{title}</h4>
-							</div>
+						<div class="flex flex-row bg-modal-header pt-5 pb-5 pl-7 text-modal">
+							{#if titleIcon}
+								<Icon type={titleIcon} classNames="w-6 h-6 my-auto" />
+							{/if}
+							<h4 class="text-2xl font-bold uppercase tracking-wider my-auto" class:pl-3={titleIcon}>{title}</h4>
+							<div class="m-auto"></div>
+							<button
+								class="rounded-3xl bg-btn-2 p-3 mr-5 cursor-pointer duration-200 my-auto"
+								on:click={() => {
+									$isModalOpen = false
+								}}
+							>
+								<Icon type="cross" />
+							</button>
 						</div>
 						<div class="p-7 pt-0"><slot /></div>
 					</div>

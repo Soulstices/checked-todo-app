@@ -63,7 +63,7 @@
 				deleteTask()
 			}}
 		>
-			<Icon type="cross" classNames="h-4 w-4" />
+			<Icon type="cross" classNames="h-4 w-4 m-auto" />
 		</button>
 	</div>
 </div>

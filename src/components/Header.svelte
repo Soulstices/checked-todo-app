@@ -15,6 +15,6 @@
 			$isModalOpen = true
 		}}
 	>
-		<Icon type="settings" />
+		<Icon type="settings" classNames="w-5 h-5 m-auto" />
 	</button>
 </header>
