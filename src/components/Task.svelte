@@ -1,5 +1,6 @@
 <script>
 	import { tasks } from '../store.js'
+	import Icon from './Icon.svelte'
 
 	export let task = {}
 	export let saveInURL = () => {}
@@ -62,23 +63,7 @@
 				deleteTask()
 			}}
 		>
-			<svg
-				stroke="currentColor"
-				fill="currentColor"
-				stroke-width="0"
-				viewBox="0 0 12 16"
-				height="16px"
-				width="16px"
-				xmlns="http://www.w3.org/2000/svg"
-				class="m-auto"
-			>
-				<path
-					fill-rule="evenodd"
-					d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6
-		  6.52l3.75-3.75 1.48 1.48L7.48 8z"
-					class=""
-				></path></svg
-			>
+			<Icon type="cross" classNames="h-4 w-4" />
 		</button>
 	</div>
 </div>

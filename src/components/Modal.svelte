@@ -1,6 +1,7 @@
 <script>
 	import { fade, scale } from 'svelte/transition'
 	import { isModalOpen } from '../store.js'
+	import Icon from './Icon.svelte'
 
 	export let title
 	export let disableScroll = true
@@ -26,20 +27,7 @@
 										$isModalOpen = false
 									}}
 								>
-									<svg
-										stroke="currentColor"
-										fill="currentColor"
-										stroke-width="0"
-										viewBox="0 0 12 16"
-										height="20px"
-										width="20px"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											fill-rule="evenodd"
-											d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"
-										/>
-									</svg>
+									<Icon type="cross" />
 								</button>
 								<h4 class="text-modal text-2xl font-bold uppercase pt-1 pb-5 tracking-wider">{title}</h4>
 							</div>
