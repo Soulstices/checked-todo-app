@@ -9,11 +9,11 @@
 	const PAGE_URL = new URL(window.location.href)
 
 	onMount(() => {
-		initializeData()
-		$theme = JSON.parse(localStorage.getItem('settings')).theme
+		initializeApp()
 	})
 
-	function initializeData() {
+	function initializeApp() {
+		$theme = JSON.parse(localStorage.getItem('settings')).theme
 		$encodedData = PAGE_URL.search.replace('?', '')
 
 		if (containsValidData()) {
@@ -79,13 +79,9 @@
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
 	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 rounded-lg shadow-2xl bg-container">
-		<section>
-			<TaskCreator {saveInURL} />
-			<section id="task-list">
-				{#each $tasks as task}
-					<Task {task} {saveInURL} />
-				{/each}
-			</section>
-		</section>
+		<TaskCreator {saveInURL} />
+		{#each $tasks as task}
+			<Task {task} {saveInURL} />
+		{/each}
 	</div>
 </main>
