@@ -91,7 +91,7 @@
 		}
 
 		.border-modal {
-			@apply border-slate-700
+			@apply border-slate-700/70
 		}
 
 		.bg-modal-header {
@@ -127,7 +127,7 @@
 		}
 
 		.border-task {
-			@apply border-gray-700
+			@apply border-gray-700/50
 		}
 
 		.bg-task-completed {
@@ -135,7 +135,7 @@
 		}
 
 		.border-task-completed {
-			@apply border-emerald-700
+			@apply border-emerald-700/50
 		}
 
 		.text-task {
