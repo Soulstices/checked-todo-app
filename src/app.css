@@ -79,6 +79,34 @@
 		.input-task {
 			@apply bg-white focus:bg-white border-slate-300 text-gray-700 focus:text-gray-700 focus:border-blue-600
 		}
+
+		.bg-themepicker {
+			@apply bg-gray-300
+		}
+
+		.bg-themepicker:hover {
+			@apply bg-gray-400
+		}
+
+		.border-themepicker {
+			@apply border-gray-300
+		}
+
+		.border-themepicker:hover {
+			@apply border-gray-400
+		}
+
+		.bg-themepicker-active {
+			@apply bg-gray-300
+		}
+
+		.bg-themepicker-active:hover {
+			@apply bg-gray-300
+		}
+
+		.border-themepicker-active {
+			@apply border-blue-500
+		}
 	}
 
 	html[data-theme='dark'] {
@@ -156,6 +184,34 @@
 
 		.input-task {
 			@apply bg-slate-600 focus:bg-slate-700 border-slate-500 text-white focus:text-gray-200 focus:border-blue-600
+		}
+
+		.bg-themepicker {
+			@apply bg-gray-800
+		}
+
+		.bg-themepicker:hover {
+			@apply bg-slate-700
+		}
+
+		.border-themepicker {
+			@apply border-slate-800
+		}
+
+		.border-themepicker:hover {
+			@apply hover:border-slate-700
+		}
+
+		.bg-themepicker-active {
+			@apply bg-gray-800
+		}
+
+		.bg-themepicker-active:hover {
+			@apply bg-gray-800
+		}
+
+		.border-themepicker-active {
+			@apply border-blue-400
 		}
 	}
 }
