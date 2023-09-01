@@ -1,8 +1,13 @@
-<script>
+<script lang="ts">
 	import { tasks } from '../store.js'
 	import Icon from './Icon.svelte'
 
-	export let task = {}
+	export let task: {
+		id: string
+		text: string
+		isCompleted: boolean
+		date: number
+	}
 	export let saveInURL = () => {}
 
 	function deleteTask() {

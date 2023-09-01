@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
 	import { theme } from '../store.js'
 
-	export let newTheme = 'dark'
+	export let newTheme: string = 'dark'
+
+	let isActive: boolean
 	$: isActive = $theme === newTheme
 
 	function changeTheme() {

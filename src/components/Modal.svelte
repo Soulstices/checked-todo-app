@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import { fade, scale } from 'svelte/transition'
 	import { isModalOpen } from '../store.js'
 	import Icon from './Icon.svelte'
 
-	export let title
-	export let titleIcon
-	export let disableScroll = true
+	export let title: string
+	export let titleIcon: string
+	export let disableScroll: boolean = true
 
 	$: document.body.classList.toggle('no-scroll', $isModalOpen)
 </script>

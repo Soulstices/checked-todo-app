@@ -1,6 +1,6 @@
-<script>
-	export let type = ''
-	export let classNames = 'w-5 h-5'
+<script lang="ts">
+	export let type: string = ''
+	export let classNames: string = 'w-5 h-5'
 </script>
 
 {#if type === 'cross'}

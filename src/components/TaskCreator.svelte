@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import { tasks } from '../store.js'
 
 	export let saveInURL = () => {}
-	let currentText = ''
+	let currentText: string = ''
 
 	function generateUID() {
 		return Date.now().toString(36) + Math.random().toString(36).substring(2)

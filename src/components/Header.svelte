@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { isModalOpen } from '../store.js'
 	import SettingsModal from './Settings.svelte'
 	import Icon from './Icon.svelte'
