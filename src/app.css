@@ -240,9 +240,3 @@ wrap-anywhere {
 	-ms-touch-action: manipulation;
 	touch-action: manipulation;
 }
-
-.no-scroll {
-	position: fixed;
-	overflow-y: scroll;
-	width: 100%;
-}

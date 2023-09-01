@@ -5,16 +5,13 @@
 
 	export let title: string
 	export let titleIcon: string
-	export let disableScroll: boolean = true
-
-	$: document.body.classList.toggle('no-scroll', $isModalOpen)
 </script>
 
 {#if $isModalOpen}
 	<div class="relative z-40 visible tracking-normal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 		<div class="fixed top-0 left-0 right-0 bottom-0 bg-slate-900/70" transition:fade={{ duration: 400 }} />
 
-		<div class="fixed inset-0 z-10" class:overflow-y-auto={!disableScroll} transition:scale={{ duration: 400, start: 0.8 }}>
+		<div class="fixed inset-0 z-10" transition:scale={{ duration: 400, start: 0.8 }}>
 			<div class="flex items-end justify-center p-0 lg:p-4 sm:items-center sm:p-0">
 				<div
 					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal shadow-2xl my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
