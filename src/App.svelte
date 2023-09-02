@@ -14,6 +14,16 @@
 
 	function initializeApp(): void {
 		$tasks = []
+
+		const settings = JSON.parse(String(localStorage.getItem('settings'))) || {}
+
+		// Set to 'dark' theme by default if there is no data in localStorage
+		if (!settings.hasOwnProperty('theme') || !settings.theme) {
+			settings.theme = 'dark'
+			localStorage.setItem('settings', JSON.stringify(settings))
+		}
+
+		// Load theme from localStorage
 		$theme = JSON.parse(String(localStorage.getItem('settings')))?.theme
 		$encodedData = PAGE_URL.search.replace('?', '')
 
