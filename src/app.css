@@ -109,7 +109,7 @@
 		}
 	}
 
-	html[data-theme='dark'] {
+	html[data-theme='dark-blue'] {
 		.bg-page {
 			@apply bg-blue-950
 		}

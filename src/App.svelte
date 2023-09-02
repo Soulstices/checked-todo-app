@@ -19,7 +19,7 @@
 
 		// Set to 'dark' theme by default if there is no data in localStorage
 		if (!settings.hasOwnProperty('theme') || !settings.theme) {
-			settings.theme = 'dark'
+			settings.theme = 'dark-blue'
 			localStorage.setItem('settings', JSON.stringify(settings))
 		}
 

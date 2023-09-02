@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { theme } from '../lib/store.js'
-	export let newTheme: string = 'dark'
+	export let newTheme: string
 
 	let isActive: boolean
 	$: isActive = $theme === newTheme
@@ -23,30 +23,30 @@
 >
 	<span
 		class="bg-input w-8 h-7 border-2 border-r-0 rounded-l"
-		class:bg-slate-600={newTheme === 'dark'}
-		class:border-slate-900={newTheme === 'dark'}
+		class:bg-slate-600={newTheme === 'dark-blue'}
+		class:border-slate-900={newTheme === 'dark-blue'}
 		class:bg-gray-100={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
 	<span
 		class="w-8 h-7 border-y-2"
-		class:bg-slate-700={newTheme === 'dark'}
-		class:border-slate-900={newTheme === 'dark'}
+		class:bg-slate-700={newTheme === 'dark-blue'}
+		class:border-slate-900={newTheme === 'dark-blue'}
 		class:bg-gray-300={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
 	<span
 		class="w-8 h-7 border-2 border-l-0 rounded-r"
-		class:bg-slate-800={newTheme === 'dark'}
-		class:border-slate-900={newTheme === 'dark'}
+		class:bg-slate-800={newTheme === 'dark-blue'}
+		class:border-slate-900={newTheme === 'dark-blue'}
 		class:bg-gray-400={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
 	<span
 		class="uppercase pl-3 pr-1 text-sm tracking-wider pt-[1px]"
-		class:text-task={!isActive && $theme === 'dark'}
-		class:text-blue-400={isActive && $theme === 'dark'}
+		class:text-task={!isActive && $theme === 'dark-blue'}
+		class:text-blue-400={isActive && $theme === 'dark-blue'}
 		class:text-slate-950={!isActive && $theme === 'light'}
-		class:text-blue-700={isActive && $theme === 'light'}>{newTheme}</span
+		class:text-blue-700={isActive && $theme === 'light'}>{newTheme.replace(/-/g, ' ')}</span
 	>
 </button>
