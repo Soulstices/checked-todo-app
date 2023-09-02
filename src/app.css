@@ -115,19 +115,19 @@
 		}
 
 		.bg-modal {
-			@apply bg-[#121212]
+			@apply bg-neutral-900
 		}
 
 		.border-modal {
-			@apply border-[#292929]
+			@apply border-neutral-700/70
 		}
 
 		.bg-modal-header {
-			@apply bg-[#191919]
+			@apply bg-neutral-800
 		}
 
 		.bg-btn-2 {
-			@apply bg-[#101010] text-neutral-400
+			@apply bg-neutral-900 text-neutral-400
 		}
 
 		.bg-btn-2:hover {
@@ -135,7 +135,7 @@
 		}
 
 		.bg-btn-3 {
-			@apply bg-neutral-900 text-gray-400
+			@apply bg-neutral-900 text-neutral-400
 		}
 
 		.bg-btn-3:hover {
@@ -147,15 +147,15 @@
 		}
 
 		.bg-container {
-			@apply bg-[#121212]
+			@apply bg-neutral-900
 		}
 
 		.bg-task {
-			@apply bg-[#202020]
+			@apply bg-neutral-800
 		}
 
 		.border-task {
-			@apply border-[#292929]
+			@apply border-neutral-700/50
 		}
 
 		.bg-task-completed {
@@ -167,7 +167,7 @@
 		}
 
 		.text-task {
-			@apply text-[#a3a3a3]
+			@apply text-neutral-400
 		}
 
 		.text-task-completed {
