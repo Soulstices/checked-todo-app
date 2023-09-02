@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Task } from './Task.svelte'
-	import { tasks } from '../store.js'
+	import type { Task } from '../lib/types'
+	import { tasks } from '../lib/store'
 
 	export let saveInURL = () => {}
 	let currentText: string

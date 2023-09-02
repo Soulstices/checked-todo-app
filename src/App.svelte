@@ -2,11 +2,11 @@
 	import Header from './components/Header.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import Task from './components/Task.svelte'
-	import { encodedData, tasks, theme } from './store.js'
+	import { encodedData, tasks, theme } from './lib/store'
 	import { onMount } from 'svelte'
 	import { Base64 } from 'js-base64'
 
-	const PAGE_URL = new URL(window.location.href)
+	const PAGE_URL: URL = new URL(window.location.href)
 
 	onMount<void>(() => {
 		initializeApp()

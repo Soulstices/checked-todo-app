@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from '../store.js'
+	import { theme } from '../lib/store'
 
 	export let newTheme: string = 'dark'
 

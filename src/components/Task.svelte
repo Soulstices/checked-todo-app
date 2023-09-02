@@ -1,14 +1,6 @@
-<script lang="ts" context="module">
-	export type Task = {
-		id: string
-		text: string
-		isCompleted: boolean
-		date: number
-	}
-</script>
-
 <script lang="ts">
-	import { tasks } from '../store.js'
+	import { tasks } from '../lib/store'
+	import type { Task } from '../lib/types'
 	import Icon from './Icon.svelte'
 
 	export let task: Task
