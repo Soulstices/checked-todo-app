@@ -25,6 +25,8 @@
 		class="bg-input w-8 h-7 border-2 border-r-0 rounded-l"
 		class:bg-slate-600={newTheme === 'dark-blue'}
 		class:border-slate-900={newTheme === 'dark-blue'}
+		class:bg-neutral-600={newTheme === 'dark-black'}
+		class:border-neutral-900={newTheme === 'dark-black'}
 		class:bg-gray-100={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
@@ -32,6 +34,8 @@
 		class="w-8 h-7 border-y-2"
 		class:bg-slate-700={newTheme === 'dark-blue'}
 		class:border-slate-900={newTheme === 'dark-blue'}
+		class:bg-neutral-700={newTheme === 'dark-black'}
+		class:border-neutral-900={newTheme === 'dark-black'}
 		class:bg-gray-300={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
@@ -39,6 +43,8 @@
 		class="w-8 h-7 border-2 border-l-0 rounded-r"
 		class:bg-slate-800={newTheme === 'dark-blue'}
 		class:border-slate-900={newTheme === 'dark-blue'}
+		class:bg-neutral-800={newTheme === 'dark-black'}
+		class:border-neutral-900={newTheme === 'dark-black'}
 		class:bg-gray-400={newTheme === 'light'}
 		class:border-gray-500={newTheme === 'light'}
 	></span>
@@ -46,6 +52,8 @@
 		class="uppercase pl-3 pr-1 text-sm tracking-wider pt-[1px]"
 		class:text-task={!isActive && $theme === 'dark-blue'}
 		class:text-blue-400={isActive && $theme === 'dark-blue'}
+		class:text-blue-300={isActive && $theme === 'dark-black'}
+		class:text-[#a3a3a3]={!isActive && $theme === 'dark-black'}
 		class:text-slate-950={!isActive && $theme === 'light'}
 		class:text-blue-700={isActive && $theme === 'light'}>{newTheme.replace(/-/g, ' ')}</span
 	>

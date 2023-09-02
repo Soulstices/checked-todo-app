@@ -9,7 +9,7 @@
 
 {#if $isModalOpen}
 	<div class="relative z-40 visible tracking-normal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-		<div class="fixed top-0 left-0 right-0 bottom-0 bg-slate-900/70" transition:fade={{ duration: 400 }} />
+		<div class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900/70" transition:fade={{ duration: 400 }} />
 
 		<div class="fixed inset-0 z-10" transition:scale={{ duration: 400, start: 0.8 }}>
 			<div class="flex items-end justify-center p-0 lg:p-4 sm:items-center sm:p-0">

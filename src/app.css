@@ -3,6 +3,218 @@
 @tailwind utilities;
 
 @layer base {
+	html[data-theme='dark-blue'] {
+		.bg-page {
+			@apply bg-blue-950
+		}
+
+		.bg-modal {
+			@apply bg-slate-900
+		}
+
+		.border-modal {
+			@apply border-slate-700/70
+		}
+
+		.bg-modal-header {
+			@apply bg-slate-800
+		}
+
+		.bg-btn-2 {
+			@apply bg-gray-900 text-gray-400
+		}
+
+		.bg-btn-2:hover {
+			@apply bg-gray-700 text-white
+		}
+
+		.bg-btn-3 {
+			@apply bg-gray-900 text-gray-400
+		}
+
+		.bg-btn-3:hover {
+			@apply bg-gray-800 text-white
+		}
+
+		.text-modal {
+			@apply text-white
+		}
+
+		.bg-container {
+			@apply bg-slate-900
+		}
+
+		.bg-task {
+			@apply bg-gray-800
+		}
+
+		.border-task {
+			@apply border-gray-700/50
+		}
+
+		.bg-task-completed {
+			@apply bg-emerald-900
+		}
+
+		.border-task-completed {
+			@apply border-emerald-700/50
+		}
+
+		.text-task {
+			@apply text-gray-400
+		}
+
+		.text-task-completed {
+			@apply text-green-300
+		}
+
+		.checkbox {
+			@apply bg-slate-600 border-slate-500
+		}
+
+		.checkbox:checked {
+			@apply bg-green-700 border-green-600
+		}
+
+		.input-task {
+			@apply bg-slate-600 focus:bg-slate-700 border-slate-500 text-white focus:text-gray-200 focus:border-blue-600
+		}
+
+		.bg-themepicker {
+			@apply bg-gray-800
+		}
+
+		.bg-themepicker:hover {
+			@apply bg-slate-700
+		}
+
+		.border-themepicker {
+			@apply border-slate-800
+		}
+
+		.border-themepicker:hover {
+			@apply hover:border-slate-700
+		}
+
+		.bg-themepicker-active {
+			@apply bg-gray-800
+		}
+
+		.bg-themepicker-active:hover {
+			@apply bg-gray-800
+		}
+
+		.border-themepicker-active {
+			@apply border-blue-400
+		}
+	}
+
+	html[data-theme='dark-black'] {
+		.bg-page {
+			@apply bg-neutral-800
+		}
+
+		.bg-modal {
+			@apply bg-[#121212]
+		}
+
+		.border-modal {
+			@apply border-[#292929]
+		}
+
+		.bg-modal-header {
+			@apply bg-[#191919]
+		}
+
+		.bg-btn-2 {
+			@apply bg-[#101010] text-neutral-400
+		}
+
+		.bg-btn-2:hover {
+			@apply bg-neutral-700 text-white
+		}
+
+		.bg-btn-3 {
+			@apply bg-neutral-900 text-gray-400
+		}
+
+		.bg-btn-3:hover {
+			@apply bg-neutral-800 text-white
+		}
+
+		.text-modal {
+			@apply text-white
+		}
+
+		.bg-container {
+			@apply bg-[#121212]
+		}
+
+		.bg-task {
+			@apply bg-[#202020]
+		}
+
+		.border-task {
+			@apply border-[#292929]
+		}
+
+		.bg-task-completed {
+			@apply bg-emerald-900
+		}
+
+		.border-task-completed {
+			@apply border-emerald-700/50
+		}
+
+		.text-task {
+			@apply text-[#a3a3a3]
+		}
+
+		.text-task-completed {
+			@apply text-green-300
+		}
+
+		.checkbox {
+			@apply bg-neutral-600 border-neutral-500
+		}
+
+		.checkbox:checked {
+			@apply bg-green-700 border-green-600
+		}
+
+		.input-task {
+			@apply bg-neutral-700 focus:bg-neutral-700 border-neutral-600 text-white focus:text-neutral-200 focus:border-blue-600
+		}
+
+		.bg-themepicker {
+			@apply bg-neutral-800
+		}
+
+		.bg-themepicker:hover {
+			@apply bg-neutral-700
+		}
+
+		.border-themepicker {
+			@apply border-neutral-800
+		}
+
+		.border-themepicker:hover {
+			@apply hover:border-neutral-700
+		}
+
+		.bg-themepicker-active {
+			@apply bg-neutral-800
+		}
+
+		.bg-themepicker-active:hover {
+			@apply bg-neutral-800
+		}
+
+		.border-themepicker-active {
+			@apply border-blue-400
+		}
+	}
+
 	html[data-theme='light'] {
 		.bg-page {
 			@apply bg-indigo-500
@@ -109,111 +321,7 @@
 		}
 	}
 
-	html[data-theme='dark-blue'] {
-		.bg-page {
-			@apply bg-blue-950
-		}
 
-		.bg-modal {
-			@apply bg-slate-900
-		}
-
-		.border-modal {
-			@apply border-slate-700/70
-		}
-
-		.bg-modal-header {
-			@apply bg-slate-800
-		}
-
-		.bg-btn-2 {
-			@apply bg-gray-900 text-gray-400
-		}
-
-		.bg-btn-2:hover {
-			@apply bg-gray-700 text-white
-		}
-
-		.bg-btn-3 {
-			@apply bg-gray-900 text-gray-400
-		}
-
-		.bg-btn-3:hover {
-			@apply bg-gray-800 text-white
-		}
-
-		.text-modal {
-			@apply text-white
-		}
-
-		.bg-container {
-			@apply bg-slate-900
-		}
-
-		.bg-task {
-			@apply bg-gray-800
-		}
-
-		.border-task {
-			@apply border-gray-700/50
-		}
-
-		.bg-task-completed {
-			@apply bg-emerald-900
-		}
-
-		.border-task-completed {
-			@apply border-emerald-700/50
-		}
-
-		.text-task {
-			@apply text-gray-400
-		}
-
-		.text-task-completed {
-			@apply text-green-300
-		}
-
-		.checkbox {
-			@apply bg-slate-600 border-slate-500
-		}
-
-		.checkbox:checked {
-			@apply bg-green-700 border-green-600
-		}
-
-		.input-task {
-			@apply bg-slate-600 focus:bg-slate-700 border-slate-500 text-white focus:text-gray-200 focus:border-blue-600
-		}
-
-		.bg-themepicker {
-			@apply bg-gray-800
-		}
-
-		.bg-themepicker:hover {
-			@apply bg-slate-700
-		}
-
-		.border-themepicker {
-			@apply border-slate-800
-		}
-
-		.border-themepicker:hover {
-			@apply hover:border-slate-700
-		}
-
-		.bg-themepicker-active {
-			@apply bg-gray-800
-		}
-
-		.bg-themepicker-active:hover {
-			@apply bg-gray-800
-		}
-
-		.border-themepicker-active {
-			@apply border-blue-400
-		}
-	}
 }
 
 :root {
