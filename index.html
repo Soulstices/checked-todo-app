@@ -9,7 +9,7 @@
 		<title>Svelte To-Do App</title>
 		<script>
 			const settings = JSON.parse(localStorage.getItem('settings')) || {}
-			const theme = settings.theme || 'dark'
+			const theme = settings.theme || 'dark-blue'
 
 			document.documentElement.setAttribute('data-theme', theme)
 		</script>
