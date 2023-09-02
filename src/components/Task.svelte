@@ -1,16 +1,20 @@
-<script lang="ts">
-	import { tasks } from '../store.js'
-	import Icon from './Icon.svelte'
-
-	export let task: {
+<script lang="ts" context="module">
+	export type Task = {
 		id: string
 		text: string
 		isCompleted: boolean
 		date: number
 	}
+</script>
+
+<script lang="ts">
+	import { tasks } from '../store.js'
+	import Icon from './Icon.svelte'
+
+	export let task: Task
 	export let saveInURL = () => {}
 
-	function deleteTask() {
+	function deleteTask(): void {
 		$tasks.splice(
 			$tasks.findIndex((element) => element.id === task.id),
 			1
@@ -20,11 +24,11 @@
 		saveInURL()
 	}
 
-	function deleteFromStorage() {
+	function deleteFromStorage(): void {
 		localStorage.removeItem(task.id)
 	}
 
-	function saveStatusInStorage() {
+	function saveStatusInStorage(): void {
 		task.isCompleted = !task.isCompleted
 		localStorage.setItem(task.id, JSON.stringify(task))
 	}

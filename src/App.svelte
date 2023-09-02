@@ -8,11 +8,11 @@
 
 	const PAGE_URL = new URL(window.location.href)
 
-	onMount(() => {
+	onMount<void>(() => {
 		initializeApp()
 	})
 
-	function initializeApp() {
+	function initializeApp(): void {
 		$theme = JSON.parse(localStorage.getItem('settings')).theme
 		$encodedData = PAGE_URL.search.replace('?', '')
 
@@ -24,7 +24,7 @@
 		}
 	}
 
-	function containsValidData() {
+	function containsValidData(): boolean {
 		if (PAGE_URL.search.length > 0) {
 			try {
 				JSON.parse('[' + Base64.decode($encodedData) + ']')
@@ -39,7 +39,7 @@
 		}
 	}
 
-	function loadTasksFromURL() {
+	function loadTasksFromURL(): void {
 		let decodedData = JSON.parse('[' + Base64.decode($encodedData) + ']')
 		clearTasksInStorage()
 
@@ -50,27 +50,27 @@
 		loadTasksFromStorage()
 	}
 
-	function loadTasksFromStorage() {
+	function loadTasksFromStorage(): void {
 		$tasks = Object.entries(localStorage)
 			.filter(([key, _]) => key !== 'settings') // Exclude the "settings" entry
 			.map((entry) => JSON.parse(entry[1]))
 			.sort((a, b) => b.date - a.date)
 	}
 
-	function saveInURL() {
+	function saveInURL(): void {
 		let acc = $tasks.map((task) => JSON.stringify(task))
 		$encodedData = Base64.encode(acc.toString())
 
 		updateURL()
 	}
 
-	function updateURL() {
-		let newURL = $encodedData.length > 0 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
+	function updateURL(): void {
+		let newURL: string = $encodedData.length > 0 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
 		history.pushState({}, null, newURL)
 	}
 
-	function clearTasksInStorage() {
-		const settings = localStorage.getItem('settings')
+	function clearTasksInStorage(): void {
+		const settings: string = localStorage.getItem('settings')
 		localStorage.clear()
 		localStorage.setItem('settings', settings)
 	}

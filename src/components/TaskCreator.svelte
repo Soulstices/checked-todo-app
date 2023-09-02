@@ -1,19 +1,20 @@
 <script lang="ts">
+	import type { Task } from './Task.svelte'
 	import { tasks } from '../store.js'
 
 	export let saveInURL = () => {}
-	let currentText: string = ''
+	let currentText: string
 
-	function generateUID() {
+	function generateUID(): string {
 		return Date.now().toString(36) + Math.random().toString(36).substring(2)
 	}
 
-	function addTask() {
+	function addTask(): void {
 		if (currentText === '') {
 			return
 		}
 
-		const newTask = {
+		let newTask: Task = {
 			id: generateUID(),
 			text: currentText,
 			isCompleted: false,
@@ -27,14 +28,14 @@
 		saveInURL()
 	}
 
-	function saveInStorage(task) {
+	function saveInStorage(task: Task): void {
 		localStorage.setItem(task.id, JSON.stringify(task))
 	}
 
-	function onKeyDown(e) {
+	function onKeyDown(e: KeyboardEvent): void {
 		{
-			switch (e.keyCode) {
-				case 13:
+			switch (e.code) {
+				case 'Enter':
 					addTask()
 					break
 			}

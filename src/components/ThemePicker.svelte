@@ -6,7 +6,7 @@
 	let isActive: boolean
 	$: isActive = $theme === newTheme
 
-	function changeTheme() {
+	function changeTheme(): void {
 		$theme = newTheme
 		localStorage.setItem('settings', `{"theme":"${$theme}"}`)
 		document.documentElement.setAttribute('data-theme', JSON.parse(localStorage.getItem('settings')).theme)
