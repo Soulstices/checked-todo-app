@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Task } from '../lib/types'
-	import { tasks } from '../lib/store'
+	import { tasks } from '../lib/store.js'
 
 	export let saveInURL = () => {}
 	let currentText: string

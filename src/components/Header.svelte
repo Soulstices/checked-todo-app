@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { isModalOpen } from '../lib/store'
 	import SettingsModal from './Settings.svelte'
 	import Icon from './Icon.svelte'
+	import { isModalOpen } from '../lib/store.js'
 </script>
 
 <SettingsModal />

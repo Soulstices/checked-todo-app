@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { theme } from '../lib/store'
-
+	import { theme } from '../lib/store.js'
 	export let newTheme: string = 'dark'
 
 	let isActive: boolean
@@ -9,7 +8,7 @@
 	function changeTheme(): void {
 		$theme = newTheme
 		localStorage.setItem('settings', `{"theme":"${$theme}"}`)
-		document.documentElement.setAttribute('data-theme', JSON.parse(localStorage.getItem('settings')).theme)
+		document.documentElement.setAttribute('data-theme', JSON.parse(String(localStorage.getItem('settings'))).theme)
 	}
 </script>
 

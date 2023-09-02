@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade, scale } from 'svelte/transition'
-	import { isModalOpen } from '../lib/store'
+	import { isModalOpen } from '../lib/store.js'
 	import Icon from './Icon.svelte'
 
 	export let title: string

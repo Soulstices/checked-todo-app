@@ -2,9 +2,9 @@
 	import Header from './components/Header.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import Task from './components/Task.svelte'
-	import { encodedData, tasks, theme } from './lib/store'
 	import { onMount } from 'svelte'
 	import { Base64 } from 'js-base64'
+	import { encodedData, tasks, theme } from './lib/store.js'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -13,7 +13,8 @@
 	})
 
 	function initializeApp(): void {
-		$theme = JSON.parse(localStorage.getItem('settings')).theme
+		$tasks = []
+		$theme = JSON.parse(String(localStorage.getItem('settings')))?.theme
 		$encodedData = PAGE_URL.search.replace('?', '')
 
 		if (containsValidData()) {
@@ -53,7 +54,7 @@
 	function loadTasksFromStorage(): void {
 		$tasks = Object.entries(localStorage)
 			.filter(([key, _]) => key !== 'settings') // Exclude the "settings" entry
-			.map((entry) => JSON.parse(entry[1]))
+			.map((entry) => JSON.parse(String(entry[1])))
 			.sort((a, b) => b.date - a.date)
 	}
 
@@ -66,11 +67,11 @@
 
 	function updateURL(): void {
 		let newURL: string = $encodedData.length > 0 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
-		history.pushState({}, null, newURL)
+		history.pushState({}, '', newURL)
 	}
 
 	function clearTasksInStorage(): void {
-		const settings: string = localStorage.getItem('settings')
+		const settings: string = String(localStorage.getItem('settings'))
 		localStorage.clear()
 		localStorage.setItem('settings', settings)
 	}

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { tasks } from '../lib/store'
 	import type { Task } from '../lib/types'
 	import Icon from './Icon.svelte'
+	import { tasks } from '../lib/store.js'
 
 	export let task: Task
 	export let saveInURL = () => {}
 
 	function deleteTask(): void {
 		$tasks.splice(
-			$tasks.findIndex((element) => element.id === task.id),
+			$tasks.findIndex((element: Task) => element.id === task.id),
 			1
 		)
 		deleteFromStorage()
