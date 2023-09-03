@@ -415,11 +415,11 @@
 		}
 
 		.bg-themepicker-active {
-			@apply bg-orange-300
+			@apply bg-orange-200
 		}
 
 		.bg-themepicker-active:hover {
-			@apply bg-orange-300
+			@apply bg-orange-200
 		}
 
 		.border-themepicker-active {
