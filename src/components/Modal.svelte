@@ -14,10 +14,10 @@
 		<div class="fixed inset-0 z-10" transition:scale={{ duration: 400, start: 0.8 }}>
 			<div class="flex items-end justify-center p-0 lg:p-4 sm:items-center sm:p-0">
 				<div
-					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal shadow-lg my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal"
+					class="relative transform top-0 lg:top-14 overflow-hidden lg:rounded-lg bg-modal shadow-lg my-0 lg:my-8 w-full lg:max-w-2xl h-screen lg:h-auto border border-modal transition duration-300"
 				>
 					<div class="p-0 pt-0 lg:rounded">
-						<div class="flex flex-row bg-modal-header pt-5 pb-5 pl-7 text-modal">
+						<div class="flex flex-row bg-modal-header pt-5 pb-5 pl-7 text-modal transition duration-300">
 							{#if titleIcon}
 								<Icon type={titleIcon} classNames="w-6 h-6 my-auto" />
 							{/if}
