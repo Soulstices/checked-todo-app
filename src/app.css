@@ -215,7 +215,7 @@
 		}
 	}
 
-	html[data-theme='light'] {
+	html[data-theme='light-white'] {
 		.bg-page {
 			@apply bg-indigo-500
 		}

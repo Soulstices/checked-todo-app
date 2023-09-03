@@ -5,6 +5,30 @@
 	let isActive: boolean
 	$: isActive = $theme === newTheme
 
+	const color1 = {
+		'dark-blue': 'bg-slate-600 border-slate-900',
+		'dark-black': 'bg-neutral-600 border-neutral-900',
+		'light-white': 'bg-gray-100 border-gray-500',
+	}[newTheme]
+
+	const color2 = {
+		'dark-blue': 'bg-slate-700 border-slate-900',
+		'dark-black': 'bg-neutral-700 border-neutral-900',
+		'light-white': 'bg-gray-300 border-gray-500',
+	}[newTheme]
+
+	const color3 = {
+		'dark-blue': 'bg-slate-800 border-slate-900',
+		'dark-black': 'bg-neutral-800 border-neutral-900',
+		'light-white': 'bg-gray-400 border-gray-500',
+	}[newTheme]
+
+	const colorTextActive = {
+		'dark-blue': 'text-blue-400',
+		'dark-black': 'text-blue-400',
+		'light-white': 'text-blue-600',
+	}[newTheme]
+
 	function changeTheme(): void {
 		$theme = newTheme
 		localStorage.setItem('settings', `{"theme":"${$theme}"}`)
@@ -13,48 +37,13 @@
 </script>
 
 <button
-	class="flex flex-row items-center p-2 rounded w-full border-2 duration-200"
-	class:cursor-default={isActive}
-	class:bg-themepicker={!isActive}
-	class:bg-themepicker-active={isActive}
-	class:border-themepicker={!isActive}
-	class:border-themepicker-active={isActive}
+	class="flex flex-row items-center p-2 rounded w-full border-2 duration-200 {isActive
+		? 'bg-themepicker-active border-themepicker-active cursor-default'
+		: 'bg-themepicker border-themepicker'}"
 	on:click={changeTheme}
 >
-	<span
-		class="bg-input w-8 h-7 border-2 border-r-0 rounded-l"
-		class:bg-slate-600={newTheme === 'dark-blue'}
-		class:border-slate-900={newTheme === 'dark-blue'}
-		class:bg-neutral-600={newTheme === 'dark-black'}
-		class:border-neutral-900={newTheme === 'dark-black'}
-		class:bg-gray-100={newTheme === 'light'}
-		class:border-gray-500={newTheme === 'light'}
-	></span>
-	<span
-		class="w-8 h-7 border-y-2"
-		class:bg-slate-700={newTheme === 'dark-blue'}
-		class:border-slate-900={newTheme === 'dark-blue'}
-		class:bg-neutral-700={newTheme === 'dark-black'}
-		class:border-neutral-900={newTheme === 'dark-black'}
-		class:bg-gray-300={newTheme === 'light'}
-		class:border-gray-500={newTheme === 'light'}
-	></span>
-	<span
-		class="w-8 h-7 border-2 border-l-0 rounded-r"
-		class:bg-slate-800={newTheme === 'dark-blue'}
-		class:border-slate-900={newTheme === 'dark-blue'}
-		class:bg-neutral-800={newTheme === 'dark-black'}
-		class:border-neutral-900={newTheme === 'dark-black'}
-		class:bg-gray-400={newTheme === 'light'}
-		class:border-gray-500={newTheme === 'light'}
-	></span>
-	<span
-		class="uppercase pl-3 pr-1 text-sm tracking-wider pt-[1px]"
-		class:text-task={!isActive && $theme === 'dark-blue'}
-		class:text-blue-400={isActive && $theme === 'dark-blue'}
-		class:text-blue-300={isActive && $theme === 'dark-black'}
-		class:text-[#a3a3a3]={!isActive && $theme === 'dark-black'}
-		class:text-slate-950={!isActive && $theme === 'light'}
-		class:text-blue-700={isActive && $theme === 'light'}>{newTheme.replace(/-/g, ' ')}</span
-	>
+	<span class="bg-input w-8 h-7 border-2 border-r-0 rounded-l {color1}"></span>
+	<span class="w-8 h-7 border-y-2 {color2}"></span>
+	<span class="w-8 h-7 border-2 border-l-0 rounded-r {color3}"></span>
+	<span class="uppercase pl-3 pr-1 text-sm tracking-wider pt-[1px] {isActive ? colorTextActive : 'text-task'}">{newTheme.replace(/-/g, ' ')}</span>
 </button>

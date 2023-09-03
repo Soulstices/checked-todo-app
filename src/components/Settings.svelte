@@ -2,7 +2,7 @@
 	import Modal from './Modal.svelte'
 	import ThemePicker from './ThemePicker.svelte'
 
-	const themes: string[] = ['dark-blue', 'dark-black', 'light']
+	const themes: string[] = ['dark-blue', 'dark-black', 'light-white']
 </script>
 
 <Modal titleIcon="settings" title="Settings">
