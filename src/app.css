@@ -321,7 +321,111 @@
 		}
 	}
 
+	html[data-theme='light-orange'] {
+		.bg-page {
+			@apply bg-rose-500
+		}
 
+		.bg-modal {
+			@apply bg-orange-100
+		}
+
+		.border-modal {
+			@apply border-orange-100
+		}
+
+		.bg-modal-header {
+			@apply bg-orange-200
+		}
+
+		.bg-btn-2 {
+			@apply bg-orange-800 text-orange-100
+		}
+
+		.bg-btn-2:hover {
+			@apply bg-orange-700 text-white
+		}
+
+		.bg-btn-3 {
+			@apply bg-emerald-800 text-emerald-100
+		}
+
+		.bg-btn-3:hover {
+			@apply bg-emerald-700 text-white
+		}
+
+		.text-modal {
+			@apply text-orange-900
+		}
+
+		.bg-container {
+			@apply bg-orange-100
+		}
+
+		.bg-task {
+			@apply bg-orange-200
+		}
+
+		.border-task {
+			@apply border-orange-300
+		}
+
+		.bg-task-completed {
+			@apply bg-emerald-200
+		}
+
+		.border-task-completed {
+			@apply border-emerald-300
+		}
+
+		.text-task {
+			@apply text-orange-800
+		}
+
+		.text-task-completed {
+			@apply text-emerald-800
+		}
+
+		.checkbox {
+			@apply bg-white border-orange-300
+		}
+
+		.checkbox:checked {
+			@apply bg-green-700 border-green-600
+		}
+
+		.input-task {
+			@apply bg-white focus:bg-white border-orange-300 text-orange-700 focus:text-orange-700 focus:border-orange-600
+		}
+
+		.bg-themepicker {
+			@apply bg-orange-200
+		}
+
+		.bg-themepicker:hover {
+			@apply bg-orange-300
+		}
+
+		.border-themepicker {
+			@apply border-orange-200
+		}
+
+		.border-themepicker:hover {
+			@apply border-orange-300
+		}
+
+		.bg-themepicker-active {
+			@apply bg-orange-300
+		}
+
+		.bg-themepicker-active:hover {
+			@apply bg-orange-300
+		}
+
+		.border-themepicker-active {
+			@apply border-rose-500
+		}
+	}
 }
 
 :root {

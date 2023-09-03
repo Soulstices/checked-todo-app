@@ -9,24 +9,28 @@
 		'dark-blue': 'bg-slate-600 border-slate-900',
 		'dark-black': 'bg-neutral-600 border-neutral-900',
 		'light-white': 'bg-gray-100 border-gray-500',
+		'light-orange': 'bg-orange-100 border-orange-500',
 	}[newTheme]
 
 	const color2 = {
 		'dark-blue': 'bg-slate-700 border-slate-900',
 		'dark-black': 'bg-neutral-700 border-neutral-900',
 		'light-white': 'bg-gray-300 border-gray-500',
+		'light-orange': 'bg-orange-300 border-orange-500',
 	}[newTheme]
 
 	const color3 = {
 		'dark-blue': 'bg-slate-800 border-slate-900',
 		'dark-black': 'bg-neutral-800 border-neutral-900',
 		'light-white': 'bg-gray-400 border-gray-500',
+		'light-orange': 'bg-orange-400 border-orange-500',
 	}[newTheme]
 
 	const colorTextActive = {
 		'dark-blue': 'text-blue-400',
 		'dark-black': 'text-blue-400',
 		'light-white': 'text-blue-600',
+		'light-orange': 'text-rose-700',
 	}[newTheme]
 
 	function changeTheme(): void {
