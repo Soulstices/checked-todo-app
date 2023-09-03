@@ -14,8 +14,14 @@
 			document.documentElement.setAttribute('data-theme', theme)
 		</script>
 	</head>
-	<body class="bg-page transition duration-300">
+	<body class="bg-page">
 		<div id="app"></div>
 		<script type="module" src="./src/main.ts"></script>
 	</body>
+	<script>
+		setTimeout(() => {
+			document.body.classList.add('transition')
+			document.body.classList.add('duration-300')
+		}, 1000)
+	</script>
 </html>
