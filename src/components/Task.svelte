@@ -2,6 +2,7 @@
 	import type { Task } from '../lib/types'
 	import Icon from './Icon.svelte'
 	import { tasks } from '../lib/store.js'
+	import { compressToUTF16 } from 'lz-string'
 
 	export let task: Task
 	export let saveInURL = () => {}
@@ -22,7 +23,7 @@
 
 	function saveStatusInStorage(): void {
 		task.isCompleted = !task.isCompleted
-		localStorage.setItem(task.id, JSON.stringify(task))
+		localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
 	}
 </script>
 

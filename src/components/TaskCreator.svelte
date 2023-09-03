@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Task } from '../lib/types'
 	import { tasks } from '../lib/store.js'
+	import { compressToUTF16 } from 'lz-string'
 
 	export let saveInURL = () => {}
 	let currentText: string
@@ -29,7 +30,7 @@
 	}
 
 	function saveInStorage(task: Task): void {
-		localStorage.setItem(task.id, JSON.stringify(task))
+		localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
 	}
 
 	function onKeyDown(e: KeyboardEvent): void {

@@ -1,16 +1,16 @@
 const { app, BrowserWindow } = require('electron')
 
 const createWindow = () => {
-	const win = new BrowserWindow({
-		width: 600,
+	const window = new BrowserWindow({
+		width: 500,
 		height: 900,
 	})
-	win.setMenuBarVisibility(false)
-	win.loadFile('./dist/index.html')
+	window.setMenuBarVisibility(false)
+	window.loadFile('./dist/index.html')
 }
 
 app.whenReady().then(() => {
 	createWindow()
 })
 
-app.disableHardwareAcceleration(true)
+app.disableHardwareAcceleration()
