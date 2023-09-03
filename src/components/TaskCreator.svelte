@@ -33,12 +33,8 @@
 	}
 
 	function onKeyDown(e: KeyboardEvent): void {
-		{
-			switch (e.code) {
-				case 'Enter':
-					addTask()
-					break
-			}
+		if (e.key === 'Enter' || e.code === 'Enter') {
+			addTask()
 		}
 	}
 </script>
