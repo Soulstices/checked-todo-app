@@ -6,6 +6,7 @@
 	import { encodedData, isModalOpen, tasks, theme } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Icon from './components/Icon.svelte'
+	import Footer from './components/Footer.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -108,4 +109,6 @@
 			<Task {task} {saveInURL} />
 		{/each}
 	</div>
+
+	<Footer />
 </main>
