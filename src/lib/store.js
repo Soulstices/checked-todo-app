@@ -1,6 +1,6 @@
 import { readable, writable } from 'svelte/store'
 
-export const APP_VERSION = readable('1.0.0')
+export const APP_VERSION = readable('1.0.1')
 
 export const tasks = writable([
 	{
