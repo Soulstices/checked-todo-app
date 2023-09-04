@@ -1,20 +1,16 @@
 <script lang="ts">
 	import SettingsModal from './Settings.svelte'
-	import Icon from './Icon.svelte'
-	import { isModalOpen } from '../lib/store.js'
+	import icon from '../lib/favicon.png'
 </script>
 
 <SettingsModal />
 
-<header class="max-w-lg mx-auto flex flex-row pr-3 pl-3 pt-2 pb-1">
-	<h1 class="text-2xl font-bold text-white flex-1">To-Do App</h1>
-	<button
-		type="button"
-		class="inline-block rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 text-white leading-normal uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg ease-in-out w-9 h-9 !outline-none duration-150"
-		on:click={() => {
-			$isModalOpen = true
-		}}
-	>
-		<Icon type="settings" classNames="w-5 h-5 m-auto" />
-	</button>
+<header class="flex max-w-lg mx-auto pr-3 pl-3 pt-2 pb-1 mb-[-15px]">
+	<div class="flex flex-col m-auto">
+		<div class="flex flex-row space-x-2">
+			<img src={icon} alt="Checked To-Do App" height="20px" width="20px" class="h-5 w-5 my-auto" />
+			<h1 class="text-lg font-medium text-white">Checked</h1>
+		</div>
+		<span class="text-xs text-white/70">A Simple To-Do App</span>
+	</div>
 </header>

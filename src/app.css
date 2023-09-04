@@ -323,7 +323,7 @@
 
 	html[data-theme='light-orange'] {
 		.bg-page {
-			@apply bg-rose-500
+			@apply bg-rose-500/50
 		}
 
 		.bg-modal {
