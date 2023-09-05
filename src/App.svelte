@@ -5,6 +5,8 @@
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
+	import Task from './components/Task.svelte'
+	import TaskCreator from './components/TaskCreator.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -75,7 +77,7 @@
 	}
 
 	function updateURL(): void {
-		let newURL: string = $encodedData.length > 0 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
+		let newURL: string = $encodedData.length > 1 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
 		history.pushState({}, '', newURL)
 	}
 
@@ -88,6 +90,11 @@
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
-	<Container />
+	<Container>
+		<TaskCreator {saveInURL} />
+		{#each $tasks as task}
+			<Task {task} {saveInURL} />
+		{/each}
+	</Container>
 	<Footer />
 </main>
