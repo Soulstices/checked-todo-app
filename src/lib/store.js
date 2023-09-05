@@ -21,4 +21,4 @@ export const activeTabIndex = writable(0)
 
 // App Settings
 export const settings = writable({})
-export const theme = writable('dark')
+export const theme = writable('dark-blue')
