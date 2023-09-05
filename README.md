@@ -1,13 +1,15 @@
-<h1 align="center">
+<h3 align="center">
   <a href="https://todo.soulstices.dev">
-    <img align="center" height="48" src="./src/lib/favicon.png" style="margin-bottom: 5px; padding-right: 10px;"></a>
+    <img align="center" height="32" src="./src/lib/favicon.png"></a>
   Checked
 </h1>
 
+<div align="center"><a href="https://todo.soulstices.dev" align="center">Live Demo</a></div>
+<hr>
 <h3 align="center">Technologies:</h3>
 
 <p align="center">
-  <a href="https://skillicons.dev">
+  <a href="https://todo.soulstices.dev">
     <img src="https://skillicons.dev/icons?i=ts,svelte,vite,electron,tailwind" />
   </a>
 </p>
@@ -44,23 +46,11 @@ Please note that after making changes, you'll need to rerun both commands. This 
 If you've made changes to the project and want to host it on the internet or create a desktop app, follow these steps:
 
 1. Build the static website by running `npm run build`.
-   
+
    This command generates a static website in the `/dist` folder, which you can then easily host on any hosting service.
 3. To create a desktop app, run the `npm run make` command.
-   
-   This command generates a zip archive in the `/out` folder. Please note that the desktop app has only been tested on Windows 11.
 
-## Contributing
-
-We welcome contributions from the community to make **Checked** even better. If you'd like to contribute, please follow these guidelines:
-
-- Fork the repository on GitHub.
-- Clone your forked repository to your local machine.
-- Create a new branch with a descriptive name for your feature or bug fix.
-- Commit your changes and push them to your forked repository.
-- Create a pull request to the main repository's `dev` branch, explaining your changes and the problem they solve.
-
-Please note that all contributions are subject to review.
+   This command generates a desktop app in the `/out` folder. Please note that the desktop app has only been tested on Windows.
 
 ## License
 
