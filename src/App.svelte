@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { encodedData, tasks, theme } from './lib/store.js'
+	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -20,14 +20,10 @@
 		const settings = JSON.parse(String(localStorage.getItem('settings'))) || {}
 
 		// Set to 'dark' theme by default if there is no data in localStorage
-		if (
-			!settings.hasOwnProperty('theme') ||
-			!settings.theme ||
-			settings.theme !== ('dark-blue' || 'dark-black' || 'light-white' || 'light-orange')
-		) {
-			settings.theme = 'dark-blue'
+		if (!settings.hasOwnProperty('theme') || !settings.theme || !$THEMES.includes(settings.theme)) {
+			settings.theme = $DEFAULT_THEME
 			localStorage.setItem('settings', JSON.stringify(settings))
-			document.documentElement.setAttribute('data-theme', 'dark-blue')
+			document.documentElement.setAttribute('data-theme', $DEFAULT_THEME)
 		}
 
 		// Load theme from localStorage
