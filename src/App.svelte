@@ -1,12 +1,10 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
-	import TaskCreator from './components/TaskCreator.svelte'
-	import Task from './components/Task.svelte'
 	import { onMount } from 'svelte'
-	import { encodedData, isModalOpen, tasks, theme } from './lib/store.js'
+	import { encodedData, tasks, theme } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
-	import Icon from './components/Icon.svelte'
 	import Footer from './components/Footer.svelte'
+	import Container from './components/Container.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -90,25 +88,6 @@
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
-
-	<div class="max-w-lg m-auto">
-		<button
-			type="button"
-			class="flex ml-auto mx-3 rounded-t bg-black/30 hover:bg-black/50 text-white/80 hover:text-white leading-normal uppercase shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg ease-in-out w-9 h-9 !outline-none duration-150"
-			on:click={() => {
-				$isModalOpen = true
-			}}
-		>
-			<Icon type="settings" classNames="w-5 h-5 m-auto" />
-		</button>
-	</div>
-
-	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 mt-0 rounded-lg shadow-md bg-container transition duration-300">
-		<TaskCreator {saveInURL} />
-		{#each $tasks as task}
-			<Task {task} {saveInURL} />
-		{/each}
-	</div>
-
+	<Container />
 	<Footer />
 </main>

@@ -12,6 +12,7 @@ export const tasks = writable([
 ])
 export const encodedData = writable('')
 export const isModalOpen = writable(false)
+export const activeTabIndex = writable(0)
 
 export const settings = writable({})
 export const theme = writable('dark')

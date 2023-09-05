@@ -1,9 +1,6 @@
 <script lang="ts">
-	import SettingsModal from './Settings.svelte'
 	import icon from '../lib/favicon.png'
 </script>
-
-<SettingsModal />
 
 <header class="flex max-w-lg mx-auto pr-3 pl-3 pt-2 pb-1 mb-[-15px]">
 	<div class="flex flex-col m-auto">

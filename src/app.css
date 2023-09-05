@@ -4,6 +4,26 @@
 
 @layer base {
 	html[data-theme='dark-blue'] {
+		.bg-tab {
+			@apply bg-slate-900/40
+		}
+
+		.bg-tab:hover {
+			@apply bg-slate-900
+		}
+
+		.bg-tab-active {
+			@apply bg-slate-900
+		}
+
+		.text-tab {
+			@apply text-gray-400
+		}
+
+		.text-tab-active {
+			@apply text-gray-200
+		}
+
 		.bg-page {
 			@apply bg-blue-950
 		}
@@ -110,6 +130,26 @@
 	}
 
 	html[data-theme='dark-black'] {
+		.bg-tab {
+			@apply bg-neutral-900/40
+		}
+
+		.bg-tab:hover {
+			@apply bg-neutral-900
+		}
+
+		.bg-tab-active {
+			@apply bg-neutral-900
+		}
+
+		.text-tab {
+			@apply text-neutral-400
+		}
+
+		.text-tab-active {
+			@apply text-neutral-200
+		}
+
 		.bg-page {
 			@apply bg-neutral-800
 		}
@@ -216,6 +256,26 @@
 	}
 
 	html[data-theme='light-white'] {
+		.bg-tab {
+			@apply bg-neutral-900/40
+		}
+
+		.bg-tab:hover {
+			@apply bg-neutral-900/60
+		}
+
+		.bg-tab-active {
+			@apply bg-white
+		}
+
+		.text-tab {
+			@apply text-gray-200
+		}
+
+		.text-tab-active {
+			@apply text-gray-700
+		}
+
 		.bg-page {
 			@apply bg-indigo-500
 		}
@@ -322,6 +382,26 @@
 	}
 
 	html[data-theme='light-orange'] {
+		.bg-tab {
+			@apply bg-neutral-900/40
+		}
+
+		.bg-tab:hover {
+			@apply bg-neutral-900/60
+		}
+
+		.bg-tab-active {
+			@apply bg-orange-100
+		}
+
+		.text-tab {
+			@apply text-gray-300
+		}
+
+		.text-tab-active {
+			@apply text-orange-800
+		}
+
 		.bg-page {
 			@apply bg-rose-500/50
 		}
@@ -434,6 +514,7 @@
 	font-weight: 400;
 
 	color-scheme: dark;
+	scrollbar-gutter: stable;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;

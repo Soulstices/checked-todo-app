@@ -49,5 +49,5 @@
 	<span class="bg-input w-8 h-7 border-2 border-r-0 rounded-l {color1}"></span>
 	<span class="w-8 h-7 border-y-2 {color2}"></span>
 	<span class="w-8 h-7 border-2 border-l-0 rounded-r {color3}"></span>
-	<span class="uppercase pl-3 pr-1 text-sm tracking-wider pt-[1px] {isActive ? colorTextActive : 'text-task'}">{newTheme.replace(/-/g, ' ')}</span>
+	<span class="uppercase pl-3 pr-1 text-xs tracking-wider pt-[1px] {isActive ? colorTextActive : 'text-task'}">{newTheme.replace(/-/g, ' ')}</span>
 </button>
