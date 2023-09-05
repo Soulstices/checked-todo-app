@@ -20,9 +20,14 @@
 		const settings = JSON.parse(String(localStorage.getItem('settings'))) || {}
 
 		// Set to 'dark' theme by default if there is no data in localStorage
-		if (!settings.hasOwnProperty('theme') || !settings.theme) {
+		if (
+			!settings.hasOwnProperty('theme') ||
+			!settings.theme ||
+			settings.theme !== ('dark-blue' || 'dark-black' || 'light-white' || 'light-orange')
+		) {
 			settings.theme = 'dark-blue'
 			localStorage.setItem('settings', JSON.stringify(settings))
+			document.documentElement.setAttribute('data-theme', 'dark-blue')
 		}
 
 		// Load theme from localStorage
