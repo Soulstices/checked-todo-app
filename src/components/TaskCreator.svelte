@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Task } from '../lib/types'
-	import { tasks } from '../lib/store.js'
+	import { tasks, reverseTasksLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 
 	export let saveInURL = () => {}
@@ -24,9 +24,22 @@
 
 		currentText = ''
 		saveInStorage(newTask)
-		$tasks.unshift(newTask)
+		$reverseTasksLayout ? $tasks.push(newTask) : $tasks.unshift(newTask)
 		$tasks = $tasks
 		saveInURL()
+
+		if ($reverseTasksLayout) {
+			setTimeout(() => {
+				scrollToBottom()
+			}, 100)
+		}
+	}
+
+	function scrollToBottom() {
+		window.scrollTo({
+			top: document.body.scrollHeight,
+			behavior: 'smooth',
+		})
 	}
 
 	function saveInStorage(task: Task): void {

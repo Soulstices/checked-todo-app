@@ -4,6 +4,18 @@
 
 @layer base {
 	html[data-theme='dark-blue'] {
+		.bg-toggle {
+			@apply bg-slate-700
+		}
+
+		.bg-toggle-active {
+			@apply bg-green-700
+		}
+
+		.bg-toggle-slider {
+			@apply bg-slate-100
+		}
+
 		.bg-tab {
 			@apply bg-slate-900/40
 		}
@@ -130,6 +142,18 @@
 	}
 
 	html[data-theme='dark-black'] {
+		.bg-toggle {
+			@apply bg-neutral-700
+		}
+
+		.bg-toggle-active {
+			@apply bg-emerald-700
+		}
+
+		.bg-toggle-slider {
+			@apply bg-neutral-100
+		}
+
 		.bg-tab {
 			@apply bg-neutral-900/40
 		}
@@ -256,6 +280,18 @@
 	}
 
 	html[data-theme='light-white'] {
+		.bg-toggle {
+			@apply bg-gray-700
+		}
+
+		.bg-toggle-active {
+			@apply bg-green-700
+		}
+
+		.bg-toggle-slider {
+			@apply bg-gray-100
+		}
+
 		.bg-tab {
 			@apply bg-neutral-900/40
 		}
@@ -382,6 +418,18 @@
 	}
 
 	html[data-theme='light-orange'] {
+		.bg-toggle {
+			@apply bg-gray-700
+		}
+
+		.bg-toggle-active {
+			@apply bg-green-700
+		}
+
+		.bg-toggle-slider {
+			@apply bg-orange-100
+		}
+
 		.bg-tab {
 			@apply bg-neutral-900/40
 		}

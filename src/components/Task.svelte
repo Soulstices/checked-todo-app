@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Task } from '../lib/types'
 	import Icon from './Icon.svelte'
-	import { tasks } from '../lib/store.js'
+	import { tasks, reverseTasksLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 
 	export let task: Task
@@ -29,7 +29,9 @@
 
 <div class="flex w-full">
 	<div
-		class="flex flex-row mt-2 p-4 rounded-lg border form-check w-full transition duration-300"
+		class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300"
+		class:mt-2={!$reverseTasksLayout}
+		class:mb-2={$reverseTasksLayout}
 		class:bg-task={!task.isCompleted}
 		class:border-task={!task.isCompleted}
 		class:bg-task-completed={task.isCompleted}

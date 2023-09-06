@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme } from './lib/store.js'
+	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, reverseTasksLayout } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -28,6 +28,7 @@
 
 		// Load theme from localStorage
 		$theme = JSON.parse(String(localStorage.getItem('settings')))?.theme
+
 		$encodedData = PAGE_URL.search.replace('?', '')
 
 		if (containsValidData()) {
@@ -92,10 +93,15 @@
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
 	<Container>
-		<TaskCreator {saveInURL} />
+		{#if !$reverseTasksLayout}
+			<TaskCreator {saveInURL} />
+		{/if}
 		{#each $tasks as task}
 			<Task {task} {saveInURL} />
 		{/each}
+		{#if $reverseTasksLayout}
+			<TaskCreator {saveInURL} />
+		{/if}
 	</Container>
 	<Footer />
 </main>
