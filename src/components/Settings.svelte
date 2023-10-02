@@ -26,11 +26,17 @@
 				class="sr-only peer"
 				bind:checked={$reverseTasksLayout}
 				on:click={() => {
+					let settings = JSON.parse(localStorage.getItem('settings') || 'null')
+
 					if ($reverseTasksLayout) {
+						settings.unreverseLayout = true
 						$tasks.sort((a, b) => b.date - a.date)
 					} else {
+						settings.unreverseLayout = false
 						$tasks.sort((a, b) => a.date - b.date)
 					}
+
+					localStorage.setItem('settings', JSON.stringify(settings))
 				}}
 			/>
 			<div

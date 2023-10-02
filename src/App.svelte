@@ -10,6 +10,8 @@
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
+	$: $reverseTasksLayout
+
 	onMount<void>(() => {
 		initializeApp()
 	})
@@ -26,6 +28,12 @@
 			document.documentElement.setAttribute('data-theme', $DEFAULT_THEME)
 		}
 
+		// Set unreverseLayout to true by default
+		if (!settings.hasOwnProperty('unreverseLayout')) {
+			settings.unreverseLayout = true
+			localStorage.setItem('settings', JSON.stringify(settings))
+		}
+
 		// Load theme from localStorage
 		$theme = JSON.parse(String(localStorage.getItem('settings')))?.theme
 
@@ -36,6 +44,15 @@
 		} else {
 			loadTasksFromStorage()
 			saveInURL()
+		}
+
+		// Load tasks layout setting
+		if (!settings.unreverseLayout === true) {
+			$reverseTasksLayout = true
+			$tasks.sort((a, b) => a.date - b.date)
+		} else {
+			$reverseTasksLayout = false
+			$tasks.sort((a, b) => b.date - a.date)
 		}
 	}
 
@@ -69,7 +86,6 @@
 		$tasks = Object.entries(localStorage)
 			.filter(([key, _]) => key !== 'settings') // Exclude the "settings" entry
 			.map((entry) => JSON.parse(decompressFromUTF16(entry[1])))
-			.sort((a, b) => b.date - a.date)
 	}
 
 	function saveInURL(): void {
