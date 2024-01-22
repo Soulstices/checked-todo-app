@@ -11,7 +11,7 @@
 	}
 
 	function addTask(): void {
-		if (currentText === '') {
+		if (!currentText) {
 			return
 		}
 
