@@ -24,6 +24,7 @@
 	function saveStatusInStorage(): void {
 		task.isCompleted = !task.isCompleted
 		localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
+		$tasks = $tasks
 	}
 </script>
 

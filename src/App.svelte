@@ -7,6 +7,7 @@
 	import Container from './components/Container.svelte'
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
+	import StickyBar from './components/StickyBar.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -105,6 +106,8 @@
 		localStorage.setItem('settings', settings)
 	}
 </script>
+
+<StickyBar />
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />

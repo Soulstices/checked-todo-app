@@ -2,7 +2,7 @@
 	import { APP_VERSION } from '../lib/store.js'
 </script>
 
-<footer class="flex max-w-lg mx-auto text-xs pt-2 pb-10">
+<footer class="flex max-w-lg mx-auto text-xs pt-2 pb-20">
 	<div class="flex flex-row m-auto">
 		<span class="text-white/60">
 			v{$APP_VERSION} |
