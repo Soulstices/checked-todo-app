@@ -35,6 +35,11 @@
 
 {#if hasScrollbar}
 	<div class="fixed bottom-0 bg-container border-task border-t flex w-full items-center z-10 py-4">
-		<div class="m-auto text-task"><span class="font-bold">Tasks:</span> {completedCount}/{$tasks.length}</div>
+		<div class="m-auto text-task">
+			<span class="font-bold">Tasks:</span>
+			<span class:text-task-completed={completedCount === $tasks.length} class:font-bold={completedCount === $tasks.length}>
+				{completedCount}/{$tasks.length}
+			</span>
+		</div>
 	</div>
 {/if}
