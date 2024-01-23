@@ -9,5 +9,7 @@ export enum IconType {
 	Cross = 'cross',
 	Check = 'check',
 	Trash = 'trash',
-	Settings = 'settings'
+	Settings = 'settings',
+	Plus = 'plus',
+	ChatBubble = 'chat-bubble'
 }
