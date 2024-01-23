@@ -7,24 +7,11 @@
 
 	let isAtTop: boolean = true;
 	let completedCount: number;
-	let hasScrollbar: boolean = false;
 
 	export let saveInURL = () => {}
 
 	$: {
 		completedCount = $tasks.filter(item => item.isCompleted).length;
-	}
-
-	function checkScrollbar(): void {
-		hasScrollbar = document.body.scrollHeight > window.innerHeight;
-	}
-
-	function handleResize(): void {
-		checkScrollbar();
-	}
-
-	function handleContentChange(): void {
-		checkScrollbar();
 	}
 
 	function scrollToTop(): void {
@@ -53,15 +40,7 @@
 	}
 
 	onMount(() => {
-		checkScrollbar();
-		window.addEventListener('resize', handleResize);
-		document.body.addEventListener('DOMSubtreeModified', handleContentChange);
 		window.addEventListener('scroll', updateScrollPosition);
-	});
-
-	onDestroy(() => {
-		window.removeEventListener('resize', handleResize);
-		document.body.removeEventListener('DOMSubtreeModified', handleContentChange);
 	});
 </script>
 
