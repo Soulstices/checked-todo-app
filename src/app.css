@@ -562,7 +562,7 @@
 	font-weight: 400;
 
 	color-scheme: dark;
-	scrollbar-gutter: stable;
+	overflow-y: scroll;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
