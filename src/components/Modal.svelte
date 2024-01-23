@@ -2,9 +2,10 @@
 	import { fade, scale } from 'svelte/transition'
 	import { isModalOpen } from '../lib/store.js'
 	import Icon from './Icon.svelte'
+	import { IconType } from '../lib/types'
 
 	export let title: string
-	export let titleIcon: string
+	export let titleIcon: IconType
 </script>
 
 {#if $isModalOpen}
@@ -27,7 +28,7 @@
 									$isModalOpen = false
 								}}
 							>
-								<Icon type="cross" />
+								<Icon type={IconType.Cross} />
 							</button>
 						</div>
 						<div class="p-7 pt-7 text-task"><slot /></div>

@@ -3,6 +3,7 @@
 	import { tasks, isModalOpen, activeTabIndex } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
+	import { IconType } from '../lib/types'
 
 	let isAtTop: boolean = true;
 	let completedCount: number;
@@ -64,21 +65,21 @@
 	});
 </script>
 
-<Modal title="Tasks Deletion" titleIcon="trash">
+<Modal title="Tasks Deletion" titleIcon={IconType.Trash}>
 	Do you really want to delete all your tasks?
 	<div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 pt-5">
 		<button
 			class="flex items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker text-red-600"
 			on:click={deleteAllTasks}
 		>
-			<Icon type="check"></Icon>
+			<Icon type={IconType.Check}></Icon>
 			<span class="uppercase pl-3 pr-1 tracking-wider pt-[1px] font-bold">Yes, Delete All Tasks</span>
 		</button>
 		<button
 			class="flex flex-row items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker"
 			on:click={closeModal}
 		>
-			<Icon type="cross"></Icon>
+			<Icon type={IconType.Cross}></Icon>
 			<span class="uppercase pl-3 pr-1 tracking-wider pt-[1px] text-task font-bold">No, Cancel</span>
 		</button>
 	</div>

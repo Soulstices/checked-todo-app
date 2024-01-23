@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Task } from '../lib/types'
+	import { IconType, type Task } from '../lib/types'
 	import Icon from './Icon.svelte'
 	import { tasks, reverseTasksLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
@@ -68,7 +68,7 @@
 				deleteTask()
 			}}
 		>
-			<Icon type="cross" classNames="h-4 w-4 m-auto" />
+			<Icon type={IconType.Cross} classNames="h-4 w-4 m-auto" />
 		</button>
 	</div>
 </div>

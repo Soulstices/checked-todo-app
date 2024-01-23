@@ -4,3 +4,10 @@ export type Task = {
 	isCompleted: boolean
 	date: number
 }
+
+export enum IconType {
+	Cross = 'cross',
+	Check = 'check',
+	Trash = 'trash',
+	Settings = 'settings'
+}

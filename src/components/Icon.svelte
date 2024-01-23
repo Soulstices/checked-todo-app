@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let type: string
-	export let classNames: string = 'w-5 h-5'
+	import type { IconType } from '../lib/types'
 
-	// should use enums here for icon types
+	export let type: IconType
+	export let classNames: string = 'w-5 h-5'
 </script>
 
 {#if type === 'cross'}
