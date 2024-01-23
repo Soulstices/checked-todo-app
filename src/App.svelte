@@ -107,7 +107,7 @@
 	}
 </script>
 
-<StickyBar />
+<StickyBar {saveInURL} />
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
