@@ -5,7 +5,7 @@
 	import Icon from './Icon.svelte'
 
 	export let saveInURL = () => {}
-	let currentText: string
+	let currentText: string = ''
 
 	function generateUID(): string {
 		return Date.now().toString(36) + Math.random().toString(36).substring(2)
@@ -55,10 +55,10 @@
 </script>
 
 <div class="flex justify-center">
-	<div class="mb-0 w-full">
+	<div class="mb-0 w-full relative inline-block">
 		<input
 			type="text"
-			class="input-task form-control block w-full px-3 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
+			class="input-task form-control block w-full pl-3 pr-10 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
 			id="exampleFormControlInput1"
 			placeholder="Enter a task"
 			autocomplete="off"
@@ -67,6 +67,9 @@
 				onKeyDown(e)
 			}}
 		/>
+		<span class="absolute top-1/2 right-2 translate-y-[-50%] text-task" class:hidden = {currentText.length === 0}>
+			{currentText.length}
+		</span>
 	</div>
 	<div class="flex space-x-2 justify-center pl-1">
 		<button
