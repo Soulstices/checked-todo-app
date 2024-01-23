@@ -8,6 +8,8 @@
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import StickyBar from './components/StickyBar.svelte'
+	import { IconType } from './lib/types'
+	import Icon from './components/Icon.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -114,6 +116,22 @@
 	<Container>
 		{#if !$reverseTasksLayout}
 			<TaskCreator {saveInURL} />
+		{/if}
+		{#if $tasks.length === 0}
+			<div class="flex w-full">
+				<div
+					class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300 bg-task border-task text-task"
+					class:mt-2={!$reverseTasksLayout}
+					class:mb-2={$reverseTasksLayout}
+				>
+					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2"/>
+					<span
+						class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300"
+					>
+			There are currently no tasks.
+		</span>
+				</div>
+			</div>
 		{/if}
 		{#each $tasks as task}
 			<Task {task} {saveInURL} />
