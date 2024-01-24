@@ -571,7 +571,7 @@
 	-webkit-text-size-adjust: 100%;
 }
 
-wrap-anywhere {
+.wrap-anywhere {
 	overflow-wrap: anywhere;
 }
 

@@ -48,7 +48,7 @@
 			}}
 		/>
 		<span
-			class=" inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300"
+			class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300"
 			class:text-task={!task.isCompleted}
 			class:text-task-completed={task.isCompleted}
 		>
