@@ -11,5 +11,6 @@ export enum IconType {
 	Trash = 'trash',
 	Settings = 'settings',
 	Plus = 'plus',
-	ChatBubble = 'chat-bubble'
+	ChatBubble = 'chat-bubble',
+	Share = 'share'
 }
