@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { tasks, isModalOpen, activeTabIndex } from '../lib/store.js'
+	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, reverseTasksLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
 	import { IconType } from '../lib/types'
@@ -64,8 +64,11 @@
 	</div>
 </Modal>
 
-{#if $tasks.length > 0 && $activeTabIndex === 0}
-	<div class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task  rounded-t flex w-full items-center z-10 py-4 text-task max-w-lg">
+{#if $tasks.length > 0 && $activeTabIndex === 0 }
+	<div class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task  rounded-t flex w-full items-center py-4 text-task max-w-lg"
+		  class:z-30={!$isTaskCreatorTooltipOpen}
+		  class:z-10={$isTaskCreatorTooltipOpen}
+		  class:hidden={$isTaskCreatorTooltipOpen && $reverseTasksLayout}>
 		<button on:click={scrollToTop} class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded" class:hidden={isAtTop}>
 			<svg data-slot="icon" fill="none" stroke-width="6" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 				<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>

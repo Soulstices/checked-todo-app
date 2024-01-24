@@ -17,6 +17,7 @@ export const tasks = writable([
 ])
 export const encodedData = writable('')
 export const isModalOpen = writable(false)
+export const isTaskCreatorTooltipOpen = writable(false)
 export const activeTabIndex = writable(0)
 
 // App Settings

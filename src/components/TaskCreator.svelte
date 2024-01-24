@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { IconType, type Task } from '../lib/types'
-	import { tasks, reverseTasksLayout } from '../lib/store.js'
+	import { tasks, reverseTasksLayout, isTaskCreatorTooltipOpen } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 	import Icon from './Icon.svelte'
 
@@ -13,6 +13,7 @@
 
 	function addTask(): void {
 		if (!currentText) {
+			$isTaskCreatorTooltipOpen = true
 			return
 		}
 
@@ -48,14 +49,19 @@
 	}
 
 	function onKeyDown(e: KeyboardEvent): void {
+		toggleTooltip(false)
 		if (e.key === 'Enter' || e.code === 'Enter') {
 			addTask()
 		}
 	}
+
+	function toggleTooltip(isOpen: boolean): void {
+		$isTaskCreatorTooltipOpen = isOpen
+	}
 </script>
 
 <div class="flex justify-center">
-	<div class="mb-0 w-full relative inline-block">
+	<div class="mb-0 w-full relative inline-block z-20">
 		<input
 			type="text"
 			class="input-task form-control block w-full pl-3 pr-11 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
@@ -77,7 +83,7 @@
 			{currentText.length}
 		</span>
 	</div>
-	<div class="flex space-x-2 justify-center pl-1">
+	<div class="flex space-x-2 justify-center pl-1 z-20">
 		<button
 			type="button"
 			class="inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out !outline-none"
@@ -87,3 +93,11 @@
 		</button>
 	</div>
 </div>
+
+{#if $isTaskCreatorTooltipOpen}
+	<div class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 p-3 z-20 rounded" class:-translate-y-24={$reverseTasksLayout}>
+		<span>Fill this field before creating a new task.</span>
+	</div>
+
+	<button class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900/50 z-10 duration-100 cursor-default" on:click={() => toggleTooltip(false)} />
+{/if}
