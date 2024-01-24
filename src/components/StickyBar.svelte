@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, reverseTasksLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
