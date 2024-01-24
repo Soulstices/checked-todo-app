@@ -69,13 +69,13 @@
 		  class:z-30={!$isTaskCreatorTooltipOpen}
 		  class:z-10={$isTaskCreatorTooltipOpen}
 		  class:hidden={$isTaskCreatorTooltipOpen && $reverseTasksLayout}>
-		<button on:click={scrollToTop} class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded" class:hidden={isAtTop}>
+		<button on:click={scrollToTop} class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded" class:opacity-50={isAtTop} disabled={isAtTop}>
 			<svg data-slot="icon" fill="none" stroke-width="6" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 				<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>
 			</svg>
 		</button>
 		<div class="m-auto">
-			<span class="font-bold">Tasks:</span>
+			<span class="font-bold hidden md:inline-block">Tasks:</span>
 			<span class:text-task-completed={completedCount === $tasks.length} class:font-bold={completedCount === $tasks.length}>
 				{completedCount}/{$tasks.length}
 			</span>
