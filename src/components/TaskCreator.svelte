@@ -58,16 +58,22 @@
 	<div class="mb-0 w-full relative inline-block">
 		<input
 			type="text"
-			class="input-task form-control block w-full pl-3 pr-10 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
+			class="input-task form-control block w-full pl-3 pr-11 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
 			id="exampleFormControlInput1"
 			placeholder="Enter a task"
+			maxlength="100"
 			autocomplete="off"
 			bind:value={currentText}
 			on:keydown={(e) => {
 				onKeyDown(e)
 			}}
 		/>
-		<span class="absolute top-1/2 right-2 translate-y-[-50%] text-task" class:hidden = {currentText.length === 0}>
+		<span class="absolute top-1/2 right-2 translate-y-[-50%]"
+				class:hidden = {currentText.length === 0}
+				class:text-task = {currentText.length < 100}
+				class:font-bold = {currentText.length === 100}
+				class:text-red-600 = {currentText.length === 100}
+		>
 			{currentText.length}
 		</span>
 	</div>
