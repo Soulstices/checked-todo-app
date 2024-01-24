@@ -581,3 +581,19 @@ wrap-anywhere {
 	-ms-touch-action: manipulation;
 	touch-action: manipulation;
 }
+
+progress[value]::-webkit-progress-bar {
+	@apply bg-task;
+}
+
+progress[value]::-webkit-progress-value {
+	background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.progress-blue::-webkit-progress-value {
+	@apply bg-sky-500;
+}
+
+.progress-green::-webkit-progress-value {
+	@apply bg-green-500;
+}
