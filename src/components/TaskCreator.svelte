@@ -31,17 +31,17 @@
 		saveInURL()
 
 		if ($reverseTasksLayout) {
-			setTimeout(() => {
-				scrollToBottom()
-			}, 100)
+			scrollToBottom()
 		}
 	}
 
 	function scrollToBottom() {
-		window.scrollTo({
-			top: document.body.scrollHeight,
-			behavior: 'smooth',
-		})
+		setTimeout(() => {
+			window.scrollTo({
+				top: document.body.scrollHeight,
+				behavior: 'smooth',
+			})
+		}, 100)
 	}
 
 	function saveInStorage(task: Task): void {
@@ -50,6 +50,11 @@
 
 	function onKeyDown(e: KeyboardEvent): void {
 		toggleTooltip(false)
+
+		if ($reverseTasksLayout) {
+			scrollToBottom()
+		}
+
 		if (e.key === 'Enter' || e.code === 'Enter') {
 			addTask()
 		}
