@@ -100,7 +100,7 @@
 </div>
 
 {#if $isTaskCreatorTooltipOpen}
-	<div class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 p-3 z-20 rounded" class:-translate-y-24={$reverseTasksLayout}>
+	<div class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 px-3 py-1 z-20 rounded text-sm font-bold" class:-translate-y-[75px]={$reverseTasksLayout}>
 		<span>Fill this field before creating a new task.</span>
 	</div>
 
