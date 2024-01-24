@@ -116,7 +116,7 @@
 			@apply bg-gray-800
 		}
 
-		.bg-themepicker:hover {
+		.bg-themepicker:hover:enabled {
 			@apply bg-slate-700
 		}
 
@@ -254,7 +254,7 @@
 			@apply bg-neutral-800
 		}
 
-		.bg-themepicker:hover {
+		.bg-themepicker:hover:enabled {
 			@apply bg-neutral-700
 		}
 
@@ -392,7 +392,7 @@
 			@apply bg-gray-300
 		}
 
-		.bg-themepicker:hover {
+		.bg-themepicker:hover:enabled {
 			@apply bg-gray-400
 		}
 
@@ -530,7 +530,7 @@
 			@apply bg-orange-200
 		}
 
-		.bg-themepicker:hover {
+		.bg-themepicker:hover:enabled {
 			@apply bg-orange-300
 		}
 
