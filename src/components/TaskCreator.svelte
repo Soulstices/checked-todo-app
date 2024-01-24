@@ -99,5 +99,5 @@
 		<span>Fill this field before creating a new task.</span>
 	</div>
 
-	<button class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900/50 z-10 duration-100 cursor-default" on:click={() => toggleTooltip(false)} />
+	<button class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900/50 z-10 cursor-default" on:click={() => toggleTooltip(false)} />
 {/if}
