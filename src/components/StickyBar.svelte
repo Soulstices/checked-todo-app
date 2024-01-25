@@ -6,6 +6,7 @@
 	import { IconType } from '../lib/types'
 
 	let isAtTop: boolean = true;
+	let isLinkCopied: boolean = false;
 	let completedCount: number;
 
 	export let saveInURL = () => {}
@@ -37,6 +38,14 @@
 
 	function closeModal() {
 		$isModalOpen = false
+	}
+
+	function handleShareBtnClick() {
+		navigator.clipboard.writeText(window.location.href)
+			.then(() => {
+				isLinkCopied = true
+				setTimeout(() => {isLinkCopied = false}, 3000)
+			})
 	}
 
 	onMount(() => {
@@ -82,9 +91,15 @@
 				{completedCount}/{$tasks.length}
 			</span>
 		</div>
-		<button on:click={() => navigator.clipboard.writeText(window.location.href)} class="absolute right-[45px] bg-themepicker duration-200 px-2 h-8 rounded-l flex flex-row">
-			<Icon type={IconType.Share} classNames="w-4 h-4 m-auto"/>
-			<span class="m-auto pl-2 pr-1 uppercase text-xs font-bold">Share</span>
+		<button on:click={handleShareBtnClick} class="absolute right-[45px] bg-themepicker duration-200 px-2 h-8 w-[90px] rounded-l flex flex-row" disabled={isLinkCopied}>
+			<Icon type={IconType.Share} classNames="w-4 h-4 my-auto"/>
+			<span class="m-auto pl-2 pr-1 uppercase text-xs font-bold">
+				{#if !isLinkCopied}
+					Share
+				{:else}
+					Copied
+				{/if}
+			</span>
 		</button>
 		<button on:click={() => $isModalOpen = true} class="absolute right-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-r hover:text-red-600">
 			<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
