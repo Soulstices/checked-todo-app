@@ -26,10 +26,10 @@
 	function deleteAllTasks() {
 		$tasks = []
 
-		const settings = localStorage.getItem('settings');
+		const settingsGlobal = localStorage.getItem('settings-global');
 		localStorage.clear()
-		if (settings) {
-			localStorage.setItem('settings', settings)
+		if (settingsGlobal) {
+			localStorage.setItem('settings-global', settingsGlobal)
 		}
 
 		saveInURL()

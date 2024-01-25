@@ -22,23 +22,23 @@
 	function initializeApp(): void {
 		$tasks = []
 
-		const settings = JSON.parse(String(localStorage.getItem('settings'))) || {}
+		const settingsGlobal = JSON.parse(String(localStorage.getItem('settings-global'))) || {}
 
 		// Set to 'dark' theme by default if there is no data in localStorage
-		if (!settings.hasOwnProperty('theme') || !settings.theme || !$THEMES.includes(settings.theme)) {
-			settings.theme = $DEFAULT_THEME
-			localStorage.setItem('settings', JSON.stringify(settings))
+		if (!settingsGlobal.hasOwnProperty('theme') || !settingsGlobal.theme || !$THEMES.includes(settingsGlobal.theme)) {
+			settingsGlobal.theme = $DEFAULT_THEME
+			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
 			document.documentElement.setAttribute('data-theme', $DEFAULT_THEME)
 		}
 
 		// Set unreverseLayout to true by default
-		if (!settings.hasOwnProperty('unreverseLayout')) {
-			settings.unreverseLayout = true
-			localStorage.setItem('settings', JSON.stringify(settings))
+		if (!settingsGlobal.hasOwnProperty('unreverseLayout')) {
+			settingsGlobal.unreverseLayout = true
+			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
 		}
 
 		// Load theme from localStorage
-		$theme = JSON.parse(String(localStorage.getItem('settings')))?.theme
+		$theme = JSON.parse(String(localStorage.getItem('settings-global')))?.theme
 
 		$encodedData = PAGE_URL.search.replace('?', '')
 
@@ -50,7 +50,7 @@
 		}
 
 		// Load tasks layout setting
-		if (!settings.unreverseLayout === true) {
+		if (!settingsGlobal.unreverseLayout === true) {
 			$reverseTasksLayout = true
 			$tasks.sort((a, b) => a.date - b.date)
 		} else {
@@ -87,7 +87,7 @@
 
 	function loadTasksFromStorage(): void {
 		$tasks = Object.entries(localStorage)
-			.filter(([key, _]) => key !== 'settings') // Exclude the "settings" entry
+			.filter(([key, _]) => key !== 'settings-global') // Exclude the "settings-global" entry
 			.map((entry) => JSON.parse(decompressFromUTF16(entry[1])))
 	}
 
@@ -103,9 +103,9 @@
 	}
 
 	function clearTasksInStorage(): void {
-		const settings: string = String(localStorage.getItem('settings'))
+		const settingsGlobal: string = String(localStorage.getItem('settings-global'))
 		localStorage.clear()
-		localStorage.setItem('settings', settings)
+		localStorage.setItem('settings-global', settingsGlobal)
 	}
 </script>
 
