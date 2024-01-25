@@ -35,8 +35,10 @@
 
 	function changeTheme(): void {
 		$theme = newTheme
-		localStorage.setItem('settings', `{"theme":"${$theme}"}`)
-		document.documentElement.setAttribute('data-theme', JSON.parse(String(localStorage.getItem('settings'))).theme)
+		let settings = JSON.parse(String(localStorage.getItem('settings')))
+		settings.theme = $theme
+		localStorage.setItem('settings', JSON.stringify(settings))
+		document.documentElement.setAttribute('data-theme', settings.theme)
 	}
 </script>
 
