@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ThemePicker from './ThemePicker.svelte'
-	import { THEMES, reverseTasksLayout, tasks } from '../lib/store'
+	import { THEMES, reverseTasksLayout, useSmoothScroll, tasks } from '../lib/store'
+	import SettingToggle from './SettingToggle.svelte'
 
 	let isActive = false
 	let colorTextActive = false
@@ -10,6 +11,15 @@
 
 <div class="m-1">
 	<p class="font-bold text-xl ml-2 text-modal pb-5">Settings</p>
+
+	<SettingToggle
+		title="Smooth Scrolling"
+		description={`Clicking on the "Scroll to Top" or "Scroll to Bottom" buttons will smoothly scroll the page, instead of scrolling instantly.`}
+		settingName="useSmoothScroll"
+		updateInStorage={(value) => {
+			useSmoothScroll.set(value)
+		}}
+	/>
 
 	<div class="flex flex-row pb-5">
 		<div class="flex flex-col">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, reverseTasksLayout } from './lib/store.js'
+	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, reverseTasksLayout, useSmoothScroll } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -35,6 +35,14 @@
 		if (!settingsGlobal.hasOwnProperty('unreverseLayout')) {
 			settingsGlobal.unreverseLayout = true
 			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
+		}
+
+		if (!settingsGlobal.hasOwnProperty('useSmoothScroll')) {
+			settingsGlobal.useSmoothScroll = false
+			$useSmoothScroll = false
+			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
+		} else if (settingsGlobal.useSmoothScroll === true) {
+			$useSmoothScroll = true
 		}
 
 		// Load theme from localStorage
@@ -113,6 +121,12 @@
 		localStorage.clear()
 		localStorage.setItem('settings-global', settingsGlobal)
 	}
+
+	onMount(() => {
+		useSmoothScroll.subscribe(($useSmoothScroll) => {
+			$useSmoothScroll ? document.documentElement.classList.add('scroll-smooth') : document.documentElement.classList.remove('scroll-smooth')
+		})
+	})
 </script>
 
 <StickyBar {saveInURL} />
