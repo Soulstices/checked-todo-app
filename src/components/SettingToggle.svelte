@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import { useReversedLayout } from '../lib/store'
 
 	export let title: string = 'Title'
 	export let description: string = 'Description'
