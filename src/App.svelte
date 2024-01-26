@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, reverseTasksLayout, useSmoothScroll } from './lib/store.js'
+	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, useReversedLayout, useSmoothScroll } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -12,8 +12,6 @@
 	import Icon from './components/Icon.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
-
-	$: $reverseTasksLayout
 
 	onMount<void>(() => {
 		initializeApp()
@@ -31,10 +29,12 @@
 			document.documentElement.setAttribute('data-theme', $DEFAULT_THEME)
 		}
 
-		// Set unreverseLayout to true by default
-		if (!settingsGlobal.hasOwnProperty('unreverseLayout')) {
-			settingsGlobal.unreverseLayout = true
+		// Set useReversedLayout to true by default
+		if (!settingsGlobal.hasOwnProperty('useReversedLayout')) {
+			settingsGlobal.useReversedLayout = true
 			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
+		} else {
+			$useReversedLayout = settingsGlobal.useReversedLayout
 		}
 
 		if (!settingsGlobal.hasOwnProperty('useSmoothScroll')) {
@@ -55,15 +55,6 @@
 		} else {
 			loadTasksFromStorage()
 			saveInURL()
-		}
-
-		// Load tasks layout setting
-		if (!settingsGlobal.unreverseLayout === true) {
-			$reverseTasksLayout = true
-			$tasks.sort((a, b) => a.date - b.date)
-		} else {
-			$reverseTasksLayout = false
-			$tasks.sort((a, b) => b.date - a.date)
 		}
 	}
 
@@ -123,7 +114,11 @@
 	}
 
 	onMount(() => {
-		useSmoothScroll.subscribe(($useSmoothScroll) => {
+		useReversedLayout.subscribe(() => {
+			$useReversedLayout ? $tasks.sort((a, b) => a.date - b.date) : $tasks.sort((a, b) => b.date - a.date)
+		})
+
+		useSmoothScroll.subscribe(() => {
 			$useSmoothScroll ? document.documentElement.classList.add('scroll-smooth') : document.documentElement.classList.remove('scroll-smooth')
 		})
 	})
@@ -134,15 +129,15 @@
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
 	<Container>
-		{#if !$reverseTasksLayout}
+		{#if !$useReversedLayout}
 			<TaskCreator {saveInURL} />
 		{/if}
 		{#if $tasks.length === 0}
 			<div class="flex w-full">
 				<div
 					class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300 bg-task border-task text-task"
-					class:mt-2={!$reverseTasksLayout}
-					class:mb-2={$reverseTasksLayout}
+					class:mt-2={!$useReversedLayout}
+					class:mb-2={$useReversedLayout}
 				>
 					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2" />
 					<span class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300">
@@ -154,7 +149,7 @@
 		{#each $tasks as task}
 			<Task {task} {saveInURL} />
 		{/each}
-		{#if $reverseTasksLayout}
+		{#if $useReversedLayout}
 			<TaskCreator {saveInURL} />
 		{/if}
 	</Container>

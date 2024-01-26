@@ -22,5 +22,5 @@ export const activeTabIndex = writable(0)
 
 // App Settings
 export const theme = writable('dark-blue')
-export const reverseTasksLayout = writable(false)
+export const useReversedLayout = writable(false)
 export const useSmoothScroll = writable(false)

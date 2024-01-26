@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { IconType, type Task } from '../lib/types'
-	import { tasks, reverseTasksLayout, isTaskCreatorTooltipOpen } from '../lib/store.js'
+	import { tasks, useReversedLayout, isTaskCreatorTooltipOpen } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 	import Icon from './Icon.svelte'
 
@@ -26,11 +26,11 @@
 
 		currentText = ''
 		saveInStorage(newTask)
-		$reverseTasksLayout ? $tasks.push(newTask) : $tasks.unshift(newTask)
+		$useReversedLayout ? $tasks.push(newTask) : $tasks.unshift(newTask)
 		$tasks = $tasks
 		saveInURL()
 
-		if ($reverseTasksLayout) {
+		if ($useReversedLayout) {
 			scrollToBottom()
 		}
 	}
@@ -51,7 +51,7 @@
 	function onKeyDown(e: KeyboardEvent): void {
 		toggleTooltip(false)
 
-		if ($reverseTasksLayout) {
+		if ($useReversedLayout) {
 			scrollToBottom()
 		}
 
@@ -103,7 +103,7 @@
 {#if $isTaskCreatorTooltipOpen}
 	<div
 		class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 px-3 py-1 z-20 rounded text-sm font-bold"
-		class:-translate-y-[75px]={$reverseTasksLayout}
+		class:-translate-y-[75px]={$useReversedLayout}
 	>
 		<span>Fill this field before creating a new task.</span>
 	</div>

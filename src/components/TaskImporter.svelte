@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { compressToEncodedURIComponent, compressToUTF16, decompressFromEncodedURIComponent, decompressFromUTF16 } from 'lz-string'
-	import { encodedData, reverseTasksLayout, tasks } from '../lib/store'
+	import { encodedData, useReversedLayout, tasks } from '../lib/store'
 
 	let inputBox
 	let inputValue: string
@@ -25,11 +25,11 @@
 
 					const settingsGlobal = JSON.parse(String(localStorage.getItem('settings-global'))) || {}
 
-					if (!settingsGlobal.unreverseLayout === true) {
-						$reverseTasksLayout = true
+					if (!settingsGlobal.useReversedLayout === true) {
+						$useReversedLayout = true
 						$tasks.sort((a, b) => a.date - b.date)
 					} else {
-						$reverseTasksLayout = false
+						$useReversedLayout = false
 						$tasks.sort((a, b) => b.date - a.date)
 					}
 

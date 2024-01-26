@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, reverseTasksLayout } from '../lib/store.js'
+	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, useReversedLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
 	import { IconType } from '../lib/types'
@@ -78,7 +78,7 @@
 		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg"
 		class:z-30={!$isTaskCreatorTooltipOpen}
 		class:z-10={$isTaskCreatorTooltipOpen}
-		class:hidden={$isTaskCreatorTooltipOpen && $reverseTasksLayout}
+		class:hidden={$isTaskCreatorTooltipOpen && $useReversedLayout}
 	>
 		<progress
 			value={completedCount}
