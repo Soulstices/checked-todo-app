@@ -3,6 +3,7 @@
 	import Icon from './Icon.svelte'
 	import { tasks, useReversedLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
+	import { fade } from 'svelte/transition'
 
 	export let task: Task
 	export let saveInURL = () => {}
@@ -28,14 +29,14 @@
 	}
 </script>
 
-<div class="flex w-full">
+<div class="flex w-full" in:fade={{ duration: 200 }}>
 	<div
-		class="flex flex-row p-4 rounded-lg border form-check w-full
+		class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-200
 		{task.isCompleted ? 'bg-task-completed border-task-completed' : 'bg-task border-task'}
 		{$useReversedLayout ? 'mb-2' : 'mt-2'}"
 	>
 		<input
-			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checkbox focus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-[1.4] mt-auto mb-auto"
+			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checkbox focus:outline-none align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-[1.4] mt-auto mb-auto transition duration-200"
 			type="checkbox"
 			bind:checked={task.isCompleted}
 			on:click={() => {
@@ -44,7 +45,7 @@
 			}}
 		/>
 		<span
-			class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere
+			class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-200
 			{task.isCompleted ? 'text-task-completed' : 'text-task'}"
 		>
 			{task.text}

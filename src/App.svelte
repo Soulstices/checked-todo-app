@@ -146,7 +146,7 @@
 				</div>
 			</div>
 		{/if}
-		{#each $tasks as task}
+		{#each $tasks as task (task.id)}
 			<Task {task} {saveInURL} />
 		{/each}
 		{#if $useReversedLayout}
