@@ -60,6 +60,12 @@
 	}
 
 	function containsValidData(): boolean {
+		if (decompressFromEncodedURIComponent($encodedData) == null) {
+			$encodedData = ''
+			clearTasksInStorage()
+			return false
+		}
+
 		if (PAGE_URL.search.length > 0) {
 			try {
 				JSON.parse('[' + decompressFromEncodedURIComponent($encodedData) + ']')
