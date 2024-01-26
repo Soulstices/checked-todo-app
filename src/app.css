@@ -4,6 +4,10 @@
 
 @layer base {
 	html[data-theme='dark-blue'] {
+		.text-warning-red {
+			@apply text-red-500;
+		}
+
 		.bg-toggle {
 			@apply bg-slate-700;
 		}
@@ -142,6 +146,10 @@
 	}
 
 	html[data-theme='dark-black'] {
+		.text-warning-red {
+			@apply text-red-500;
+		}
+
 		.bg-toggle {
 			@apply bg-neutral-700;
 		}
@@ -280,6 +288,10 @@
 	}
 
 	html[data-theme='light-white'] {
+		.text-warning-red {
+			@apply text-red-500;
+		}
+
 		.bg-toggle {
 			@apply bg-gray-700;
 		}
@@ -389,19 +401,19 @@
 		}
 
 		.bg-themepicker {
-			@apply bg-gray-300;
+			@apply bg-gray-200;
 		}
 
 		.bg-themepicker:hover:enabled {
-			@apply bg-gray-400;
+			@apply bg-gray-300;
 		}
 
 		.border-themepicker {
-			@apply border-gray-300;
+			@apply border-gray-200;
 		}
 
 		.border-themepicker:hover {
-			@apply border-gray-400;
+			@apply border-gray-300;
 		}
 
 		.bg-themepicker-active {
@@ -418,6 +430,10 @@
 	}
 
 	html[data-theme='light-orange'] {
+		.text-warning-red {
+			@apply text-red-600;
+		}
+
 		.bg-toggle {
 			@apply bg-gray-700;
 		}

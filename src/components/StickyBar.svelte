@@ -59,7 +59,7 @@
 		Do you really want to delete all your tasks?
 		<div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 pt-5">
 			<button
-				class="flex items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker text-red-600"
+				class="flex items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker text-warning-red"
 				on:click={deleteAllTasks}
 			>
 				<Icon type={IconType.Check}></Icon>
@@ -126,7 +126,10 @@
 				{/if}
 			</span>
 		</button>
-		<button on:click={() => ($isModalOpen = true)} class="absolute right-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-r hover:text-red-600">
+		<button
+			on:click={() => ($isModalOpen = true)}
+			class="absolute right-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-r hover:text-warning-red"
+		>
 			<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 				<path
 					clip-rule="evenodd"
