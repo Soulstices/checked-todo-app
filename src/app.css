@@ -5,553 +5,553 @@
 @layer base {
 	html[data-theme='dark-blue'] {
 		.bg-toggle {
-			@apply bg-slate-700
+			@apply bg-slate-700;
 		}
 
 		.bg-toggle-active {
-			@apply bg-green-700
+			@apply bg-green-700;
 		}
 
 		.bg-toggle-slider {
-			@apply bg-slate-100
+			@apply bg-slate-100;
 		}
 
 		.bg-tab {
-			@apply bg-slate-900/40
+			@apply bg-slate-900/40;
 		}
 
 		.bg-tab:hover {
-			@apply bg-slate-900
+			@apply bg-slate-900;
 		}
 
 		.bg-tab-active {
-			@apply bg-slate-900
+			@apply bg-slate-900;
 		}
 
 		.text-tab {
-			@apply text-gray-400
+			@apply text-gray-400;
 		}
 
 		.text-tab-active {
-			@apply text-gray-200
+			@apply text-gray-200;
 		}
 
 		.bg-page {
-			@apply bg-blue-950
+			@apply bg-blue-950;
 		}
 
 		.bg-modal {
-			@apply bg-slate-900
+			@apply bg-slate-900;
 		}
 
 		.border-modal {
-			@apply border-slate-700/70
+			@apply border-slate-700/70;
 		}
 
 		.bg-modal-header {
-			@apply bg-slate-800
+			@apply bg-slate-800;
 		}
 
 		.bg-btn-2 {
-			@apply bg-gray-900 text-gray-400
+			@apply bg-gray-900 text-gray-400;
 		}
 
 		.bg-btn-2:hover {
-			@apply bg-gray-700 text-white
+			@apply bg-gray-700 text-white;
 		}
 
 		.bg-btn-3 {
-			@apply bg-gray-900 text-gray-400
+			@apply bg-gray-900 text-gray-400;
 		}
 
 		.bg-btn-3:hover {
-			@apply bg-gray-800 text-white
+			@apply bg-gray-800 text-white;
 		}
 
 		.text-modal {
-			@apply text-white
+			@apply text-white;
 		}
 
 		.bg-container {
-			@apply bg-slate-900
+			@apply bg-slate-900;
 		}
 
 		.bg-task {
-			@apply bg-gray-800
+			@apply bg-gray-800;
 		}
 
 		.border-task {
-			@apply border-gray-700/50
+			@apply border-gray-700/50;
 		}
 
 		.bg-task-completed {
-			@apply bg-emerald-900
+			@apply bg-emerald-900;
 		}
 
 		.border-task-completed {
-			@apply border-emerald-700/50
+			@apply border-emerald-700/50;
 		}
 
 		.text-task {
-			@apply text-gray-400
+			@apply text-gray-400;
 		}
 
 		.text-task-completed {
-			@apply text-green-300
+			@apply text-green-300;
 		}
 
 		.checkbox {
-			@apply bg-slate-600 border-slate-500
+			@apply bg-slate-600 border-slate-500;
 		}
 
 		.checkbox:checked {
-			@apply bg-green-700 border-green-600
+			@apply bg-green-700 border-green-600;
 		}
 
 		.input-task {
-			@apply bg-slate-600 focus:bg-slate-700 border-slate-500 text-white focus:text-gray-200 focus:border-blue-600
+			@apply bg-slate-600 focus:bg-slate-700 border-slate-500 text-white focus:text-gray-200 focus:border-blue-600;
 		}
 
 		.bg-themepicker {
-			@apply bg-gray-800
+			@apply bg-gray-800;
 		}
 
 		.bg-themepicker:hover:enabled {
-			@apply bg-slate-700
+			@apply bg-slate-700;
 		}
 
 		.border-themepicker {
-			@apply border-slate-800
+			@apply border-slate-800;
 		}
 
 		.border-themepicker:hover {
-			@apply hover:border-slate-700
+			@apply hover:border-slate-700;
 		}
 
 		.bg-themepicker-active {
-			@apply bg-gray-800
+			@apply bg-gray-800;
 		}
 
 		.bg-themepicker-active:hover {
-			@apply bg-gray-800
+			@apply bg-gray-800;
 		}
 
 		.border-themepicker-active {
-			@apply border-blue-400
+			@apply border-blue-400;
 		}
 	}
 
 	html[data-theme='dark-black'] {
 		.bg-toggle {
-			@apply bg-neutral-700
+			@apply bg-neutral-700;
 		}
 
 		.bg-toggle-active {
-			@apply bg-emerald-700
+			@apply bg-emerald-700;
 		}
 
 		.bg-toggle-slider {
-			@apply bg-neutral-100
+			@apply bg-neutral-100;
 		}
 
 		.bg-tab {
-			@apply bg-neutral-900/40
+			@apply bg-neutral-900/40;
 		}
 
 		.bg-tab:hover {
-			@apply bg-neutral-900
+			@apply bg-neutral-900;
 		}
 
 		.bg-tab-active {
-			@apply bg-neutral-900
+			@apply bg-neutral-900;
 		}
 
 		.text-tab {
-			@apply text-neutral-400
+			@apply text-neutral-400;
 		}
 
 		.text-tab-active {
-			@apply text-neutral-200
+			@apply text-neutral-200;
 		}
 
 		.bg-page {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.bg-modal {
-			@apply bg-neutral-900
+			@apply bg-neutral-900;
 		}
 
 		.border-modal {
-			@apply border-neutral-700/70
+			@apply border-neutral-700/70;
 		}
 
 		.bg-modal-header {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.bg-btn-2 {
-			@apply bg-neutral-900 text-neutral-400
+			@apply bg-neutral-900 text-neutral-400;
 		}
 
 		.bg-btn-2:hover {
-			@apply bg-neutral-700 text-white
+			@apply bg-neutral-700 text-white;
 		}
 
 		.bg-btn-3 {
-			@apply bg-neutral-900 text-neutral-400
+			@apply bg-neutral-900 text-neutral-400;
 		}
 
 		.bg-btn-3:hover {
-			@apply bg-neutral-800 text-white
+			@apply bg-neutral-800 text-white;
 		}
 
 		.text-modal {
-			@apply text-white
+			@apply text-white;
 		}
 
 		.bg-container {
-			@apply bg-neutral-900
+			@apply bg-neutral-900;
 		}
 
 		.bg-task {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.border-task {
-			@apply border-neutral-700/50
+			@apply border-neutral-700/50;
 		}
 
 		.bg-task-completed {
-			@apply bg-emerald-900
+			@apply bg-emerald-900;
 		}
 
 		.border-task-completed {
-			@apply border-emerald-700/50
+			@apply border-emerald-700/50;
 		}
 
 		.text-task {
-			@apply text-neutral-400
+			@apply text-neutral-400;
 		}
 
 		.text-task-completed {
-			@apply text-green-300
+			@apply text-green-300;
 		}
 
 		.checkbox {
-			@apply bg-neutral-600 border-neutral-500
+			@apply bg-neutral-600 border-neutral-500;
 		}
 
 		.checkbox:checked {
-			@apply bg-green-700 border-green-600
+			@apply bg-green-700 border-green-600;
 		}
 
 		.input-task {
-			@apply bg-neutral-700 focus:bg-neutral-700 border-neutral-600 text-white focus:text-neutral-200 focus:border-blue-600
+			@apply bg-neutral-700 focus:bg-neutral-700 border-neutral-600 text-white focus:text-neutral-200 focus:border-blue-600;
 		}
 
 		.bg-themepicker {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.bg-themepicker:hover:enabled {
-			@apply bg-neutral-700
+			@apply bg-neutral-700;
 		}
 
 		.border-themepicker {
-			@apply border-neutral-800
+			@apply border-neutral-800;
 		}
 
 		.border-themepicker:hover {
-			@apply hover:border-neutral-700
+			@apply hover:border-neutral-700;
 		}
 
 		.bg-themepicker-active {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.bg-themepicker-active:hover {
-			@apply bg-neutral-800
+			@apply bg-neutral-800;
 		}
 
 		.border-themepicker-active {
-			@apply border-blue-400
+			@apply border-blue-400;
 		}
 	}
 
 	html[data-theme='light-white'] {
 		.bg-toggle {
-			@apply bg-gray-700
+			@apply bg-gray-700;
 		}
 
 		.bg-toggle-active {
-			@apply bg-green-700
+			@apply bg-green-700;
 		}
 
 		.bg-toggle-slider {
-			@apply bg-gray-100
+			@apply bg-gray-100;
 		}
 
 		.bg-tab {
-			@apply bg-neutral-900/40
+			@apply bg-neutral-900/40;
 		}
 
 		.bg-tab:hover {
-			@apply bg-neutral-900/60
+			@apply bg-neutral-900/60;
 		}
 
 		.bg-tab-active {
-			@apply bg-white
+			@apply bg-white;
 		}
 
 		.text-tab {
-			@apply text-gray-200
+			@apply text-gray-200;
 		}
 
 		.text-tab-active {
-			@apply text-gray-700
+			@apply text-gray-700;
 		}
 
 		.bg-page {
-			@apply bg-indigo-500
+			@apply bg-indigo-500;
 		}
 
 		.bg-modal {
-			@apply bg-gray-100
+			@apply bg-gray-100;
 		}
 
 		.border-modal {
-			@apply border-gray-100
+			@apply border-gray-100;
 		}
 
 		.bg-modal-header {
-			@apply bg-gray-200
+			@apply bg-gray-200;
 		}
 
 		.bg-btn-2 {
-			@apply bg-gray-500 text-gray-100
+			@apply bg-gray-500 text-gray-100;
 		}
 
 		.bg-btn-2:hover {
-			@apply bg-gray-600 text-white
+			@apply bg-gray-600 text-white;
 		}
 
 		.bg-btn-3 {
-			@apply bg-gray-500 text-gray-100
+			@apply bg-gray-500 text-gray-100;
 		}
 
 		.bg-btn-3:hover {
-			@apply bg-gray-600 text-white
+			@apply bg-gray-600 text-white;
 		}
 
 		.text-modal {
-			@apply text-gray-900
+			@apply text-gray-900;
 		}
 
 		.bg-container {
-			@apply bg-white
+			@apply bg-white;
 		}
 
 		.bg-task {
-			@apply bg-gray-200
+			@apply bg-gray-200;
 		}
 
 		.border-task {
-			@apply border-gray-300
+			@apply border-gray-300;
 		}
 
 		.bg-task-completed {
-			@apply bg-green-200
+			@apply bg-green-200;
 		}
 
 		.border-task-completed {
-			@apply border-green-300
+			@apply border-green-300;
 		}
 
 		.text-task {
-			@apply text-gray-700
+			@apply text-gray-700;
 		}
 
 		.text-task-completed {
-			@apply text-green-800
+			@apply text-green-800;
 		}
 
 		.checkbox {
-			@apply bg-white border-gray-300
+			@apply bg-white border-gray-300;
 		}
 
 		.checkbox:checked {
-			@apply bg-green-700 border-green-600
+			@apply bg-green-700 border-green-600;
 		}
 
 		.input-task {
-			@apply bg-white focus:bg-white border-slate-300 text-gray-700 focus:text-gray-700 focus:border-blue-600
+			@apply bg-white focus:bg-white border-slate-300 text-gray-700 focus:text-gray-700 focus:border-blue-600;
 		}
 
 		.bg-themepicker {
-			@apply bg-gray-300
+			@apply bg-gray-300;
 		}
 
 		.bg-themepicker:hover:enabled {
-			@apply bg-gray-400
+			@apply bg-gray-400;
 		}
 
 		.border-themepicker {
-			@apply border-gray-300
+			@apply border-gray-300;
 		}
 
 		.border-themepicker:hover {
-			@apply border-gray-400
+			@apply border-gray-400;
 		}
 
 		.bg-themepicker-active {
-			@apply bg-gray-300
+			@apply bg-gray-300;
 		}
 
 		.bg-themepicker-active:hover {
-			@apply bg-gray-300
+			@apply bg-gray-300;
 		}
 
 		.border-themepicker-active {
-			@apply border-blue-500
+			@apply border-blue-500;
 		}
 	}
 
 	html[data-theme='light-orange'] {
 		.bg-toggle {
-			@apply bg-gray-700
+			@apply bg-gray-700;
 		}
 
 		.bg-toggle-active {
-			@apply bg-green-700
+			@apply bg-green-700;
 		}
 
 		.bg-toggle-slider {
-			@apply bg-orange-100
+			@apply bg-orange-100;
 		}
 
 		.bg-tab {
-			@apply bg-neutral-900/40
+			@apply bg-neutral-900/40;
 		}
 
 		.bg-tab:hover {
-			@apply bg-neutral-900/60
+			@apply bg-neutral-900/60;
 		}
 
 		.bg-tab-active {
-			@apply bg-orange-100
+			@apply bg-orange-100;
 		}
 
 		.text-tab {
-			@apply text-gray-300
+			@apply text-gray-300;
 		}
 
 		.text-tab-active {
-			@apply text-orange-800
+			@apply text-orange-800;
 		}
 
 		.bg-page {
-			@apply bg-rose-500/50
+			@apply bg-rose-500/50;
 		}
 
 		.bg-modal {
-			@apply bg-orange-100
+			@apply bg-orange-100;
 		}
 
 		.border-modal {
-			@apply border-orange-100
+			@apply border-orange-100;
 		}
 
 		.bg-modal-header {
-			@apply bg-orange-200
+			@apply bg-orange-200;
 		}
 
 		.bg-btn-2 {
-			@apply bg-orange-800 text-orange-100
+			@apply bg-orange-800 text-orange-100;
 		}
 
 		.bg-btn-2:hover {
-			@apply bg-orange-700 text-white
+			@apply bg-orange-700 text-white;
 		}
 
 		.bg-btn-3 {
-			@apply bg-emerald-800 text-emerald-100
+			@apply bg-emerald-800 text-emerald-100;
 		}
 
 		.bg-btn-3:hover {
-			@apply bg-emerald-700 text-white
+			@apply bg-emerald-700 text-white;
 		}
 
 		.text-modal {
-			@apply text-orange-900
+			@apply text-orange-900;
 		}
 
 		.bg-container {
-			@apply bg-orange-100
+			@apply bg-orange-100;
 		}
 
 		.bg-task {
-			@apply bg-orange-200
+			@apply bg-orange-200;
 		}
 
 		.border-task {
-			@apply border-orange-300
+			@apply border-orange-300;
 		}
 
 		.bg-task-completed {
-			@apply bg-emerald-200
+			@apply bg-emerald-200;
 		}
 
 		.border-task-completed {
-			@apply border-emerald-300
+			@apply border-emerald-300;
 		}
 
 		.text-task {
-			@apply text-orange-800
+			@apply text-orange-800;
 		}
 
 		.text-task-completed {
-			@apply text-emerald-800
+			@apply text-emerald-800;
 		}
 
 		.checkbox {
-			@apply bg-white border-orange-300
+			@apply bg-white border-orange-300;
 		}
 
 		.checkbox:checked {
-			@apply bg-green-700 border-green-600
+			@apply bg-green-700 border-green-600;
 		}
 
 		.input-task {
-			@apply bg-white focus:bg-white border-orange-300 text-orange-700 focus:text-orange-700 focus:border-orange-600
+			@apply bg-white focus:bg-white border-orange-300 text-orange-700 focus:text-orange-700 focus:border-orange-600;
 		}
 
 		.bg-themepicker {
-			@apply bg-orange-200
+			@apply bg-orange-200;
 		}
 
 		.bg-themepicker:hover:enabled {
-			@apply bg-orange-300
+			@apply bg-orange-300;
 		}
 
 		.border-themepicker {
-			@apply border-orange-200
+			@apply border-orange-200;
 		}
 
 		.border-themepicker:hover {
-			@apply border-orange-300
+			@apply border-orange-300;
 		}
 
 		.bg-themepicker-active {
-			@apply bg-orange-200
+			@apply bg-orange-200;
 		}
 
 		.bg-themepicker-active:hover {
-			@apply bg-orange-200
+			@apply bg-orange-200;
 		}
 
 		.border-themepicker-active {
-			@apply border-rose-500
+			@apply border-rose-500;
 		}
 	}
 }
@@ -587,7 +587,10 @@ progress[value]::-webkit-progress-bar {
 }
 
 progress[value]::-webkit-progress-value {
-	background-size: 35px 20px, 100% 100%, 100% 100%;
+	background-size:
+		35px 20px,
+		100% 100%,
+		100% 100%;
 }
 
 .progress-blue::-webkit-progress-value {

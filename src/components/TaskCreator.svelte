@@ -79,11 +79,12 @@
 				onKeyDown(e)
 			}}
 		/>
-		<span class="absolute top-1/2 right-2 translate-y-[-50%]"
-				class:hidden = {currentText.length === 0}
-				class:text-task = {currentText.length < 100}
-				class:font-bold = {currentText.length === 100}
-				class:text-red-600 = {currentText.length === 100}
+		<span
+			class="absolute top-1/2 right-2 translate-y-[-50%]"
+			class:hidden={currentText.length === 0}
+			class:text-task={currentText.length < 100}
+			class:font-bold={currentText.length === 100}
+			class:text-red-600={currentText.length === 100}
 		>
 			{currentText.length}
 		</span>
@@ -94,13 +95,16 @@
 			class="inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out !outline-none"
 			on:click={() => addTask()}
 		>
-			<Icon type={IconType.Plus} classNames="w-5 h-5"/>
+			<Icon type={IconType.Plus} classNames="w-5 h-5" />
 		</button>
 	</div>
 </div>
 
 {#if $isTaskCreatorTooltipOpen}
-	<div class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 px-3 py-1 z-20 rounded text-sm font-bold" class:-translate-y-[75px]={$reverseTasksLayout}>
+	<div
+		class="absolute text-red-500 bg-container border shadow-md border-red-700 mt-1 px-3 py-1 z-20 rounded text-sm font-bold"
+		class:-translate-y-[75px]={$reverseTasksLayout}
+	>
 		<span>Fill this field before creating a new task.</span>
 	</div>
 

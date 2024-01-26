@@ -124,12 +124,10 @@
 					class:mt-2={!$reverseTasksLayout}
 					class:mb-2={$reverseTasksLayout}
 				>
-					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2"/>
-					<span
-						class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300"
-					>
-			There are currently no tasks.
-		</span>
+					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2" />
+					<span class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300">
+						There are currently no tasks.
+					</span>
 				</div>
 			</div>
 		{/if}

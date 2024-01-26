@@ -12,5 +12,5 @@ export enum IconType {
 	Settings = 'settings',
 	Plus = 'plus',
 	ChatBubble = 'chat-bubble',
-	Share = 'share'
+	Share = 'share',
 }
