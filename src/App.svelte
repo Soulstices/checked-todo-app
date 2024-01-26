@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, useReversedLayout, useSmoothScroll } from './lib/store.js'
+	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -10,6 +10,7 @@
 	import StickyBar from './components/StickyBar.svelte'
 	import { IconType } from './lib/types'
 	import Icon from './components/Icon.svelte'
+	import TasksImporter from './components/TasksImporter.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
@@ -145,6 +146,9 @@
 					</span>
 				</div>
 			</div>
+			{#if $EXPERIMENTAL_FEATURES}
+				<TasksImporter />
+			{/if}
 		{/if}
 		{#each $tasks as task (task.id)}
 			<Task {task} {saveInURL} />

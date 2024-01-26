@@ -1,6 +1,7 @@
 import { readable, writable } from 'svelte/store'
 
 export const APP_VERSION = readable('1.0.2')
+export const EXPERIMENTAL_FEATURES = readable(false)
 
 // Static Data
 export const THEMES = readable(['dark-blue', 'dark-black', 'light-white', 'light-orange'])

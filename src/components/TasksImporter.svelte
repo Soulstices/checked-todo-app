@@ -1,3 +1,5 @@
+<!--Experimental Feature-->
+<!--Currently uses duplicated code and is intended to be used only for testing.-->
 <script lang="ts">
 	import { compressToEncodedURIComponent, compressToUTF16, decompressFromEncodedURIComponent, decompressFromUTF16 } from 'lz-string'
 	import { encodedData, useReversedLayout, tasks } from '../lib/store'
