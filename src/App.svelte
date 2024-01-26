@@ -91,7 +91,7 @@
 	}
 
 	function loadSettingsFromStorage(): void {
-		const settings: SettingsGlobal = getSettingsGlobalFromStorage()
+		let settings: SettingsGlobal = getSettingsGlobalFromStorage()
 
 		settings.hasOwnProperty('theme') ? ($theme = settings.theme) : (settings.theme = $theme)
 		document.documentElement.setAttribute('data-theme', settings.theme)
@@ -135,11 +135,33 @@
 	}
 
 	function getSettingsGlobalFromStorage(): SettingsGlobal {
-		return JSON.parse(String(localStorage.getItem('settings-global')))
+		let settingsGlobal: SettingsGlobal
+
+		try {
+			const storedValue = localStorage.getItem('settings-global')
+			settingsGlobal = storedValue ? JSON.parse(storedValue) : null
+
+			if (!settingsGlobal) {
+				settingsGlobal = getDefaultSettingsGlobal()
+			}
+		} catch (error) {
+			console.error('Error parsing settings-global JSON from local storage:', error)
+			settingsGlobal = getDefaultSettingsGlobal()
+		}
+
+		return settingsGlobal
 	}
 
 	function saveSettingsGlobalInStorage(value: SettingsGlobal): void {
 		localStorage.setItem('settings-global', JSON.stringify(value))
+	}
+
+	function getDefaultSettingsGlobal(): SettingsGlobal {
+		return {
+			theme: $theme,
+			useReversedLayout: $useReversedLayout,
+			useSmoothScroll: $useSmoothScroll,
+		}
 	}
 </script>
 
