@@ -5,7 +5,6 @@ export const EXPERIMENTAL_FEATURES = readable(false)
 
 // Static Data
 export const THEMES = readable(['dark-blue', 'dark-black', 'light-white', 'light-orange'])
-export const DEFAULT_THEME = readable('dark-blue')
 
 // App State
 export const tasks = writable([

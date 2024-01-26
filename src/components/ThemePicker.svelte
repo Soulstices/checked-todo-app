@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { theme } from '../lib/store.js'
-	export let newTheme: string
+	export let newTheme: string = 'dark-blue'
 
-	let isActive: boolean
+	let isActive: boolean = false
 	$: isActive = $theme === newTheme
 
 	const color1 = {
@@ -35,10 +35,6 @@
 
 	function changeTheme(): void {
 		$theme = newTheme
-		let settingsGlobal = JSON.parse(String(localStorage.getItem('settings-global')))
-		settingsGlobal.theme = $theme
-		localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
-		document.documentElement.setAttribute('data-theme', settingsGlobal.theme)
 	}
 </script>
 

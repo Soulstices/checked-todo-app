@@ -5,6 +5,12 @@ export type Task = {
 	date: number
 }
 
+export type SettingsGlobal = {
+	theme: string
+	useReversedLayout: boolean
+	useSmoothScroll: boolean
+}
+
 export enum IconType {
 	Cross = 'cross',
 	Check = 'check',

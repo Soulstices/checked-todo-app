@@ -1,12 +1,7 @@
 <script lang="ts">
 	import ThemePicker from './ThemePicker.svelte'
-	import { THEMES, useReversedLayout, useSmoothScroll, tasks } from '../lib/store'
+	import { THEMES, useReversedLayout, useSmoothScroll } from '../lib/store'
 	import SettingToggle from './SettingToggle.svelte'
-
-	let isActive = false
-	let colorTextActive = false
-
-	$: $tasks
 </script>
 
 <div class="m-1">

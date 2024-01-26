@@ -1,65 +1,40 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount } from 'svelte'
-	import { DEFAULT_THEME, THEMES, encodedData, tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
+	import { encodedData, tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import StickyBar from './components/StickyBar.svelte'
-	import { IconType } from './lib/types'
+	import { IconType, type SettingsGlobal } from './lib/types'
 	import Icon from './components/Icon.svelte'
 	import TasksImporter from './components/TasksImporter.svelte'
 
 	const PAGE_URL: URL = new URL(window.location.href)
 
-	onMount<void>(() => {
+	onMount(() => {
 		initializeApp()
 	})
 
 	function initializeApp(): void {
 		$tasks = []
-
-		const settingsGlobal = JSON.parse(String(localStorage.getItem('settings-global'))) || {}
-
-		// Set to 'dark' theme by default if there is no data in localStorage
-		if (!settingsGlobal.hasOwnProperty('theme') || !settingsGlobal.theme || !$THEMES.includes(settingsGlobal.theme)) {
-			settingsGlobal.theme = $DEFAULT_THEME
-			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
-			document.documentElement.setAttribute('data-theme', $DEFAULT_THEME)
-		}
-
-		// Set useReversedLayout to true by default
-		if (!settingsGlobal.hasOwnProperty('useReversedLayout')) {
-			settingsGlobal.useReversedLayout = true
-			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
-		} else {
-			$useReversedLayout = settingsGlobal.useReversedLayout
-		}
-
-		if (!settingsGlobal.hasOwnProperty('useSmoothScroll')) {
-			settingsGlobal.useSmoothScroll = false
-			$useSmoothScroll = false
-			localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
-		} else if (settingsGlobal.useSmoothScroll === true) {
-			$useSmoothScroll = true
-		}
-
-		// Load theme from localStorage
-		$theme = JSON.parse(String(localStorage.getItem('settings-global')))?.theme
-
 		$encodedData = PAGE_URL.search.replace('?', '')
 
-		if (containsValidData()) {
+		loadSettingsFromStorage()
+
+		if (urlContainsValidData()) {
 			loadTasksFromURL()
 		} else {
 			loadTasksFromStorage()
 			saveInURL()
 		}
+
+		subscribeToSettings()
 	}
 
-	function containsValidData(): boolean {
+	function urlContainsValidData(): boolean {
 		if (decompressFromEncodedURIComponent($encodedData) == null) {
 			$encodedData = ''
 			clearTasksInStorage()
@@ -95,6 +70,7 @@
 		$tasks = Object.entries(localStorage)
 			.filter(([key, _]) => key !== 'settings-global') // Exclude the "settings-global" entry
 			.map((entry) => JSON.parse(decompressFromUTF16(entry[1])))
+		sortTasksByDate($useReversedLayout)
 	}
 
 	function saveInURL(): void {
@@ -109,20 +85,62 @@
 	}
 
 	function clearTasksInStorage(): void {
-		const settingsGlobal: string = String(localStorage.getItem('settings-global'))
+		const settings: SettingsGlobal = getSettingsGlobalFromStorage()
 		localStorage.clear()
-		localStorage.setItem('settings-global', settingsGlobal)
+		saveSettingsGlobalInStorage(settings)
 	}
 
-	onMount(() => {
-		useReversedLayout.subscribe(() => {
-			$useReversedLayout ? $tasks.sort((a, b) => a.date - b.date) : $tasks.sort((a, b) => b.date - a.date)
+	function loadSettingsFromStorage(): void {
+		const settings: SettingsGlobal = getSettingsGlobalFromStorage()
+
+		settings.hasOwnProperty('theme') ? ($theme = settings.theme) : (settings.theme = $theme)
+		document.documentElement.setAttribute('data-theme', settings.theme)
+
+		settings.hasOwnProperty('useReversedLayout')
+			? ($useReversedLayout = settings.useReversedLayout)
+			: (settings.useReversedLayout = $useReversedLayout)
+
+		settings.hasOwnProperty('useSmoothScroll') ? ($useSmoothScroll = settings.useSmoothScroll) : (settings.useSmoothScroll = $useSmoothScroll)
+
+		saveSettingsGlobalInStorage(settings)
+	}
+
+	function subscribeToSettings(): void {
+		useReversedLayout.subscribe((isEnabled: boolean) => {
+			sortTasksByDate(isEnabled)
 		})
 
-		useSmoothScroll.subscribe(() => {
-			$useSmoothScroll ? document.documentElement.classList.add('scroll-smooth') : document.documentElement.classList.remove('scroll-smooth')
+		useSmoothScroll.subscribe((isEnabled: boolean) => {
+			if (isEnabled) {
+				document.documentElement.classList.add('scroll-smooth')
+			} else {
+				document.documentElement.classList.remove('scroll-smooth')
+			}
 		})
-	})
+
+		theme.subscribe((theme) => {
+			const settings: SettingsGlobal = getSettingsGlobalFromStorage()
+			settings.theme = theme
+			document.documentElement.setAttribute('data-theme', settings.theme)
+			saveSettingsGlobalInStorage(settings)
+		})
+	}
+
+	function sortTasksByDate(ascending: boolean) {
+		if (ascending === true) {
+			$tasks.sort((a, b) => a.date - b.date)
+		} else {
+			$tasks.sort((a, b) => b.date - a.date)
+		}
+	}
+
+	function getSettingsGlobalFromStorage(): SettingsGlobal {
+		return JSON.parse(String(localStorage.getItem('settings-global')))
+	}
+
+	function saveSettingsGlobalInStorage(value: SettingsGlobal): void {
+		localStorage.setItem('settings-global', JSON.stringify(value))
+	}
 </script>
 
 <StickyBar {saveInURL} />
@@ -136,9 +154,8 @@
 		{#if $tasks.length === 0}
 			<div class="flex w-full">
 				<div
-					class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300 bg-task border-task text-task"
-					class:mt-2={!$useReversedLayout}
-					class:mb-2={$useReversedLayout}
+					class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300 bg-task border-task text-task
+							 {$useReversedLayout ? 'mb-2' : 'mt-2'}"
 				>
 					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2" />
 					<span class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300">
