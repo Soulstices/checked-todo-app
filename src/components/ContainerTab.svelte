@@ -9,13 +9,9 @@
 
 <button
 	type="button"
-	class="flex mx-3 rounded-t-md leading-normal focus:outline-none focus:ring-0 ease-in-out h-9 !outline-none duration-300"
-	class:bg-tab-active={tabIndex === $activeTabIndex}
-	class:text-tab-active={tabIndex === $activeTabIndex}
-	class:bg-tab={tabIndex !== $activeTabIndex}
-	class:text-tab={tabIndex !== $activeTabIndex}
-	class:ml-auto={type === 'settings'}
-	class:w-9={type === 'settings'}
+	class="flex mx-3 rounded-t-md leading-normal focus:outline-none focus:ring-0 ease-in-out h-9 !outline-none duration-300
+			{tabIndex === $activeTabIndex ? 'bg-tab-active text-tab-active' : 'bg-tab text-tab'}
+			{type === 'settings' ? 'ml-auto w-9' : ''}"
 	on:click={() => {
 		$activeTabIndex = tabIndex
 	}}
