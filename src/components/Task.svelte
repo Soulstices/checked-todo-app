@@ -43,6 +43,7 @@
 	>
 		<input
 			aria-label="Task's Checkbox"
+			name="task-checkbox"
 			class="form-check-input appearance-none h-4 w-4 border rounded-sm checked:after:m-[0.1rem] checked:after:ml-[0.275rem] checked:after:block checked:after:h-[0.5rem] checked:after:w-[0.35rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-t-0 checked:after:border-l-0 checkbox focus:outline-2 align-top bg-no-repeat bg-center bg-contain float-left mr-3 ml-1 cursor-pointer scale-[1.4] mt-auto mb-auto transition duration-200"
 			type="checkbox"
 			bind:checked={task.isCompleted}

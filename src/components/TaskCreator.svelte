@@ -70,6 +70,7 @@
 	<div class="mb-0 w-full relative inline-block z-20">
 		<input
 			type="text"
+			name="task-text"
 			class="input-task block w-full pl-3 pr-11 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none focus:ring-2 ring-blue-600/50 transition duration-300"
 			placeholder="Enter a task"
 			maxlength="100"
