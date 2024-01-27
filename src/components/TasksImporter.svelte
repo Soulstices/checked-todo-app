@@ -2,12 +2,13 @@
 <!--Currently uses duplicated code and is intended to be used only for testing.-->
 <script lang="ts">
 	import { compressToEncodedURIComponent, compressToUTF16, decompressFromEncodedURIComponent, decompressFromUTF16 } from 'lz-string'
-	import { encodedData, useReversedLayout, tasks } from '../lib/store'
+	import { useReversedLayout, tasks } from '../lib/store'
 
 	let inputBox
 	let inputValue: string
 
 	function handleClick() {
+		let encodedData: string = ''
 		const parts = inputValue.split('/?')
 		const extractedPart = parts.length > 1 ? parts[1] : null
 
@@ -37,14 +38,14 @@
 
 					// now need to update url
 					let acc = $tasks.map((task) => JSON.stringify(task))
-					$encodedData = compressToEncodedURIComponent(acc.toString())
+					encodedData = compressToEncodedURIComponent(acc.toString())
 
 					const PAGE_URL: URL = new URL(window.location.href)
-					let newURL: string = $encodedData.length > 1 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
+					let newURL: string = encodedData.length > 1 ? `${PAGE_URL.origin}/?${encodedData}` : PAGE_URL.origin
 					history.pushState({}, '', newURL)
 					// and save the new
 				} catch (e) {
-					$encodedData = ''
+					encodedData = ''
 					return false
 				}
 				return true

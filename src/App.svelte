@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount, setContext } from 'svelte'
-	import { encodedData, tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
+	import { tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -12,6 +12,7 @@
 	import Icon from './components/Icon.svelte'
 	import TasksImporter from './components/TasksImporter.svelte'
 
+	let encodedData: string = ''
 	const PAGE_URL: URL = new URL(window.location.href)
 
 	onMount(() => {
@@ -24,7 +25,7 @@
 
 	function initializeApp(): void {
 		$tasks = []
-		$encodedData = PAGE_URL.search.replace('?', '')
+		encodedData = PAGE_URL.search.replace('?', '')
 
 		loadSettingsFromStorage()
 
@@ -39,17 +40,17 @@
 	}
 
 	function urlContainsValidData(): boolean {
-		if (decompressFromEncodedURIComponent($encodedData) == null) {
-			$encodedData = ''
+		if (decompressFromEncodedURIComponent(encodedData) == null) {
+			encodedData = ''
 			clearTasksInStorage()
 			return false
 		}
 
 		if (PAGE_URL.search.length > 0) {
 			try {
-				JSON.parse('[' + decompressFromEncodedURIComponent($encodedData) + ']')
+				JSON.parse('[' + decompressFromEncodedURIComponent(encodedData) + ']')
 			} catch (e) {
-				$encodedData = ''
+				encodedData = ''
 				clearTasksInStorage()
 				return false
 			}
@@ -60,7 +61,7 @@
 	}
 
 	function loadTasksFromURL(): void {
-		let decodedData = JSON.parse('[' + decompressFromEncodedURIComponent($encodedData) + ']')
+		let decodedData = JSON.parse('[' + decompressFromEncodedURIComponent(encodedData) + ']')
 		clearTasksInStorage()
 
 		for (const entry of decodedData) {
@@ -79,12 +80,12 @@
 
 	function saveInURL(): void {
 		let acc = $tasks.map((task) => JSON.stringify(task))
-		$encodedData = compressToEncodedURIComponent(acc.toString())
+		encodedData = compressToEncodedURIComponent(acc.toString())
 		updateURL()
 	}
 
 	function updateURL(): void {
-		let newURL: string = $encodedData.length > 1 ? `${PAGE_URL.origin}/?${$encodedData}` : PAGE_URL.origin
+		let newURL: string = encodedData.length > 1 ? `${PAGE_URL.origin}/?${encodedData}` : PAGE_URL.origin
 		history.pushState({}, '', newURL)
 	}
 
