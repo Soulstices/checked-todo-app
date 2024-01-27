@@ -92,6 +92,7 @@
 			on:click={scrollToTop}
 			class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded"
 			class:opacity-50={isAtTop}
+			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isAtTop}
 		>
 			<svg
@@ -117,6 +118,7 @@
 			on:click={handleShareBtnClick}
 			class="absolute right-[45px] bg-themepicker duration-200 px-2 h-8 w-[90px] rounded-l flex flex-row"
 			class:opacity-70={isLinkCopied}
+			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isLinkCopied}
 		>
 			<Icon type={IconType.Share} classNames="w-4 h-4 my-auto" />
@@ -132,6 +134,7 @@
 			aria-label="Delete All Tasks"
 			on:click={() => ($isModalOpen = true)}
 			class="absolute right-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-r hover:text-warning-red"
+			tabindex={$isModalOpen ? -1 : 0}
 		>
 			<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 				<path

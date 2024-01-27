@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { activeTabIndex } from '../lib/store.js'
+	import { activeTabIndex, isModalOpen } from '../lib/store.js'
 	import Icon from './Icon.svelte'
 	import { IconType } from '../lib/types'
 
@@ -8,7 +8,6 @@
 </script>
 
 <button
-	aria-label="{type} Tab"
 	type="button"
 	class="flex mx-3 rounded-t-md leading-normal focus:outline-2 ease-in-out h-9 duration-300
 			{tabIndex === $activeTabIndex ? 'bg-tab-active text-tab-active' : 'bg-tab text-tab'}
@@ -16,6 +15,8 @@
 	on:click={() => {
 		$activeTabIndex = tabIndex
 	}}
+	aria-label="{type} Tab"
+	tabindex={$isModalOpen ? -1 : 0}
 >
 	{#if type === 'tasks'}
 		<span class="my-auto px-5">Tasks</span>
