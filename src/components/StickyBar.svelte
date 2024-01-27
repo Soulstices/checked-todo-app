@@ -8,7 +8,7 @@
 	let isAtTop: boolean = true
 	let isLinkCopied: boolean = false
 	let completedCount: number
-	let saveInURL: () => void = getContext('saveInURL')
+	const saveInURL: () => void = getContext('saveInURL')
 
 	$: {
 		completedCount = $tasks.filter((item) => item.isCompleted).length
@@ -74,17 +74,14 @@
 
 {#if $tasks.length > 0 && $activeTabIndex === 0}
 	<div
-		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg z-10"
-		class:z-30={!$isTaskCreatorTooltipOpen}
-		class:z-10={$isTaskCreatorTooltipOpen}
+		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg z-10
+				{$isTaskCreatorTooltipOpen ? 'z-10' : 'z-30'}"
 		class:hidden={$isTaskCreatorTooltipOpen && $useReversedLayout}
 	>
 		<progress
 			value={completedCount}
 			max={$tasks.length}
-			class="absolute -top-1 right-0 left-0 w-full h-1"
-			class:progress-green={completedCount === $tasks.length}
-			class:progress-blue={completedCount !== $tasks.length}
+			class="absolute -top-1 right-0 left-0 w-full h-1 {completedCount !== $tasks.length ? 'progress-blue' : 'progress-green'}"
 		/>
 
 		<button
