@@ -6,7 +6,7 @@
 	<div class="flex flex-row m-auto">
 		<span class="text-white/60">
 			v{$APP_VERSION} |
-			<a href="https://github.com/Soulstices/checked-todo-app" class="text-white underline" target="_blank">GitHub</a>
+			<a href="https://github.com/Soulstices/checked-todo-app" class="text-white underline focus:outline-2" target="_blank">GitHub</a>
 		</span>
 	</div>
 </footer>

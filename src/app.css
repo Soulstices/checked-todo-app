@@ -591,11 +591,8 @@
 	overflow-wrap: anywhere;
 }
 
-*:focus {
-	-webkit-tap-highlight-color: transparent;
-	outline: none;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
+.disable-pointer-events {
+	pointer-events: none;
 }
 
 progress[value]::-webkit-progress-bar {

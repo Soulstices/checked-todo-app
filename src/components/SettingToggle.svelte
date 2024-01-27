@@ -39,10 +39,16 @@
 	</div>
 
 	<label class="relative inline-flex items-center cursor-pointer m-auto">
-		<input type="checkbox" value="" class="sr-only peer" bind:checked={isChecked} on:click={handleClick} />
-		<span
-			class="w-11 h-6 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-toggle-slider after:rounded-full after:h-5 after:w-5 after:transition-all
+		<input type="checkbox" value="" class="sr-only peer" bind:checked={isChecked} on:click={handleClick} tabindex="-1" />
+		<button
+			class="w-11 h-6 disable-pointer-events hover:outline-2 group rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-toggle-slider after:rounded-full after:h-5 after:w-5 after:transition-all
         {isChecked ? 'bg-toggle-active' : 'bg-toggle'}"
+			on:keydown={(event) => {
+				if (event.key === 'Enter') {
+					handleClick()
+					isChecked = !isChecked
+				}
+			}}
 		/>
 	</label>
 </div>

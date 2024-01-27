@@ -74,7 +74,7 @@
 
 {#if $tasks.length > 0 && $activeTabIndex === 0}
 	<div
-		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg"
+		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg z-10"
 		class:z-30={!$isTaskCreatorTooltipOpen}
 		class:z-10={$isTaskCreatorTooltipOpen}
 		class:hidden={$isTaskCreatorTooltipOpen && $useReversedLayout}
@@ -116,6 +116,7 @@
 			aria-label="Share"
 			on:click={handleShareBtnClick}
 			class="absolute right-[45px] bg-themepicker duration-200 px-2 h-8 w-[90px] rounded-l flex flex-row"
+			class:opacity-70={isLinkCopied}
 			disabled={isLinkCopied}
 		>
 			<Icon type={IconType.Share} classNames="w-4 h-4 my-auto" />

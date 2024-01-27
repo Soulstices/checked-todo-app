@@ -70,8 +70,7 @@
 	<div class="mb-0 w-full relative inline-block z-20">
 		<input
 			type="text"
-			class="input-task form-control block w-full pl-3 pr-11 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none transition duration-300"
-			id="exampleFormControlInput1"
+			class="input-task block w-full pl-3 pr-11 py-1.5 text-base font-normal bg-clip-padding border border-solid rounded ease-in-out m-0 focus:outline-none focus:ring-2 ring-blue-600/50 transition duration-300"
 			placeholder="Enter a task"
 			maxlength="100"
 			autocomplete="off"
@@ -94,7 +93,7 @@
 		<button
 			type="button"
 			aria-label="Create Task"
-			class="inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out !outline-none"
+			class="inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-2 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
 			on:click={() => addTask()}
 		>
 			<Icon type={IconType.Plus} classNames="w-5 h-5" />
