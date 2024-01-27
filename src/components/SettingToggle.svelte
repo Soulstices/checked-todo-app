@@ -1,22 +1,31 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+	import { getContext, onMount } from 'svelte'
+	import type { BooleanKeys, SettingsGlobal } from '../lib/types'
+	import { useReversedLayout, useSmoothScroll } from '../lib/store'
 
 	export let title: string = 'Title'
 	export let description: string = 'Description'
-	export let settingName = 'settingName'
-	export let updateInStorage = (value: boolean) => console.log(value)
+	export let settingName: BooleanKeys<SettingsGlobal> = 'useReversedLayout'
+
+	let getSettingsGlobalFromStorage: () => SettingsGlobal = getContext('getSettingsGlobalFromStorage')
+	let saveSettingsGlobalInStorage: (value: SettingsGlobal) => void = getContext('saveSettingsGlobalInStorage')
 
 	let isChecked: boolean = false
 
+	const settingsMap = {
+		useReversedLayout,
+		useSmoothScroll,
+	}
+
 	function handleClick() {
-		let settingsGlobal = JSON.parse(localStorage.getItem('settings-global') || 'null')
+		let settingsGlobal: SettingsGlobal = getSettingsGlobalFromStorage()
 		settingsGlobal[settingName] = !isChecked
-		updateInStorage(settingsGlobal[settingName])
-		localStorage.setItem('settings-global', JSON.stringify(settingsGlobal))
+		settingsMap[settingName].set(!isChecked)
+		saveSettingsGlobalInStorage(settingsGlobal)
 	}
 
 	onMount(() => {
-		let settingsGlobal = JSON.parse(localStorage.getItem('settings-global') || 'null')
+		let settingsGlobal: SettingsGlobal = getSettingsGlobalFromStorage()
 		isChecked = settingsGlobal[settingName]
 	})
 </script>
@@ -33,7 +42,7 @@
 		<input type="checkbox" value="" class="sr-only peer" bind:checked={isChecked} on:click={handleClick} />
 		<span
 			class="w-11 h-6 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-toggle-slider after:rounded-full after:h-5 after:w-5 after:transition-all
-			  {isChecked ? 'bg-toggle-active' : 'bg-toggle'}"
+        {isChecked ? 'bg-toggle-active' : 'bg-toggle'}"
 		/>
 	</label>
 </div>

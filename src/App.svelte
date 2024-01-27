@@ -19,6 +19,8 @@
 	})
 
 	setContext('saveInURL', saveInURL)
+	setContext('getSettingsGlobalFromStorage', getSettingsGlobalFromStorage)
+	setContext('saveSettingsGlobalInStorage', saveSettingsGlobalInStorage)
 
 	function initializeApp(): void {
 		$tasks = []

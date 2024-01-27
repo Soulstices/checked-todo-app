@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ThemePicker from './ThemePicker.svelte'
-	import { THEMES, useReversedLayout, useSmoothScroll } from '../lib/store'
+	import { THEMES } from '../lib/store'
 	import SettingToggle from './SettingToggle.svelte'
 </script>
 
@@ -11,18 +11,12 @@
 		title="Smooth Scrolling"
 		description={`Clicking on the "Scroll to Top" or "Scroll to Bottom" buttons will smoothly scroll the page, instead of scrolling instantly.`}
 		settingName="useSmoothScroll"
-		updateInStorage={(value) => {
-			useSmoothScroll.set(value)
-		}}
 	/>
 
 	<SettingToggle
 		title="Reverse Tasks Layout"
 		description={`By default, new tasks are displayed at the top. When the option is enabled, new tasks will instead appear at the bottom.`}
 		settingName="useReversedLayout"
-		updateInStorage={(value) => {
-			useReversedLayout.set(value)
-		}}
 	/>
 
 	<div class="flex flex-col md:grid md:grid-cols-2 items-center text-lg font-bold pt-1 gap-0"></div>
