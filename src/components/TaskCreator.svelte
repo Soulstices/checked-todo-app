@@ -3,8 +3,9 @@
 	import { tasks, useReversedLayout, isTaskCreatorTooltipOpen } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 	import Icon from './Icon.svelte'
+	import { getContext } from 'svelte'
 
-	export let saveInURL = () => {}
+	let saveInURL: () => void = getContext('saveInURL')
 	let currentText: string = ''
 
 	function generateUID(): string {

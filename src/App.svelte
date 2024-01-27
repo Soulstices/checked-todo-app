@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
-	import { onMount } from 'svelte'
+	import { onMount, setContext } from 'svelte'
 	import { encodedData, tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
@@ -17,6 +17,8 @@
 	onMount(() => {
 		initializeApp()
 	})
+
+	setContext('saveInURL', saveInURL)
 
 	function initializeApp(): void {
 		$tasks = []
@@ -165,13 +167,13 @@
 	}
 </script>
 
-<StickyBar {saveInURL} />
+<StickyBar />
 
 <main class="min-h-full pt-4 md:pt-4 pb-2 px-4 md:px-0">
 	<Header />
 	<Container>
 		{#if !$useReversedLayout}
-			<TaskCreator {saveInURL} />
+			<TaskCreator />
 		{/if}
 		{#if $tasks.length === 0}
 			<div class="flex w-full">
@@ -190,10 +192,10 @@
 			{/if}
 		{/if}
 		{#each $tasks as task (task.id)}
-			<Task {task} {saveInURL} />
+			<Task {task} />
 		{/each}
 		{#if $useReversedLayout}
-			<TaskCreator {saveInURL} />
+			<TaskCreator />
 		{/if}
 	</Container>
 	<Footer />

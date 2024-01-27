@@ -4,9 +4,10 @@
 	import { tasks, useReversedLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 	import { fade } from 'svelte/transition'
+	import { getContext } from 'svelte'
 
 	export let task: Task
-	export let saveInURL = () => {}
+	let saveInURL: () => void = getContext('saveInURL')
 
 	function deleteTask(): void {
 		$tasks.splice(

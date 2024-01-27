@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+	import { getContext, onMount } from 'svelte'
 	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, useReversedLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
@@ -8,8 +8,7 @@
 	let isAtTop: boolean = true
 	let isLinkCopied: boolean = false
 	let completedCount: number
-
-	export let saveInURL = () => {}
+	let saveInURL: () => void = getContext('saveInURL')
 
 	$: {
 		completedCount = $tasks.filter((item) => item.isCompleted).length
