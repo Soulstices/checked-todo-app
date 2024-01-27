@@ -88,6 +88,7 @@
 		/>
 
 		<button
+			aria-label="Scroll To Top"
 			on:click={scrollToTop}
 			class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded"
 			class:opacity-50={isAtTop}
@@ -112,6 +113,7 @@
 			</span>
 		</div>
 		<button
+			aria-label="Share"
 			on:click={handleShareBtnClick}
 			class="absolute right-[45px] bg-themepicker duration-200 px-2 h-8 w-[90px] rounded-l flex flex-row"
 			disabled={isLinkCopied}
@@ -126,6 +128,7 @@
 			</span>
 		</button>
 		<button
+			aria-label="Delete All Tasks"
 			on:click={() => ($isModalOpen = true)}
 			class="absolute right-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-r hover:text-warning-red"
 		>

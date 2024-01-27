@@ -8,6 +8,7 @@
 </script>
 
 <button
+	aria-label="{type} Tab"
 	type="button"
 	class="flex mx-3 rounded-t-md leading-normal focus:outline-none focus:ring-0 ease-in-out h-9 !outline-none duration-300
 			{tabIndex === $activeTabIndex ? 'bg-tab-active text-tab-active' : 'bg-tab text-tab'}
