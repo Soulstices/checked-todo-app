@@ -100,7 +100,7 @@
 
 		if (settings.hasOwnProperty('theme')) {
 			const themeValues: Theme[] = Object.values(Theme)
-			settings.theme = themeValues.includes(settings.theme as Theme) ? (settings.theme as Theme) : $theme
+			themeValues.includes(settings.theme as Theme) ? ($theme = settings.theme as Theme) : (settings.theme = $theme)
 		} else {
 			settings.theme = $theme
 		}
