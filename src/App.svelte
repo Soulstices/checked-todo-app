@@ -8,7 +8,7 @@
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import StickyBar from './components/StickyBar.svelte'
-	import { IconType, type SettingsGlobal } from './lib/types'
+	import { IconType, type SettingsGlobal, Theme } from './lib/types'
 	import Icon from './components/Icon.svelte'
 	import TasksImporter from './components/TasksImporter.svelte'
 
@@ -98,7 +98,12 @@
 	function loadSettingsFromStorage(): void {
 		let settings: SettingsGlobal = getSettingsGlobalFromStorage()
 
-		settings.hasOwnProperty('theme') ? ($theme = settings.theme) : (settings.theme = $theme)
+		if (settings.hasOwnProperty('theme')) {
+			const themeValues: Theme[] = Object.values(Theme)
+			settings.theme = themeValues.includes(settings.theme as Theme) ? (settings.theme as Theme) : $theme
+		} else {
+			settings.theme = $theme
+		}
 		document.documentElement.setAttribute('data-theme', settings.theme)
 
 		settings.hasOwnProperty('useReversedLayout')

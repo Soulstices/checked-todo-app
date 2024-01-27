@@ -1,5 +1,5 @@
-<script>
-	import { APP_VERSION } from '../lib/store.js'
+<script lang="ts">
+	import { APP_VERSION } from '../lib/store'
 </script>
 
 <footer class="flex max-w-lg mx-auto text-xs pt-2 pb-20">

@@ -1,3 +1,10 @@
+export enum Theme {
+	DarkBlue = 'dark-blue',
+	DarkBlack = 'dark-black',
+	LightWhite = 'light-white',
+	LightOrange = 'light-orange',
+}
+
 export type Task = {
 	id: string
 	text: string

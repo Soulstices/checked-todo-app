@@ -1,7 +1,9 @@
 <script lang="ts">
 	import ThemePicker from './ThemePicker.svelte'
-	import { THEMES } from '../lib/store'
 	import SettingToggle from './SettingToggle.svelte'
+	import { Theme } from '../lib/types'
+
+	const themes: Theme[] = Object.values(Theme)
 </script>
 
 <div class="m-1">
@@ -23,7 +25,7 @@
 	<p class="text-modal font-bold text-md mt-[-3px] ml-2">Theme</p>
 </div>
 <div class="flex flex-col md:grid md:grid-cols-2 items-center text-lg font-bold gap-4">
-	{#each $THEMES as theme}
+	{#each themes as theme}
 		<ThemePicker newTheme={theme} />
 	{/each}
 </div>

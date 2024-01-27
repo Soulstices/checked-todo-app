@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { theme } from '../lib/store.js'
-	export let newTheme: string = 'dark-blue'
+	import { Theme } from '../lib/types'
+
+	export let newTheme: Theme = Theme.DarkBlue
 
 	let isActive: boolean = false
 	$: isActive = $theme === newTheme
