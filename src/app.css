@@ -595,15 +595,9 @@
 	pointer-events: none;
 }
 
+/* Progress Bar */
 progress[value]::-webkit-progress-bar {
 	@apply bg-task;
-}
-
-progress[value]::-webkit-progress-value {
-	background-size:
-		35px 20px,
-		100% 100%,
-		100% 100%;
 }
 
 .progress-blue::-webkit-progress-value {
@@ -611,5 +605,18 @@ progress[value]::-webkit-progress-value {
 }
 
 .progress-green::-webkit-progress-value {
-	@apply bg-green-500;
+	@apply bg-green-500 !important;
+}
+
+/* Progress Bar Firefox */
+progress {
+	@apply bg-task;
+}
+
+.progress-blue::-moz-progress-bar {
+	@apply bg-sky-500;
+}
+
+.progress-green::-moz-progress-bar {
+	@apply bg-green-500 !important;
 }
