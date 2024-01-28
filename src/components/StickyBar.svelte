@@ -74,8 +74,8 @@
 
 {#if $tasks.length > 0 && $activeTabIndex === 0}
 	<div
-		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg z-10
-				{$isTaskCreatorTooltipOpen ? 'z-10' : 'z-30'}"
+		class="fixed bottom-0 bg-container left-1/2 translate-x-[-50%] border-task flex w-full items-center py-4 text-task max-w-lg
+				{$isTaskCreatorTooltipOpen ? 'z-0' : 'z-20'}"
 		class:hidden={$isTaskCreatorTooltipOpen && $useReversedLayout}
 	>
 		<progress
