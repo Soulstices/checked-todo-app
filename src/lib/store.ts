@@ -6,6 +6,7 @@ export const APP_VERSION: Readable<string> = readable('1.0.3')
 export const EXPERIMENTAL_FEATURES: Readable<boolean> = readable(false)
 
 // App State
+export const isElectronApp: Writable<boolean> = writable(false)
 export const tasks: Writable<Task[]> = writable([])
 export const isModalOpen: Writable<boolean> = writable(false)
 export const isTaskCreatorTooltipOpen: Writable<boolean> = writable(false)

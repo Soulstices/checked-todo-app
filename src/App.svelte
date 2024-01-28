@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
 	import { onMount, setContext } from 'svelte'
-	import { tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES } from './lib/store.js'
+	import { tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES, isElectronApp } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
 	import Container from './components/Container.svelte'
@@ -27,6 +27,7 @@
 		$tasks = []
 		encodedData = PAGE_URL.search.replace('?', '')
 
+		detectElectronEnv()
 		loadSettingsFromStorage()
 
 		if (urlContainsValidData()) {
@@ -174,6 +175,13 @@
 			useReversedLayout: $useReversedLayout,
 			useSmoothScroll: $useSmoothScroll,
 		}
+	}
+
+	function detectElectronEnv(): void {
+		$isElectronApp =
+			(typeof window !== 'undefined' && (window.process as any)?.type === 'renderer') ||
+			(typeof process !== 'undefined' && (process as any).versions?.electron) ||
+			(typeof navigator === 'object' && navigator.userAgent.includes('Electron'))
 	}
 </script>
 
