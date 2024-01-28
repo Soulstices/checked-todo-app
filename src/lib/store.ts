@@ -2,7 +2,7 @@ import { readable, writable } from 'svelte/store'
 import type { Writable, Readable } from 'svelte/store'
 import { type Task, Theme } from './types'
 
-export const APP_VERSION: Readable<string> = readable('1.0.2')
+export const APP_VERSION: Readable<string> = readable('1.0.3')
 export const EXPERIMENTAL_FEATURES: Readable<boolean> = readable(false)
 
 // App State
