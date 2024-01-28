@@ -22,6 +22,7 @@
 	setContext('saveInURL', saveInURL)
 	setContext('getSettingsGlobalFromStorage', getSettingsGlobalFromStorage)
 	setContext('saveSettingsGlobalInStorage', saveSettingsGlobalInStorage)
+	setContext('loadTasksFromURL', loadTasksFromURL)
 
 	function initializeApp(): void {
 		$tasks = []
@@ -31,7 +32,7 @@
 		loadSettingsFromStorage()
 
 		if (urlContainsValidData()) {
-			loadTasksFromURL()
+			loadTasksFromURL(encodedData)
 		} else {
 			loadTasksFromStorage()
 			saveInURL()
@@ -61,8 +62,8 @@
 		}
 	}
 
-	function loadTasksFromURL(): void {
-		let decodedData = JSON.parse('[' + decompressFromEncodedURIComponent(encodedData) + ']')
+	function loadTasksFromURL(data: string): void {
+		let decodedData = JSON.parse('[' + decompressFromEncodedURIComponent(data) + ']')
 		clearTasksInStorage()
 
 		for (const entry of decodedData) {

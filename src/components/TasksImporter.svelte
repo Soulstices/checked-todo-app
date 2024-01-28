@@ -1,60 +1,36 @@
 <!--Experimental Feature-->
-<!--Currently uses duplicated code and is intended to be used only for testing.-->
+<!--Intended to be used only for testing.-->
 <script lang="ts">
-	import { compressToEncodedURIComponent, compressToUTF16, decompressFromEncodedURIComponent, decompressFromUTF16 } from 'lz-string'
-	import { useReversedLayout, tasks } from '../lib/store'
+	import { getContext } from 'svelte'
 
 	let inputBox
 	let inputValue: string
 
+	const loadTasksFromURL: (data: string) => void = getContext('loadTasksFromURL')
+	const saveInURL: () => void = getContext('saveInURL')
+
 	function handleClick() {
-		let encodedData: string = ''
-		const parts = inputValue.split('/?')
-		const extractedPart = parts.length > 1 ? parts[1] : null
+		const encodedData = extractDataFromInput()
 
-		if (extractedPart !== null) {
-			console.log(extractedPart)
-			if (inputValue.length > 0) {
-				try {
-					let decodedData = JSON.parse('[' + decompressFromEncodedURIComponent(extractedPart) + ']')
-
-					for (const entry of decodedData) {
-						localStorage.setItem(entry.id, compressToUTF16(JSON.stringify(entry)))
-					}
-
-					$tasks = Object.entries(localStorage)
-						.filter(([key, _]) => key !== 'settings-global') // Exclude the "settings-global" entry
-						.map((entry) => JSON.parse(decompressFromUTF16(entry[1])))
-
-					const settingsGlobal = JSON.parse(String(localStorage.getItem('settings-global'))) || {}
-
-					if (!settingsGlobal.useReversedLayout === true) {
-						$useReversedLayout = true
-						$tasks.sort((a, b) => a.date - b.date)
-					} else {
-						$useReversedLayout = false
-						$tasks.sort((a, b) => b.date - a.date)
-					}
-
-					// now need to update url
-					let acc = $tasks.map((task) => JSON.stringify(task))
-					encodedData = compressToEncodedURIComponent(acc.toString())
-
-					const PAGE_URL: URL = new URL(window.location.href)
-					let newURL: string = encodedData.length > 1 ? `${PAGE_URL.origin}/?${encodedData}` : PAGE_URL.origin
-					history.pushState({}, '', newURL)
-					// and save the new
-				} catch (e) {
-					encodedData = ''
-					return false
-				}
+		if (encodedData) {
+			try {
+				loadTasksFromURL(encodedData)
+				saveInURL()
 				return true
-			} else {
+			} catch (e) {
+				console.log('Error')
+				console.error(e)
 				return false
 			}
 		} else {
-			console.log('No match found')
+			console.log('Invalid Data')
+			return false
 		}
+	}
+
+	function extractDataFromInput(): string {
+		const parts = inputValue.split('/?')
+		return parts.length > 1 ? parts[1] : ''
 	}
 </script>
 
