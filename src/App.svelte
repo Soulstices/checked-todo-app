@@ -40,7 +40,7 @@
 	}
 
 	function urlContainsValidData(): boolean {
-		if (decompressFromEncodedURIComponent(encodedData) == null) {
+		if (encodedData !== '' && decompressFromEncodedURIComponent(encodedData) == null) {
 			encodedData = ''
 			clearTasksInStorage()
 			return false
