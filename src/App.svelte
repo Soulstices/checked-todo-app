@@ -72,8 +72,10 @@
 	}
 
 	function loadTasksFromStorage(): void {
+		const exclusionKeys = ['settings', 'settings-global', 'settings-local']
+
 		$tasks = Object.entries(localStorage)
-			.filter(([key, _]) => key !== 'settings-global') // Exclude the "settings-global" entry
+			.filter(([key, _]) => !exclusionKeys.includes(key))
 			.map((entry) => JSON.parse(decompressFromUTF16(entry[1])))
 		sortTasksByDate($useReversedLayout)
 	}
