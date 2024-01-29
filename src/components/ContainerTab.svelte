@@ -9,7 +9,7 @@
 
 <button
 	type="button"
-	class="flex mx-3 rounded-t-md leading-normal focus:outline-2 ease-in-out h-9 duration-300
+	class="flex mx-0 rounded-t-md leading-normal focus:outline-2 ease-in-out h-9 duration-300
 			{tabIndex === $activeTabIndex ? 'bg-tab-active text-tab-active' : 'bg-tab text-tab'}
 			{type === 'settings' ? 'ml-auto w-9' : ''}"
 	on:click={() => {

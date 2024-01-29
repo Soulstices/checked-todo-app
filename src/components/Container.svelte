@@ -7,12 +7,12 @@
 </script>
 
 <section>
-	<div class="max-w-lg m-auto flex flex-row">
+	<div class="max-w-lg m-auto flex flex-row rounded-t-lg pt-0">
 		{#each tabs as tab, i (i)}
 			<ContainerTab tabIndex={i} type={tab} />
 		{/each}
 	</div>
-	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 mt-0 rounded-lg shadow-md bg-container transition duration-300">
+	<div class="max-w-lg mx-auto p-3 md:p-3 my-4 mt-0 rounded-b-lg shadow-md bg-container transition duration-300">
 		{#if $activeTabIndex === tabs.indexOf('tasks')}
 			<slot />
 		{:else if $activeTabIndex === tabs.indexOf('settings')}
