@@ -1,25 +1,26 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte'
+	import { getContext, onDestroy, onMount } from 'svelte'
 	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, useReversedLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
 	import { IconType } from '../lib/types'
 
 	let isAtTop: boolean = true
+	let isAtBottom: boolean = true
 	let isLinkCopied: boolean = false
-	let completedCount: number
+	let completedCount: number = 0
+	let scrollDetectionInterval: NodeJS.Timeout
+	const scrollOffset: number = 100
 	const saveInURL: () => void = getContext('saveInURL')
 
-	$: {
-		completedCount = $tasks.filter((item) => item.isCompleted).length
-	}
+	$: completedCount = $tasks.filter((item) => item.isCompleted).length
 
 	function scrollToTop(): void {
 		window.scroll(0, 0)
 	}
 
-	function updateScrollPosition() {
-		isAtTop = window.scrollY < 100
+	function scrollToBottom(): void {
+		window.scroll(0, document.body.scrollHeight)
 	}
 
 	function deleteAllTasks() {
@@ -49,7 +50,14 @@
 	}
 
 	onMount(() => {
-		window.addEventListener('scroll', updateScrollPosition)
+		scrollDetectionInterval = setInterval(() => {
+			isAtTop = window.scrollY < scrollOffset
+			isAtBottom = window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - scrollOffset
+		}, 300)
+	})
+
+	onDestroy(() => {
+		clearInterval(scrollDetectionInterval)
 	})
 </script>
 
@@ -87,12 +95,37 @@
 		<button
 			aria-label="Scroll To Top"
 			on:click={scrollToTop}
-			class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded"
+			class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-l"
 			class:opacity-50={isAtTop}
 			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isAtTop}
+			style="  touch-action: manipulation;
+"
 		>
 			<svg
+				data-slot="icon"
+				fill="none"
+				stroke-width="6"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+				aria-hidden="true"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>
+			</svg>
+		</button>
+		<button
+			aria-label="Scroll To Bottom"
+			on:click={scrollToBottom}
+			class="absolute left-[45px] bg-themepicker duration-200 px-2 h-8 w-8 rounded-r"
+			class:opacity-50={isAtBottom}
+			tabindex={$isModalOpen ? -1 : 0}
+			disabled={isAtBottom}
+			style="  touch-action: manipulation !important;
+"
+		>
+			<svg
+				class="rotate-180"
 				data-slot="icon"
 				fill="none"
 				stroke-width="6"
