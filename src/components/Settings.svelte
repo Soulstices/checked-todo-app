@@ -2,8 +2,15 @@
 	import ThemePicker from './ThemePicker.svelte'
 	import SettingToggle from './SettingToggle.svelte'
 	import { Theme } from '../lib/types'
+	import { useSmoothScroll } from '../lib/store'
 
 	const themes: Theme[] = Object.values(Theme)
+
+	function resetSettings() {
+		history.scrollRestoration = 'manual'
+		localStorage.removeItem('settings-global')
+		location.reload()
+	}
 </script>
 
 <div class="m-1">
@@ -27,4 +34,13 @@
 		description={`By default, new tasks are displayed at the top. When the option is enabled, new tasks will instead appear at the bottom.`}
 		settingName="useReversedLayout"
 	/>
+
+	<div class="flex justify-center">
+		<button
+			class="flex flex-row items-center py-2 px-3 rounded max-w-80 border-2 duration-200 bg-themepicker border-themepicker text-task uppercase font-bold text-xs"
+			on:click={resetSettings}
+		>
+			Reset Settings
+		</button>
+	</div>
 </div>
