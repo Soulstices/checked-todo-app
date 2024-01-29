@@ -15,4 +15,4 @@ export const activeTabIndex: Writable<number> = writable(0)
 // App Settings
 export const theme: Writable<Theme> = writable(Theme.DarkBlue)
 export const useReversedLayout: Writable<boolean> = writable(false)
-export const useSmoothScroll: Writable<boolean> = writable(false)
+export const useSmoothScroll: Writable<boolean> = writable(true)
