@@ -24,8 +24,10 @@
 			@apply bg-slate-900/40;
 		}
 
-		.bg-tab:hover {
-			@apply bg-slate-900;
+		@media (hover: hover) {
+			.bg-tab:hover {
+				@apply bg-slate-900;
+			}
 		}
 
 		.bg-tab-active {
@@ -60,16 +62,20 @@
 			@apply bg-gray-900 text-gray-400;
 		}
 
-		.bg-btn-2:hover {
-			@apply bg-gray-700 text-white;
+		@media (hover: hover) {
+			.bg-btn-2:hover {
+				@apply bg-gray-700 text-white;
+			}
 		}
 
 		.bg-btn-3 {
 			@apply bg-gray-900 text-gray-400;
 		}
 
-		.bg-btn-3:hover {
-			@apply bg-gray-800 text-white;
+		@media (hover: hover) {
+			.bg-btn-3:hover {
+				@apply bg-gray-800 text-white;
+			}
 		}
 
 		.text-modal {
@@ -120,24 +126,30 @@
 			@apply bg-gray-800;
 		}
 
-		.bg-themepicker:hover:enabled {
-			@apply bg-slate-700;
+		@media (hover: hover) {
+			.bg-themepicker:hover:enabled {
+				@apply bg-slate-700;
+			}
 		}
 
 		.border-themepicker {
 			@apply border-slate-800;
 		}
 
-		.border-themepicker:hover {
-			@apply hover:border-slate-700;
+		@media (hover: hover) {
+			.border-themepicker:hover {
+				@apply hover:border-slate-700;
+			}
 		}
 
 		.bg-themepicker-active {
 			@apply bg-gray-800;
 		}
 
-		.bg-themepicker-active:hover {
-			@apply bg-gray-800;
+		@media (hover: hover) {
+			.bg-themepicker-active:hover {
+				@apply bg-gray-800;
+			}
 		}
 
 		.border-themepicker-active {
@@ -166,8 +178,10 @@
 			@apply bg-neutral-900/40;
 		}
 
-		.bg-tab:hover {
-			@apply bg-neutral-900;
+		@media (hover: hover) {
+			.bg-tab:hover {
+				@apply bg-neutral-900;
+			}
 		}
 
 		.bg-tab-active {
@@ -202,16 +216,20 @@
 			@apply bg-neutral-900 text-neutral-400;
 		}
 
-		.bg-btn-2:hover {
-			@apply bg-neutral-700 text-white;
+		@media (hover: hover) {
+			.bg-btn-2:hover {
+				@apply bg-neutral-700 text-white;
+			}
 		}
 
 		.bg-btn-3 {
 			@apply bg-neutral-900 text-neutral-400;
 		}
 
-		.bg-btn-3:hover {
-			@apply bg-neutral-800 text-white;
+		@media (hover: hover) {
+			.bg-btn-3:hover {
+				@apply bg-neutral-800 text-white;
+			}
 		}
 
 		.text-modal {
@@ -262,24 +280,30 @@
 			@apply bg-neutral-800;
 		}
 
-		.bg-themepicker:hover:enabled {
-			@apply bg-neutral-700;
+		@media (hover: hover) {
+			.bg-themepicker:hover:enabled {
+				@apply bg-neutral-700;
+			}
 		}
 
 		.border-themepicker {
 			@apply border-neutral-800;
 		}
 
-		.border-themepicker:hover {
-			@apply hover:border-neutral-700;
+		@media (hover: hover) {
+			.border-themepicker:hover {
+				@apply hover:border-neutral-700;
+			}
 		}
 
 		.bg-themepicker-active {
 			@apply bg-neutral-800;
 		}
 
-		.bg-themepicker-active:hover {
-			@apply bg-neutral-800;
+		@media (hover: hover) {
+			.bg-themepicker-active:hover {
+				@apply bg-neutral-800;
+			}
 		}
 
 		.border-themepicker-active {
@@ -308,8 +332,10 @@
 			@apply bg-neutral-900/40;
 		}
 
-		.bg-tab:hover {
-			@apply bg-neutral-900/60;
+		@media (hover: hover) {
+			.bg-tab:hover {
+				@apply bg-neutral-900/60;
+			}
 		}
 
 		.bg-tab-active {
@@ -344,16 +370,20 @@
 			@apply bg-gray-500 text-gray-100;
 		}
 
-		.bg-btn-2:hover {
-			@apply bg-gray-600 text-white;
+		@media (hover: hover) {
+			.bg-btn-2:hover {
+				@apply bg-gray-600 text-white;
+			}
 		}
 
 		.bg-btn-3 {
 			@apply bg-gray-500 text-gray-100;
 		}
 
-		.bg-btn-3:hover {
-			@apply bg-gray-600 text-white;
+		@media (hover: hover) {
+			.bg-btn-3:hover {
+				@apply bg-gray-600 text-white;
+			}
 		}
 
 		.text-modal {
@@ -404,24 +434,30 @@
 			@apply bg-gray-200;
 		}
 
-		.bg-themepicker:hover:enabled {
-			@apply bg-gray-300;
+		@media (hover: hover) {
+			.bg-themepicker:hover:enabled {
+				@apply bg-gray-300;
+			}
 		}
 
 		.border-themepicker {
 			@apply border-gray-200;
 		}
 
-		.border-themepicker:hover {
-			@apply border-gray-300;
+		@media (hover: hover) {
+			.border-themepicker:hover {
+				@apply border-gray-300;
+			}
 		}
 
 		.bg-themepicker-active {
 			@apply bg-gray-300;
 		}
 
-		.bg-themepicker-active:hover {
-			@apply bg-gray-300;
+		@media (hover: hover) {
+			.bg-themepicker-active:hover {
+				@apply bg-gray-300;
+			}
 		}
 
 		.border-themepicker-active {
@@ -450,8 +486,10 @@
 			@apply bg-neutral-900/40;
 		}
 
-		.bg-tab:hover {
-			@apply bg-neutral-900/60;
+		@media (hover: hover) {
+			.bg-tab:hover {
+				@apply bg-neutral-900/60;
+			}
 		}
 
 		.bg-tab-active {
@@ -486,16 +524,20 @@
 			@apply bg-orange-800 text-orange-100;
 		}
 
-		.bg-btn-2:hover {
-			@apply bg-orange-700 text-white;
+		@media (hover: hover) {
+			.bg-btn-2:hover {
+				@apply bg-orange-700 text-white;
+			}
 		}
 
 		.bg-btn-3 {
 			@apply bg-emerald-800 text-emerald-100;
 		}
 
-		.bg-btn-3:hover {
-			@apply bg-emerald-700 text-white;
+		@media (hover: hover) {
+			.bg-btn-3:hover {
+				@apply bg-emerald-700 text-white;
+			}
 		}
 
 		.text-modal {
@@ -546,24 +588,29 @@
 			@apply bg-orange-200;
 		}
 
-		.bg-themepicker:hover:enabled {
-			@apply bg-orange-300;
+		@media (hover: hover) {
+			.bg-themepicker:hover:enabled {
+				@apply bg-orange-300;
+			}
 		}
 
 		.border-themepicker {
 			@apply border-orange-200;
 		}
 
-		.border-themepicker:hover {
-			@apply border-orange-300;
+		@media (hover: hover) {
+			.border-themepicker:hover {
+				@apply border-orange-300;
+			}
 		}
 
 		.bg-themepicker-active {
 			@apply bg-orange-200;
 		}
-
-		.bg-themepicker-active:hover {
-			@apply bg-orange-200;
+		@media (hover: hover) {
+			.bg-themepicker-active:hover {
+				@apply bg-orange-200;
+			}
 		}
 
 		.border-themepicker-active {
