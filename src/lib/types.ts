@@ -22,6 +22,10 @@ export type BooleanKeys<T> = {
 	[K in keyof T]: T[K] extends boolean ? K : never
 }[keyof T]
 
+export type FunctionMap = {
+	[key: string]: (...args: any[]) => any
+}
+
 export enum IconType {
 	Cross = 'cross',
 	Check = 'check',

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from './components/Header.svelte'
-	import { onMount, setContext } from 'svelte'
+	import { setContext } from 'svelte'
 	import { tasks, theme, useReversedLayout, useSmoothScroll, EXPERIMENTAL_FEATURES, isElectronApp } from './lib/store.js'
 	import { compressToUTF16, decompressFromUTF16, compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 	import Footer from './components/Footer.svelte'
@@ -8,23 +8,17 @@
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import StickyBar from './components/StickyBar.svelte'
-	import { IconType, type SettingsGlobal, Theme } from './lib/types'
+	import { type FunctionMap, IconType, type SettingsGlobal, Theme } from './lib/types'
 	import Icon from './components/Icon.svelte'
 	import TasksImporter from './components/TasksImporter.svelte'
 
 	let encodedData: string = ''
 	const PAGE_URL: URL = new URL(window.location.href)
 
-	onMount(() => {
-		initializeApp()
-	})
-
-	setContext('saveInURL', saveInURL)
-	setContext('getSettingsGlobalFromStorage', getSettingsGlobalFromStorage)
-	setContext('saveSettingsGlobalInStorage', saveSettingsGlobalInStorage)
-	setContext('loadTasksFromURL', loadTasksFromURL)
+	initializeApp()
 
 	function initializeApp(): void {
+		createContext()
 		$tasks = []
 		encodedData = PAGE_URL.search.replace('?', '')
 
@@ -175,6 +169,19 @@
 			theme: $theme,
 			useReversedLayout: $useReversedLayout,
 			useSmoothScroll: $useSmoothScroll,
+		}
+	}
+
+	function createContext(): void {
+		const functionMap: FunctionMap = {
+			saveInURL,
+			getSettingsGlobalFromStorage,
+			saveSettingsGlobalInStorage,
+			loadTasksFromURL,
+		}
+
+		for (let functionName in functionMap) {
+			setContext(functionName, functionMap[functionName])
 		}
 	}
 
