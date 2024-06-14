@@ -2,7 +2,6 @@
 	import ThemePicker from './ThemePicker.svelte'
 	import SettingToggle from './SettingToggle.svelte'
 	import { Theme } from '../lib/types'
-	import { useSmoothScroll } from '../lib/store'
 
 	const themes: Theme[] = Object.values(Theme)
 

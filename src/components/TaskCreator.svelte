@@ -1,16 +1,12 @@
 <script lang="ts">
 	import { IconType, type Task } from '../lib/types'
 	import { tasks, useReversedLayout, isTaskCreatorTooltipOpen, isModalOpen } from '../lib/store.js'
-	import { compressToUTF16 } from 'lz-string'
 	import Icon from './Icon.svelte'
 	import { getContext } from 'svelte'
+	import { generateUID, saveInStorage, autoScrollToBottom } from '../lib/utils'
 
 	let saveInURL: () => void = getContext('saveInURL')
 	let currentText: string = ''
-
-	function generateUID(): string {
-		return Date.now().toString(36) + Math.random().toString(36).substring(2)
-	}
 
 	function addTask(): void {
 		if (!currentText) {
@@ -32,28 +28,15 @@
 		saveInURL()
 
 		if ($useReversedLayout) {
-			scrollToBottom()
+			autoScrollToBottom()
 		}
-	}
-
-	function scrollToBottom() {
-		setTimeout(() => {
-			window.scrollTo({
-				top: document.body.scrollHeight,
-				behavior: 'smooth',
-			})
-		}, 100)
-	}
-
-	function saveInStorage(task: Task): void {
-		localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
 	}
 
 	function onKeyDown(e: KeyboardEvent): void {
 		toggleTooltip(false)
 
 		if ($useReversedLayout) {
-			scrollToBottom()
+			autoScrollToBottom()
 		}
 
 		if (e.key === 'Enter' || e.code === 'Enter') {

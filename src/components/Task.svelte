@@ -5,6 +5,7 @@
 	import { compressToUTF16 } from 'lz-string'
 	import { fade } from 'svelte/transition'
 	import { getContext } from 'svelte'
+	import { deleteFromStorage } from '../lib/utils'
 
 	export let task: Task
 	let saveInURL: () => void = getContext('saveInURL')
@@ -19,13 +20,9 @@
 			$tasks.findIndex((element: Task) => element.id === task.id),
 			1
 		)
-		deleteFromStorage()
+		deleteFromStorage(task.id)
 		$tasks = $tasks
 		saveInURL()
-	}
-
-	function deleteFromStorage(): void {
-		localStorage.removeItem(task.id)
 	}
 
 	function saveStatusInStorage(): void {

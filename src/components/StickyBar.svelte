@@ -4,6 +4,7 @@
 	import Modal from './Modal.svelte'
 	import Icon from './Icon.svelte'
 	import { IconType } from '../lib/types'
+	import { scrollToBottom, scrollToTop } from '../lib/utils'
 
 	let isAtTop: boolean = true
 	let isAtBottom: boolean = true
@@ -14,14 +15,6 @@
 	const saveInURL: () => void = getContext('saveInURL')
 
 	$: completedCount = $tasks.filter((item) => item.isCompleted).length
-
-	function scrollToTop(): void {
-		window.scroll(0, 0)
-	}
-
-	function scrollToBottom(): void {
-		window.scroll(0, document.body.scrollHeight)
-	}
 
 	function deleteAllTasks() {
 		$tasks = []
