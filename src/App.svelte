@@ -8,9 +8,9 @@
 	import Task from './components/Task.svelte'
 	import TaskCreator from './components/TaskCreator.svelte'
 	import StickyBar from './components/StickyBar.svelte'
-	import { type FunctionMap, IconType, type SettingsGlobal, Theme } from './lib/types'
-	import Icon from './components/Icon.svelte'
+	import { type FunctionMap, type SettingsGlobal, Theme } from './lib/types'
 	import TasksImporter from './components/TasksImporter.svelte'
+	import { MessageSquareMore } from 'lucide-svelte'
 
 	let encodedData: string = ''
 	const PAGE_URL: URL = new URL(window.location.href)
@@ -205,10 +205,8 @@
 					class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-300 bg-task border-task text-task
 							 {$useReversedLayout ? 'mb-2' : 'mt-2'}"
 				>
-					<Icon type={IconType.ChatBubble} classNames="m-auto h-9 w-6 mr-2" />
-					<span class="inline-block pl-1 pr-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300">
-						There are currently no tasks.
-					</span>
+					<MessageSquareMore size="28" />
+					<span class="inline-block px-2 flex-1 mt-auto mb-auto wrap-anywhere transition duration-300"> There are currently no tasks. </span>
 				</div>
 			</div>
 			{#if $EXPERIMENTAL_FEATURES}

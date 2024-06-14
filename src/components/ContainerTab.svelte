@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { activeTabIndex, isModalOpen } from '../lib/store.js'
-	import Icon from './Icon.svelte'
-	import { IconType } from '../lib/types'
+	import { Settings } from 'lucide-svelte'
 
 	export let tabIndex: number = 0
 	export let type: 'tasks' | 'settings'
@@ -21,6 +20,6 @@
 	{#if type === 'tasks'}
 		<span class="my-auto px-5">Tasks</span>
 	{:else if type === 'settings'}
-		<Icon type={IconType.Settings} classNames="w-5 h-5 m-auto" />
+		<Settings size="20" class="m-auto" />
 	{/if}
 </button>
