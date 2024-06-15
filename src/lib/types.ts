@@ -25,13 +25,3 @@ export type BooleanKeys<T> = {
 export type FunctionMap = {
 	[key: string]: (...args: any[]) => any
 }
-
-export enum IconType {
-	Cross = 'cross',
-	Check = 'check',
-	Trash = 'trash',
-	Settings = 'settings',
-	Plus = 'plus',
-	ChatBubble = 'chat-bubble',
-	Share = 'share',
-}

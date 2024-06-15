@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { IconType, type Task } from '../lib/types'
+	import { type Task } from '../lib/types'
 	import { tasks, useReversedLayout, isTaskCreatorTooltipOpen, isModalOpen } from '../lib/store.js'
-	import Icon from './Icon.svelte'
 	import { getContext } from 'svelte'
 	import { generateUID, saveInStorage, autoScrollToBottom } from '../lib/utils'
+	import { Plus } from 'lucide-svelte'
 
 	let saveInURL: () => void = getContext('saveInURL')
 	let currentText: string = ''
@@ -82,7 +82,7 @@
 			on:click={() => addTask()}
 			tabindex={$isModalOpen ? -1 : 0}
 		>
-			<Icon type={IconType.Plus} classNames="w-5 h-5" />
+			<Plus strokeWidth="3" class="w-5 h-5" />
 		</button>
 	</div>
 </div>

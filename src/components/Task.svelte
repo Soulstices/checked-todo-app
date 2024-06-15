@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { IconType, type Task } from '../lib/types'
-	import Icon from './Icon.svelte'
+	import { type Task } from '../lib/types'
 	import { isModalOpen, tasks, useReversedLayout } from '../lib/store.js'
 	import { compressToUTF16 } from 'lz-string'
 	import { fade } from 'svelte/transition'
 	import { getContext } from 'svelte'
 	import { deleteFromStorage } from '../lib/utils'
+	import { X } from 'lucide-svelte'
 
 	export let task: Task
 	let saveInURL: () => void = getContext('saveInURL')
@@ -69,7 +69,7 @@
 				deleteTask()
 			}}
 		>
-			<Icon type={IconType.Cross} classNames="h-4 w-4 m-auto" />
+			<X strokeWidth="3" class="h-4 w-4 m-auto" />
 		</button>
 	</div>
 </div>

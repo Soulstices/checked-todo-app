@@ -3,10 +3,9 @@
 	import { isModalOpen } from '../lib/store.js'
 	import { onDestroy, onMount } from 'svelte'
 	import { Trash2, X } from 'lucide-svelte'
-	import type { IconType } from '../lib/types'
 
 	export let title: string
-	export let titleIcon: IconType
+	export let titleIcon: string
 
 	function handleKeydown(event: KeyboardEvent): void {
 		if (event.key === 'Escape') {
@@ -36,7 +35,7 @@
 			>
 				<div class="p-0 pt-0 lg:rounded">
 					<div class="flex flex-row bg-modal-header pt-5 pb-5 pl-7 text-modal transition duration-300">
-						{#if titleIcon}
+						{#if titleIcon === 'trash'}
 							<Trash2 class="w-6 h-6 my-auto" />
 						{/if}
 						<h4 class="text-2xl font-bold uppercase tracking-wider my-auto mr-auto" class:pl-3={titleIcon}>{title}</h4>

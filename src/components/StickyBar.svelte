@@ -2,10 +2,8 @@
 	import { getContext, onDestroy, onMount } from 'svelte'
 	import { tasks, isModalOpen, activeTabIndex, isTaskCreatorTooltipOpen, useReversedLayout } from '../lib/store.js'
 	import Modal from './Modal.svelte'
-	import Icon from './Icon.svelte'
-	import { IconType } from '../lib/types'
 	import { scrollToBottom, scrollToTop } from '../lib/utils'
-	import { Link, Trash2 } from 'lucide-svelte'
+	import { ArrowDown, ArrowUp, Check, Link, Trash2, X } from 'lucide-svelte'
 
 	let isAtTop: boolean = true
 	let isAtBottom: boolean = true
@@ -56,18 +54,18 @@
 </script>
 
 {#if $isModalOpen}
-	<Modal title="Tasks Deletion" titleIcon={IconType.Trash}>
+	<Modal title="Tasks Deletion" titleIcon="trash">
 		Do you really want to delete all your tasks?
 		<div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 pt-5">
 			<button
 				class="flex items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker text-warning-red"
 				on:click={deleteAllTasks}
 			>
-				<Icon type={IconType.Check}></Icon>
+				<Check strokeWidth="3" />
 				<span class="uppercase pl-3 pr-1 tracking-wider pt-[1px] font-bold">Yes, Delete All Tasks</span>
 			</button>
 			<button class="flex flex-row items-center p-2 rounded w-full border-2 duration-200 bg-themepicker border-themepicker" on:click={closeModal}>
-				<Icon type={IconType.Cross}></Icon>
+				<X strokeWidth="3" />
 				<span class="uppercase pl-3 pr-1 tracking-wider pt-[1px] text-task font-bold">No, Cancel</span>
 			</button>
 		</div>
@@ -89,47 +87,34 @@
 		<button
 			aria-label="Scroll To Top"
 			on:click={scrollToTop}
-			class="absolute left-3 bg-themepicker duration-200 px-2 h-8 w-8 rounded-l"
+			class="absolute left-3 bg-themepicker duration-200 px-1 h-8 w-8 rounded-l"
 			class:opacity-50={isAtTop}
 			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isAtTop}
 			style="  touch-action: manipulation;
 "
 		>
-			<svg
-				data-slot="icon"
-				fill="none"
-				stroke-width="6"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-				aria-hidden="true"
+			<ArrowUp
+				strokeWidth="3"
+				class="h-5 w-5 m-auto"
 			>
-				<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>
-			</svg>
+			</ArrowUp>
 		</button>
 		<button
 			aria-label="Scroll To Bottom"
 			on:click={scrollToBottom}
-			class="absolute left-[45px] bg-themepicker duration-200 px-2 h-8 w-8 rounded-r"
+			class="absolute left-[45px] bg-themepicker duration-200 px-1 h-8 w-8 rounded-r"
 			class:opacity-50={isAtBottom}
 			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isAtBottom}
 			style="  touch-action: manipulation !important;
 "
 		>
-			<svg
-				class="rotate-180"
-				data-slot="icon"
-				fill="none"
-				stroke-width="6"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-				aria-hidden="true"
+			<ArrowDown
+				strokeWidth="3"
+				class="h-5 w-5 m-auto"
 			>
-				<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>
-			</svg>
+			</ArrowDown>
 		</button>
 		<div class="m-auto">
 			<span class="font-bold hidden md:inline-block">Tasks:</span>
@@ -145,7 +130,7 @@
 			tabindex={$isModalOpen ? -1 : 0}
 			disabled={isLinkCopied}
 		>
-			<Link strokeWidth="3" class="w-4 h-4 my-auto" />
+			<Link strokeWidth="2.5" class="w-4 h-4 my-auto" />
 			<span class="m-auto pl-2 pr-1 uppercase text-xs font-bold">
 				{#if !isLinkCopied}
 					Share
