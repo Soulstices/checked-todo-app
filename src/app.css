@@ -667,3 +667,7 @@ progress {
 .progress-green::-moz-progress-bar {
 	@apply bg-green-500 !important;
 }
+
+button {
+	transform: translate3d(0, 0, 0);
+}
