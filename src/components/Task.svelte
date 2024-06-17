@@ -1,18 +1,28 @@
 <script lang="ts">
 	import { type Task } from '../lib/types'
 	import { isModalOpen, tasks, useReversedLayout } from '../lib/store.js'
-	import { compressToUTF16 } from 'lz-string'
 	import { fade } from 'svelte/transition'
 	import { getContext } from 'svelte'
-	import { deleteFromStorage } from '../lib/utils'
+	import { deleteFromStorage, saveTaskInStorage } from '../lib/utils'
 	import { X } from 'lucide-svelte'
 
 	export let task: Task
 	let saveInURL: () => void = getContext('saveInURL')
 
 	function handleCheckboxClick() {
-		saveStatusInStorage()
+		// Toggles checkbox status and saves updated task
+		toggleCompleted()
+		saveTaskInStorage(task)
+		updateTasksArray()
 		saveInURL()
+	}
+
+	function handleKeydown(event: KeyboardEvent): void {
+		// Toggles checkbox on "Enter" keydown
+		if (event.key === 'Enter') {
+			event.preventDefault()
+			handleCheckboxClick()
+		}
 	}
 
 	function deleteTask(): void {
@@ -21,13 +31,15 @@
 			1
 		)
 		deleteFromStorage(task.id)
-		$tasks = $tasks
+		updateTasksArray()
 		saveInURL()
 	}
 
-	function saveStatusInStorage(): void {
+	function toggleCompleted(): void {
 		task.isCompleted = !task.isCompleted
-		localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
+	}
+
+	function updateTasksArray(): void {
 		$tasks = $tasks
 	}
 </script>
@@ -45,12 +57,7 @@
 			type="checkbox"
 			tabindex={$isModalOpen ? -1 : 0}
 			bind:checked={task.isCompleted}
-			on:keydown={(event) => {
-				if (event.key === 'Enter') {
-					event.preventDefault()
-					handleCheckboxClick()
-				}
-			}}
+			on:keydown={handleKeydown}
 			on:click={handleCheckboxClick}
 		/>
 		<span
@@ -65,9 +72,7 @@
 			class="mt-auto mb-auto text-remove hover:text-white inline-block rounded-full leading-normal shadow-md hover:shadow-lg focus:shadow-lg focus:outline-2 border-none focus:ring-0 active:shadow-lg ease-in-out w-9 h-9 transition duration-200
 			 {task.isCompleted ? 'bg-btn-3' : 'bg-btn-2'}"
 			tabindex={$isModalOpen ? -1 : 0}
-			on:click={() => {
-				deleteTask()
-			}}
+			on:click={deleteTask}
 		>
 			<X strokeWidth="3" class="h-4 w-4 m-auto" />
 		</button>

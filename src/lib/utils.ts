@@ -22,6 +22,10 @@ export function deleteFromStorage(taskId: string): void {
 	localStorage.removeItem(taskId)
 }
 
+export function saveTaskInStorage(task: Task): void {
+	localStorage.setItem(task.id, compressToUTF16(JSON.stringify(task)))
+}
+
 export function scrollToTop(): void {
 	window.scroll(0, 0)
 }
