@@ -46,7 +46,7 @@
 
 <div class="flex w-full" in:fade={{ duration: 200 }}>
 	<div
-		class="flex flex-row p-4 rounded-lg border form-check w-full transition duration-200
+		class="flex flex-row p-3 rounded-lg border form-check w-full transition duration-200
 		{task.isCompleted ? 'bg-task-completed border-task-completed' : 'bg-task border-task'}
 		{$useReversedLayout ? 'mb-2' : 'mt-2'}"
 	>
@@ -69,7 +69,7 @@
 		<button
 			type="button"
 			aria-label="Delete Task"
-			class="mt-auto mb-auto text-remove hover:text-white inline-block rounded-full leading-normal shadow-md hover:shadow-lg focus:shadow-lg focus:outline-2 border-none focus:ring-0 active:shadow-lg ease-in-out w-9 h-9 transition duration-200
+			class="mt-auto mb-auto text-remove hover:text-white inline-block rounded-full leading-normal shadow-md hover:shadow-lg focus:shadow-lg focus:outline-2 border-none focus:ring-0 active:shadow-lg ease-in-out w-8 h-8 transition duration-200
 			 {task.isCompleted ? 'bg-btn-3' : 'bg-btn-2'}"
 			tabindex={$isModalOpen ? -1 : 0}
 			on:click={deleteTask}
