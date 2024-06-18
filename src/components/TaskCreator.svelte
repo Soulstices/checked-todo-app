@@ -5,7 +5,7 @@
 	import { generateUID, saveInStorage, autoScrollToBottom } from '../lib/utils'
 	import { Plus } from 'lucide-svelte'
 
-	let saveInURL: () => void = getContext('saveInURL')
+	const saveInURL: () => void = getContext('saveInURL')
 	let currentText: string = ''
 
 	function addTask(): void {
@@ -14,32 +14,38 @@
 			return
 		}
 
-		let newTask: Task = {
+		const newTask: Task = {
 			id: generateUID(),
 			text: currentText,
 			isCompleted: false,
 			date: Date.now(),
 		}
 
-		currentText = ''
+		currentText = '' // Reset input value
+
 		saveInStorage(newTask)
-		$useReversedLayout ? $tasks.push(newTask) : $tasks.unshift(newTask)
-		$tasks = $tasks
-		saveInURL()
 
 		if ($useReversedLayout) {
-			autoScrollToBottom()
+			$tasks = [...$tasks, newTask] // Add new task at the bottom of the list
+			autoScrollToBottom() // Scroll to the bottom of the list
+		} else {
+			$tasks = [newTask, ...$tasks] // Add new task at the top of the list
 		}
+
+		saveInURL()
 	}
 
 	function onKeyDown(e: KeyboardEvent): void {
+		// Hide tooltip
 		toggleTooltip(false)
 
 		if ($useReversedLayout) {
+			// Scroll to bottom if using reversed layout
 			autoScrollToBottom()
 		}
 
 		if (e.key === 'Enter' || e.code === 'Enter') {
+			// Add task when "Enter" key is pressed
 			addTask()
 		}
 	}
@@ -60,9 +66,7 @@
 			autocomplete="off"
 			tabindex={$isModalOpen ? -1 : 0}
 			bind:value={currentText}
-			on:keydown={(e) => {
-				onKeyDown(e)
-			}}
+			on:keydown={onKeyDown}
 		/>
 		<span
 			class="absolute top-1/2 right-2 translate-y-[-50%]"
@@ -79,7 +83,7 @@
 			type="button"
 			aria-label="Create Task"
 			class="inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-2 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-			on:click={() => addTask()}
+			on:click={addTask}
 			tabindex={$isModalOpen ? -1 : 0}
 		>
 			<Plus strokeWidth="3" class="w-5 h-5" />
